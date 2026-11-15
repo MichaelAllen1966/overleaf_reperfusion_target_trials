@@ -1,0 +1,97 @@
+\section{Methods}
+
+We emulated a series of target trials of reperfusion treatment using national stroke registry data. Each trial compared patients who received one treatment strategy with matched patients who received no reperfusion treatment.
+
+\subsection{Data source and access}
+
+We used anonymised data from the Sentinel Stroke National Audit Programme (SSNAP), the national stroke registry for England and Wales, for stroke admissions in the six calendar years 2020--2025 inclusive\cite{ssnap_website}. Data access was managed through the Healthcare Quality Improvement Partnership (HQIP; \url{https://www.hqip.org.uk/}, Data Request HQIP515). SSNAP collects a core dataset on the care of patients admitted to hospital with stroke, from arrival to discharge.
+
+Before analysis, records were excluded if stroke type was not recorded, if any item of the arrival National Institutes of Health Stroke Scale (NIHSS)\cite{brott_measurements_1989} was missing, or if any recorded time interval (onset to arrival, arrival to brain imaging, arrival to thrombolysis, or arrival to thrombectomy) was negative. Onset-to-arrival times were set to missing when the time of stroke onset was not known. Where the indicators of in-hospital death disagreed (death date, stroke unit death, discharge modified Rankin Scale (mRS) of 6 and discharge destination of `died'), all death-related outcomes for that patient were set to missing. Age is recorded in SSNAP in 5-year bands (under 40, 40--44, \ldots, 85--89, 90 and over), and each patient was assigned the midpoint of their band.
+
+\subsection{Study population}
+
+The analysis included patients with ischaemic stroke (infarction) who had a recorded mRS at discharge\cite{van_swieten_interobserver_1988}. Patients recorded as receiving intravenous thrombolysis (IVT) after the start of mechanical thrombectomy (MT) were excluded. Stroke severity was classified from the NIHSS on arrival into five bands: 1--5, 6--10, 11--15, 16--20 and 21--42. Patients with an arrival NIHSS of 0 fell outside these bands and were not eligible for any trial.
+
+\subsection{Target trial emulation}
+
+We used target trial emulation\cite{hernan_using_2016, hernan_target_2022}. For each treatment strategy, we specified the randomised trial we would ideally run and then emulated it as closely as possible in the registry data. Table~\ref{tab:target_trial} summarises the protocol of the target trials and how each part was emulated. The TARGET statement guided our reporting\cite{cashin_target_2025}.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Specification of the target trials and their emulation using SSNAP data.}
+\label{tab:target_trial}
+\begin{tabular}{p{2.8cm} p{6.6cm} p{6.6cm}}
+\toprule
+\textbf{Component} & \textbf{Target trial} & \textbf{Emulation} \\
+\midrule
+Eligibility & Adults admitted with ischaemic stroke and an arrival NIHSS within the trial's severity band. & SSNAP patients with infarction, an arrival NIHSS within the band, and a recorded discharge mRS. Patients receiving IVT after MT were excluded. \\
+\addlinespace
+Treatment strategies & Treatment with the trial's reperfusion strategy (IVT and/or MT, early or late, with or without perfusion imaging for late treatment) versus no reperfusion treatment. & Treated arm: patients in the band whose recorded treatment exactly matched the trial's pattern. Control arm: patients in the band who received neither IVT nor MT. \\
+\addlinespace
+Assignment & Random allocation. & 1:1 exact matching on pre-stroke mRS, NIHSS band, age band, anticoagulant use for atrial fibrillation (AF), and AF diagnosis. \\
+\addlinespace
+Time zero & Stroke onset. & Stroke onset. Treatment times were measured from onset, and treatment status was taken from treatment received during the admission. \\
+\addlinespace
+Follow-up & From stroke onset until discharge or in-hospital death. & From stroke onset until discharge or in-hospital death. \\
+\addlinespace
+Outcomes & Good functional outcome at discharge; in-hospital death; discharge mRS; length of stay; discharge destination. & As in the target trial, taken from SSNAP discharge data. \\
+\addlinespace
+Causal contrast & Effect of the treatment strategy compared with no reperfusion treatment. & Effect of treatment in the treated (patients who received the strategy), estimated from matched pairs. \\
+\addlinespace
+Analysis & Comparison of outcomes between randomised arms. & Paired comparison of outcomes within matched pairs, with Holm adjustment across trial groups. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Treatment strategies and trial groups}
+
+Treatment times were measured from stroke onset. Treatment was classed as early if it started within 270 minutes (4.5 hours) of onset, the time window within which the benefit of IVT is established\cite{emberson_effect_2014}, and as late otherwise. For IVT this used the onset-to-needle time, and for MT the onset-to-arterial-puncture time. When the time of stroke onset was not known, so that onset-to-treatment time could not be calculated, treatment was classed as late.
+
+Each trial group was defined by a stroke severity band, a combination of early and/or late IVT and MT, and, for groups that included late treatment, whether perfusion imaging was used. Treated patients had to match the group's treatment pattern exactly. For example, the `IVT early' group included only patients who received early IVT and no MT. In groups with any late treatment, perfusion imaging status also had to match the group definition, so `MT late' means late MT without recorded perfusion imaging. Groups with only early treatment included patients whether or not perfusion imaging was used. Perfusion imaging is recorded in the thrombectomy (intra-arterial intervention) section of the SSNAP dataset.
+
+Thirty-nine trial groups were defined. In the text, figures and tables, groups are named by treatment and timing, with `(perfusion)' marking late treatment with perfusion imaging. In the NIHSS 1--5 and 6--10 bands, three IVT-only groups were defined: IVT early, IVT late, and IVT late (perfusion). MT groups were not defined for these bands. In each of the NIHSS 11--15, 16--20 and 21--42 bands, eleven groups were defined:
+\begin{itemize}
+    \item IVT only: IVT early; IVT late; IVT late (perfusion).
+    \item MT only: MT early; MT late; MT late (perfusion).
+    \item IVT and MT: IVT early + MT early; IVT early + MT late; IVT early + MT late (perfusion); IVT late + MT late; IVT late + MT late (perfusion).
+\end{itemize}
+
+\subsection{Matching}
+
+For each trial group, the pool of potential controls was all patients in the same NIHSS band who received neither IVT nor MT and who had complete data on the matching variables. Each treated patient was matched 1:1, without replacement, to an untreated patient with identical values of all five matching variables: pre-stroke mRS, NIHSS band, age band, anticoagulant use for AF, and AF diagnosis (pre-existing or newly diagnosed on admission)\cite{stuart_matching_2010}. Within each combination of matching variables, treated and untreated patients were put in random order and paired off. Treated patients left without a match, including those missing any matching variable, were excluded from that trial, and the percentage of treated patients matched was recorded for each group. Matching was carried out separately for each trial group, so an untreated patient could serve as a control in more than one trial group. A fixed random seed was used for reproducibility.
+
+The matching variables describe the patient before or at admission, and are related to both the likelihood of treatment and outcome. Exact matching was possible because the pool of untreated patients was large.
+
+\subsection{Outcomes}
+
+Five outcomes were assessed at hospital discharge:
+\begin{itemize}
+    \item \textbf{Good outcome} (binary): discharge mRS of 2 or less, or discharge mRS no worse than pre-stroke mRS.
+    \item \textbf{In-hospital death} (binary).
+    \item \textbf{Discharge disability}: mRS at discharge (0--6, where 6 is death), analysed as a continuous outcome.
+    \item \textbf{Length of stay} (continuous): days from arrival to hospital discharge, or to death for patients who died in hospital.
+    \item \textbf{Discharge destination} (categorical): home; community team or early supported discharge; transfer to a hospital team not in SSNAP; care home; somewhere else; or died. Destinations recorded as missing were treated as missing data.
+\end{itemize}
+
+\subsection{Statistical analysis}
+
+Each trial group was analysed as a separate emulated trial, comparing treated patients with their matched controls. Because controls were chosen to resemble the treated patients, the comparison estimates the average effect of treatment in the treated: the effect in patients like those who actually received each treatment. For each outcome, pairs in which either patient had a missing outcome were excluded, and missing data were not imputed. All analyses used paired methods.
+
+We described the baseline characteristics of the matched patients in each trial group. For characteristics not used in matching (arrival NIHSS within the band, sex, hypertension, diabetes and congestive heart failure), balance between arms was summarised with the standardised mean difference (SMD): the difference in means between treated and untreated patients divided by the pooled standard deviation.
+
+For binary outcomes (good outcome and in-hospital death), we report the percentage with the outcome in each arm and the difference in percentage points (treated minus untreated). The 95\% confidence interval (CI) of the difference was calculated from the mean and standard deviation of the within-pair differences using a normal approximation. We also report the matched-pair odds ratio, calculated from discordant pairs as the number of pairs in which only the treated patient had the outcome divided by the number in which only the control had it. Its 95\% CI was calculated on the log scale. The odds ratio was not calculated when there were no discordant pairs in one direction. Differences were tested with McNemar's test\cite{mcnemar_note_1947}, using the exact binomial version when there were fewer than 25 discordant pairs and the continuity-corrected chi-squared version otherwise.
+
+For continuous outcomes (discharge mRS and length of stay), we report the mean, standard deviation, median and interquartile range in each arm, and the mean within-pair difference with a 95\% CI based on the $t$ distribution. Because discharge mRS is ordinal and length of stay is right-skewed, the Wilcoxon signed-rank test\cite{wilcoxon_individual_1945} was the primary test. A paired $t$-test was also calculated and is available with the analysis code.
+
+For discharge destination, we report the percentage of patients in each category in each arm. Marginal homogeneity between arms was tested with the Stuart--Maxwell test\cite{stuart_comparison_1957, maxwell_comparing_1970}.
+
+Because many trial groups were tested for each outcome, $p$-values were adjusted across trial groups within each outcome using the Holm method\cite{holm_simple_1979}. Results with a Holm-adjusted $p$-value below 0.05 were considered statistically significant.
+
+Each trial group has its own matched control group, so each trial estimates the effect of one treatment strategy compared with no reperfusion treatment. We did not formally compare treatment strategies with each other. Differences between trial groups are described but not tested.
+
+\subsection{Software and code availability}
+
+Analyses were carried out in Python 3.12 using pandas\cite{mckinney_data_2010}, NumPy\cite{harris_array_2020}, SciPy\cite{virtanen_scipy_2020}, statsmodels\cite{seabold_statsmodels_2010} and Matplotlib\cite{hunter_matplotlib_2007}. All analysis code is available in GitHub \footnote{\url{https://github.com/samuel-book/samuel-3/blob/main/4_target_trial_emulation/03_target_trials_all_patients_treatments.ipynb}}.
+
+% TODO: Add ethics/approvals statement if required by the journal.
