@@ -84,6 +84,10 @@
     \renewcommand{\thefigure}{S\arabic{figure}}
     \setcounter{table}{0}
     \renewcommand{\thetable}{S\arabic{table}}
+    % Unique hyperlink targets, so links to main-paper tables and figures do not jump to the supplement
+    \renewcommand{\theHsection}{S\arabic{section}}
+    \renewcommand{\theHfigure}{S\arabic{figure}}
+    \renewcommand{\theHtable}{S\arabic{table}}
 }
 
 
@@ -98,6 +102,11 @@
 \input{chapters/2_abstract}
 \fi
 %TC:endignore
+
+% Footnotes use letters (a, b, c, ...) from the introduction onwards
+% (the title page uses symbols for author footnotes)
+\renewcommand{\thefootnote}{\alph{footnote}}
+\setcounter{footnote}{0}
 
 %%%%%%%% Main paper
 \ifincludemain
@@ -115,6 +124,8 @@
 %\bibliographystyle{unsrt}
 %\bibliographystyle{unsrtnat}
 \bibliography{references}
+
+\include{chapters/7_other}
 
 \fi
 

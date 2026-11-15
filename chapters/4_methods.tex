@@ -59,7 +59,7 @@ Thirty-nine trial groups were defined. In the text, figures and tables, groups a
 
 \subsection{Matching}
 
-For each trial group, the pool of potential controls was all patients in the same NIHSS band who received neither IVT nor MT and who had complete data on the matching variables. Each treated patient was matched 1:1, without replacement, to an untreated patient with identical values of all five matching variables: pre-stroke mRS, NIHSS band, age band, anticoagulant use for AF, and AF diagnosis (pre-existing or newly diagnosed on admission)\cite{stuart_matching_2010}. Within each combination of matching variables, treated and untreated patients were put in random order and paired off. Treated patients left without a match, including those missing any matching variable, were excluded from that trial, and the percentage of treated patients matched was recorded for each group. Matching was carried out separately for each trial group, so an untreated patient could serve as a control in more than one trial group. A fixed random seed was used for reproducibility.
+For each trial group, the pool of potential controls was all patients in the same NIHSS band who received neither IVT nor MT and who had complete data on the matching variables. Each treated patient was matched 1:1, without replacement, to an untreated patient with identical values of all five matching variables: pre-stroke mRS, NIHSS band, age band, anticoagulant use for AF, and AF diagnosis (pre-existing or newly diagnosed on admission)\cite{stuart_matching_2010}. Within each combination of matching variables, treated and untreated patients were put in random order and paired off. Treated patients left without a match, including those missing any matching variable, were excluded from that trial, and the percentage of treated patients matched was recorded for each group (Supplementary Table~\ref{tab:supp_matching}). Matching was carried out separately for each trial group, so an untreated patient could serve as a control in more than one trial group. A fixed random seed was used for reproducibility.
 
 The matching variables describe the patient before or at admission, and are related to both the likelihood of treatment and outcome. Exact matching was possible because the pool of untreated patients was large.
 
@@ -67,7 +67,7 @@ The matching variables describe the patient before or at admission, and are rela
 
 Five outcomes were assessed at hospital discharge:
 \begin{itemize}
-    \item \textbf{Good outcome} (binary): discharge mRS of 2 or less, or discharge mRS no worse than pre-stroke mRS.
+    \item \textbf{Good outcome} (binary): discharge mRS of 2 or less, or discharge mRS no worse than pre-stroke mRS. The second condition allows patients who had disability before their stroke to have a good outcome if they return to their previous level.
     \item \textbf{In-hospital death} (binary).
     \item \textbf{Discharge disability}: mRS at discharge (0--6, where 6 is death), analysed as a continuous outcome.
     \item \textbf{Length of stay} (continuous): days from arrival to hospital discharge, or to death for patients who died in hospital.
@@ -78,7 +78,7 @@ Five outcomes were assessed at hospital discharge:
 
 Each trial group was analysed as a separate emulated trial, comparing treated patients with their matched controls. Because controls were chosen to resemble the treated patients, the comparison estimates the average effect of treatment in the treated: the effect in patients like those who actually received each treatment. For each outcome, pairs in which either patient had a missing outcome were excluded, and missing data were not imputed. All analyses used paired methods.
 
-We described the baseline characteristics of the matched patients in each trial group. For characteristics not used in matching (arrival NIHSS within the band, sex, hypertension, diabetes and congestive heart failure), balance between arms was summarised with the standardised mean difference (SMD): the difference in means between treated and untreated patients divided by the pooled standard deviation.
+We described the baseline characteristics of the matched patients in each trial group. For characteristics not used in matching (arrival NIHSS within the band, sex, hypertension, diabetes and congestive heart failure), balance between arms was summarised with the standardised mean difference (SMD): the difference in means between treated and untreated patients divided by the pooled standard deviation. We also described onset-to-treatment times in the treated arm.
 
 For binary outcomes (good outcome and in-hospital death), we report the percentage with the outcome in each arm and the difference in percentage points (treated minus untreated). The 95\% confidence interval (CI) of the difference was calculated from the mean and standard deviation of the within-pair differences using a normal approximation. We also report the matched-pair odds ratio, calculated from discordant pairs as the number of pairs in which only the treated patient had the outcome divided by the number in which only the control had it. Its 95\% CI was calculated on the log scale. The odds ratio was not calculated when there were no discordant pairs in one direction. Differences were tested with McNemar's test\cite{mcnemar_note_1947}, using the exact binomial version when there were fewer than 25 discordant pairs and the continuity-corrected chi-squared version otherwise.
 
@@ -92,6 +92,6 @@ Each trial group has its own matched control group, so each trial estimates the 
 
 \subsection{Software and code availability}
 
-Analyses were carried out in Python 3.12 using pandas\cite{mckinney_data_2010}, NumPy\cite{harris_array_2020}, SciPy\cite{virtanen_scipy_2020}, statsmodels\cite{seabold_statsmodels_2010} and Matplotlib\cite{hunter_matplotlib_2007}. All analysis code is available in GitHub \footnote{\url{https://github.com/samuel-book/samuel-3/blob/main/4_target_trial_emulation/03_target_trials_all_patients_treatments.ipynb}}.
+Analyses were carried out in Python 3.12 using pandas\cite{mckinney_data_2010}, NumPy\cite{harris_array_2020}, SciPy\cite{virtanen_scipy_2020}, statsmodels\cite{seabold_statsmodels_2010} and Matplotlib\cite{hunter_matplotlib_2007}. All analysis code is available on GitHub.\footnote{\url{https://github.com/samuel-book/samuel-3/blob/main/4_target_trial_emulation/03_target_trials_all_patients_treatments.ipynb}}
 
 % TODO: Add ethics/approvals statement if required by the journal.
