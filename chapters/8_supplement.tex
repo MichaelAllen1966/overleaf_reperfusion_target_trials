@@ -1,3 +1,74 @@
+\section{Extended methods}\label{sec:supp_methods}
+
+This section gives the full methods summarised in the Patients and methods section of the main paper.
+
+\subsection*{Study population}
+
+The analysis included patients with ischaemic stroke (infarction) and a recorded mRS at discharge. In a study of interobserver agreement in 100 stroke patients, physicians agreed on the mRS grade in 65 patients, differed by one grade in 32 and by two grades in 3\cite{van_swieten_interobserver_1988}. Records were excluded if stroke type was not recorded or was haemorrhagic. Age was recorded in 5-year bands (under 40, 40--44, \ldots, 85--89, 90 and over), and each patient was assigned the midpoint of their band.
+
+\subsection*{Treatment classification and trial groups}
+
+Treatment times were measured from stroke onset. Treatment was classed as early if it started within 270 minutes (4.5 hours) of onset, the time window within which the benefit of IVT is established\cite{emberson_effect_2014}, and as late otherwise. For IVT this used the onset-to-needle time, and for MT the onset-to-arterial-puncture time. When the time of stroke onset was not known, so that onset-to-treatment time could not be calculated, treatment was classed as late.
+
+Each trial group was defined by a stroke severity band, a combination of early and/or late IVT and MT, and, for groups that included late treatment, whether perfusion imaging was used to select patients to receive treatment. Treated patients had to match the group's treatment pattern exactly. For example, the `IVT early' group included only patients who received early IVT and no MT. In groups with any late treatment, perfusion imaging status also had to match the group definition, so `MT late' means late MT without recorded perfusion imaging. Groups with only early treatment included patients whether or not perfusion imaging was used. Perfusion imaging is recorded in the thrombectomy (intra-arterial intervention) section of the SSNAP dataset.
+
+Thirty-nine trial groups were defined. In the text, figures and tables, groups are named by treatment and timing, with `(perfusion)' marking late treatment with perfusion imaging. In the NIHSS 1--5 and 6--10 bands, three IVT-only groups were defined: IVT early, IVT late, and IVT late (perfusion). MT groups were not defined for these bands. In each of the NIHSS 11--15, 16--20 and 21--25 bands, eleven groups were defined:
+\begin{itemize}
+    \item IVT only: IVT early; IVT late; IVT late (perfusion).
+    \item MT only: MT early; MT late; MT late (perfusion).
+    \item IVT and MT: IVT early + MT early; IVT early + MT late; IVT early + MT late (perfusion); IVT late + MT late; IVT late + MT late (perfusion).
+\end{itemize}
+Because perfusion imaging is recorded only in the thrombectomy section of SSNAP, the five IVT late (perfusion) groups (IVT without MT) could not contain any patients. They are listed for completeness but are not reported in the Results.
+
+\subsection*{Matching}
+
+For each trial group, the pool of potential controls was all patients in the same NIHSS band who received neither IVT nor MT and who had complete data on the matching variables. Each treated patient was matched 1:1, without replacement, to an untreated patient with identical values of all five matching variables: pre-stroke mRS, NIHSS band, age band, anticoagulant use for AF, and AF diagnosis (pre-existing or newly diagnosed on admission)\cite{stuart_matching_2010}. Within each combination of matching variables, treated and untreated patients were put in random order and paired off. Treated patients left without a match, including those missing any matching variable, were excluded from that trial, and the percentage of treated patients matched was recorded for each group (Supplementary Table~\ref{tab:supp_matching}). Matching was carried out separately for each trial group, so an untreated patient could serve as a control in more than one trial group. A fixed random seed was used for reproducibility.
+
+The matching variables describe the patient before or at admission, and are related to both the likelihood of treatment and outcome. Exact matching was possible because the pool of untreated patients was large.
+
+\subsection*{Outcomes}
+
+Five outcomes were assessed at hospital discharge:
+\begin{itemize}
+    \item \textbf{Good outcome} (binary): discharge mRS of 2 or less, or discharge mRS no worse than pre-stroke mRS. The second condition allows patients who had disability before their stroke to have a good outcome if they return to their previous level.
+    \item \textbf{In-hospital death} (binary).
+    \item \textbf{Discharge disability}: mRS at discharge (0--6, where 6 is death), analysed as a continuous outcome.
+    \item \textbf{Length of stay} (continuous): days from arrival to hospital discharge, or to death for patients who died in hospital.
+    \item \textbf{Discharge destination} (categorical): home; community team or early supported discharge; transfer to a hospital team not in SSNAP; care home; somewhere else; or died. Destinations recorded as missing were treated as missing data. ``Home'' and ``community team or early supported discharge'' both mean discharge to the patient's own home (or previous place of residence), without or with community team support. Patients discharged to a care home were recorded as going to a care home when they had not previously lived in a care home.
+\end{itemize}
+
+\subsection*{Statistical analysis}
+
+Each trial group was analysed as a separate emulated trial, comparing treated patients with their matched controls. Because controls were chosen to resemble the treated patients, the comparison estimates the average effect of treatment in the treated: the effect in patients like those who actually received each treatment. For each outcome, pairs in which either patient had a missing outcome were excluded, and missing data were not imputed. All analyses used paired methods.
+
+We described the baseline characteristics of the matched patients in each trial group. For characteristics not used in matching (arrival NIHSS within the band, sex, hypertension, diabetes and congestive heart failure), balance between arms was summarised with the standardised mean difference (SMD): the difference in means between treated and untreated patients divided by the pooled standard deviation. We also described onset-to-treatment times in the treated arm.
+
+For binary outcomes (good outcome and in-hospital death), we report the percentage with the outcome in each arm and the difference in percentage points (treated minus untreated). The 95\% confidence interval (CI) of the difference was calculated from the mean and standard deviation of the within-pair differences using a normal approximation. We also report the matched-pair odds ratio, calculated from discordant pairs as the number of pairs in which only the treated patient had the outcome divided by the number in which only the control had it. Its 95\% CI was calculated on the log scale. The odds ratio was not calculated when there were no discordant pairs in one direction. Differences were tested with McNemar's test\cite{mcnemar_note_1947}, using the exact binomial version when there were fewer than 25 discordant pairs and the continuity-corrected chi-squared version otherwise.
+
+For continuous outcomes (discharge mRS and length of stay), we report the mean, standard deviation, median and interquartile range in each arm, and the mean within-pair difference with a 95\% CI based on the $t$ distribution. Because discharge mRS is ordinal and length of stay is right-skewed, the Wilcoxon signed-rank test\cite{wilcoxon_individual_1945} was the primary test. A paired $t$-test was also calculated and is available with the analysis code.
+
+For discharge destination, we report the percentage of patients in each category in each arm. Marginal homogeneity between arms was tested with the Stuart--Maxwell test\cite{stuart_test_1955, maxwell_comparing_1970}.
+
+Because many trial groups were tested for each outcome, $p$-values were adjusted across trial groups within each outcome using the Holm method\cite{holm_simple_1979}. Results with a Holm-adjusted $p$-value below 0.05 were considered statistically significant.
+
+Each trial group has its own matched control group, so each trial estimates the effect of one type and timing of treatment compared with no reperfusion treatment. We did not formally compare trial groups with each other; differences between them are described but not tested.
+
+
+\clearpage
+
+\section{Patient flow}\label{sec:supp_flow}
+
+Supplementary Figure~\ref{fig:supp_flow} shows the number of patients at each step, from the cleaned SSNAP data to the matched pairs analysed. Of 452,863 admissions, 68,529 were excluded: 14,274 had no discharge mRS, 54,224 had a haemorrhagic stroke and 31 were recorded as receiving IVT after the start of MT. Of the 384,334 patients in the study population, 40,595 had an arrival NIHSS outside the trial bands (30,191 with NIHSS 0, 7,636 above 25 and 2,768 not recorded). Of the remaining 343,739 patients, 58,074 received IVT and/or MT and 285,665 received neither. Of the treated patients, 3,371 did not fit any trial group (for example, MT in NIHSS 1--10, where no MT groups were defined). Of the 54,703 treated patients in a trial group, 54,637 were matched; the 66 who were not matched had no untreated patient with identical matching variables. In all, 47,397 different untreated patients were used as controls, some of them in more than one trial group. No pairs were missing good outcome, in-hospital death or discharge mRS. Ten pairs were missing length of stay (4 treated and 6 untreated patients) and three were missing discharge destination (1 treated and 2 untreated patients).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth,height=0.58\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_flow_diagram.png}
+\caption{Flow of patients from the cleaned SSNAP data to the matched pairs analysed. Exclusions are shown on the right. Untreated patients could be matched as controls in more than one trial group.}
+\label{fig:supp_flow}
+\end{figure}
+
+\clearpage
+
 \section{Trial groups and matching}
 
 Supplementary Table~\ref{tab:supp_matching} lists all 39 trial groups, with the number of treated patients, the number matched 1:1 to an untreated control, and the percentage matched. The untreated pool is the number of patients in the NIHSS band who received neither IVT nor MT and had complete data on the matching variables. The same pool supplied the controls for every trial group in the band. The five IVT late (perfusion) groups had no treated patients, because perfusion imaging is recorded in the thrombectomy section of SSNAP.
@@ -55,21 +126,128 @@ IVT early + MT late (perfusion) & 232 & 232 & 100.0 \\
 IVT late + MT late & 137 & 137 & 100.0 \\
 IVT late + MT late (perfusion) & 58 & 58 & 100.0 \\
 \addlinespace
-\multicolumn{4}{l}{\textbf{NIHSS 21--42} (untreated pool: 15,025)}\\
-IVT early & 3,925 & 3,919 & 99.8 \\
-IVT late & 335 & 333 & 99.4 \\
+\multicolumn{4}{l}{\textbf{NIHSS 21--25} (untreated pool: 9,424)}\\
+IVT early & 2,870 & 2,863 & 99.8 \\
+IVT late & 220 & 217 & 98.6 \\
 IVT late (perfusion) & 0 & 0 & -- \\
-MT early & 461 & 457 & 99.1 \\
-MT late & 933 & 930 & 99.7 \\
-MT late (perfusion) & 353 & 352 & 99.7 \\
-IVT early + MT early & 849 & 846 & 99.6 \\
-IVT early + MT late & 679 & 677 & 99.7 \\
-IVT early + MT late (perfusion) & 151 & 151 & 100.0 \\
-IVT late + MT late & 109 & 109 & 100.0 \\
-IVT late + MT late (perfusion) & 58 & 58 & 100.0 \\
+MT early & 341 & 338 & 99.1 \\
+MT late & 705 & 700 & 99.3 \\
+MT late (perfusion) & 267 & 265 & 99.3 \\
+IVT early + MT early & 657 & 653 & 99.4 \\
+IVT early + MT late & 503 & 501 & 99.6 \\
+IVT early + MT late (perfusion) & 121 & 121 & 100.0 \\
+IVT late + MT late & 83 & 83 & 100.0 \\
+IVT late + MT late (perfusion) & 51 & 51 & 100.0 \\
 \end{longtable}
 }
 \noindent{\footnotesize (perfusion), late treatment with perfusion imaging. Treated patients are those in the NIHSS band whose recorded treatment exactly matched the trial group.}
+
+\section{Extended results}\label{sec:supp_results}
+
+This section gives the baseline characteristics of the matched patients and the detailed results for each outcome, summarised in the Results section of the main paper.
+
+\subsection*{Baseline characteristics}
+
+Baseline characteristics of the matched patients are given in Supplementary Table~\ref{tab:baseline_matched}. Mean age ranged from 67.0 to 78.4 years across groups. Patients given MT alone often had AF (36\% to 62\%) and were often anticoagulated (23\% to 54\%), compared with 6\% or fewer anticoagulated in groups that included IVT. Patients given MT had little disability before their stroke (pre-stroke mRS 0--2 in 90\% to 99\%). In IVT-only groups, the percentage with pre-stroke mRS 0--2 fell from about 94\% in NIHSS 1--5 to 70\% in NIHSS 21--25. Median onset-to-treatment time for early IVT ranged from 114 to 171 minutes. In groups where all treatment was classed as late, 14\% to 41\% of treated patients had an unknown onset time.
+
+The matching variables were identical between arms by design. Balance on characteristics not used in matching was mixed (Supplementary Table~\ref{tab:supp_baseline_unmatched}). Sex, hypertension and heart failure were generally similar between arms (absolute SMD below 0.2 in all but five comparisons, each in a group with fewer than 250 pairs). Diabetes was less common in treated patients in 30 of 34 groups (SMD as low as $-$0.46). Arrival NIHSS differed between arms within some bands. In NIHSS 1--5, treated patients had higher scores than their controls (mean 3.7 \textit{vs} 2.6 for early IVT; SMD 0.83). In NIHSS 6--20, differences were smaller (SMD $-$0.10 to 0.36). In NIHSS 21--25, arrival NIHSS was similar in the two arms (mean 22.8 in both; SMD $-$0.17 to 0.12).
+
+Outcome data were almost complete in the matched pairs. No pairs were missing good outcome, in-hospital death or discharge mRS. Ten pairs were excluded from the length of stay analysis and three from the discharge destination analysis because of missing data (length of stay missing for 4 treated and 6 untreated patients; discharge destination missing for 1 treated and 2 untreated patients).
+
+\begin{landscape}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{0.85}
+\begin{longtable}{p{5.6cm}rrrrrrrrr}
+\caption{Characteristics used in matching, and treatment times, by trial group.}\label{tab:baseline_matched}\\
+\toprule
+Treatment & Pairs & \makecell{Age, years\\ mean (SD)} & \makecell{Pre-stroke mRS\\ mean (SD)} & \makecell{Pre-stroke\\ mRS 0--2, \%} & AF, \% & \makecell{Anticoagulant\\ for AF, \%} & \makecell{Onset to IVT, min\\ median [IQR]} & \makecell{Onset to MT, min\\ median [IQR]} & \makecell{Onset time\\ unknown, \%} \\
+\midrule
+\endfirsthead
+\multicolumn{10}{l}{\textit{(continued)}}\\
+\toprule
+Treatment & Pairs & \makecell{Age, years\\ mean (SD)} & \makecell{Pre-stroke mRS\\ mean (SD)} & \makecell{Pre-stroke\\ mRS 0--2, \%} & AF, \% & \makecell{Anticoagulant\\ for AF, \%} & \makecell{Onset to IVT, min\\ median [IQR]} & \makecell{Onset to MT, min\\ median [IQR]} & \makecell{Onset time\\ unknown, \%} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{10}{r}{\textit{Continued on next page}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{10}{l}{\textbf{NIHSS 1--5}}\\
+IVT early & 12,954 & 70.5 (13.1) & 0.52 (0.94) & 93.5 & 12.2 & 2.2 & 170 [135--213] & -- & 0.0 \\
+IVT late & 1,440 & 69.8 (13.3) & 0.51 (0.88) & 94.9 & 12.4 & 2.9 & 328 [286--438] & -- & 18.3 \\
+\addlinespace
+\multicolumn{10}{l}{\textbf{NIHSS 6--10}}\\
+IVT early & 13,618 & 72.2 (13.3) & 0.78 (1.15) & 87.4 & 15.8 & 2.8 & 165 [130--206] & -- & 0.0 \\
+IVT late & 1,478 & 72.4 (13.2) & 0.79 (1.12) & 88.8 & 15.3 & 3.4 & 344 [290--480] & -- & 20.6 \\
+\addlinespace
+\multicolumn{10}{l}{\textbf{NIHSS 11--15}}\\
+IVT early & 6,277 & 74.2 (13.4) & 1.02 (1.31) & 81.3 & 21.3 & 3.3 & 159 [125--200] & -- & 0.0 \\
+IVT late & 643 & 74.1 (12.5) & 1.02 (1.30) & 83.5 & 20.5 & 4.0 & 337 [287--459] & -- & 21.5 \\
+MT early & 281 & 71.2 (13.4) & 0.69 (0.89) & 95.4 & 52.0 & 49.1 & -- & 212 [184--243] & 0.0 \\
+MT late & 944 & 69.9 (14.3) & 0.56 (0.80) & 97.5 & 36.7 & 26.8 & -- & 510 [358--798] & 13.6 \\
+MT late (perfusion) & 426 & 71.4 (13.2) & 0.56 (0.82) & 96.7 & 36.4 & 24.9 & -- & 616 [436--990] & 22.5 \\
+IVT early + MT early & 596 & 68.6 (13.6) & 0.35 (0.66) & 98.7 & 19.0 & 2.7 & 122 [103--146] & 220 [185--245] & 0.0 \\
+IVT early + MT late & 694 & 68.9 (13.3) & 0.36 (0.68) & 98.1 & 25.9 & 2.7 & 170 [134--210] & 350 [311--420] & 0.0 \\
+IVT early + MT late (perfusion) & 179 & 68.2 (14.0) & 0.33 (0.68) & 97.8 & 21.2 & 5.6 & 171 [141--216] & 399 [328--534] & 0.0 \\
+IVT late + MT late & 117 & 69.2 (14.7) & 0.55 (0.86) & 94.9 & 14.5 & 1.7 & 370 [294--507] & 550 [406--707] & 18.8 \\
+IVT late + MT late (perfusion) & 65 & 67.0 (13.3) & 0.40 (0.68) & 98.5 & 16.9 & 4.6 & 414 [310--639] & 603 [439--838] & 24.6 \\
+\addlinespace
+\multicolumn{10}{l}{\textbf{NIHSS 16--20}}\\
+IVT early & 4,552 & 76.5 (12.8) & 1.22 (1.43) & 75.5 & 28.2 & 4.2 & 154 [121--195] & -- & 0.0 \\
+IVT late & 396 & 75.9 (13.4) & 1.22 (1.40) & 76.5 & 24.2 & 4.5 & 349 [294--490] & -- & 24.7 \\
+MT early & 405 & 72.8 (12.8) & 0.71 (0.85) & 96.3 & 59.5 & 50.6 & -- & 212 [181--245] & 0.0 \\
+MT late & 1,067 & 71.6 (13.5) & 0.59 (0.84) & 97.1 & 44.3 & 30.8 & -- & 488 [360--776] & 15.9 \\
+MT late (perfusion) & 491 & 70.8 (13.4) & 0.68 (0.93) & 94.3 & 37.9 & 23.0 & -- & 642 [411--918] & 23.4 \\
+IVT early + MT early & 913 & 69.3 (12.7) & 0.41 (0.72) & 98.2 & 25.6 & 2.8 & 117 [96--142] & 215 [181--245] & 0.0 \\
+IVT early + MT late & 882 & 70.6 (13.4) & 0.42 (0.74) & 97.3 & 23.2 & 4.4 & 166 [131--203] & 342 [303--396] & 0.0 \\
+IVT early + MT late (perfusion) & 232 & 71.1 (13.5) & 0.45 (0.80) & 96.1 & 20.7 & 2.6 & 163 [127--200] & 369 [320--465] & 0.0 \\
+IVT late + MT late & 137 & 69.1 (14.5) & 0.52 (0.84) & 96.4 & 19.0 & 4.4 & 465 [340--646] & 632 [482--792] & 19.0 \\
+IVT late + MT late (perfusion) & 58 & 71.8 (12.6) & 0.36 (0.79) & 96.6 & 25.9 & 3.4 & 418 [352--558] & 650 [507--732] & 41.4 \\
+\addlinespace
+\multicolumn{10}{l}{\textbf{NIHSS 21--25}}\\
+IVT early & 2,863 & 78.1 (12.4) & 1.41 (1.50) & 70.0 & 31.6 & 4.8 & 152 [118--189] & -- & 0.0 \\
+IVT late & 217 & 78.4 (12.8) & 1.51 (1.50) & 69.1 & 30.9 & 6.0 & 320 [286--425] & -- & 25.3 \\
+MT early & 338 & 75.4 (11.9) & 0.90 (0.94) & 93.8 & 61.8 & 53.6 & -- & 210 [173--241] & 0.0 \\
+MT late & 700 & 73.9 (13.3) & 0.73 (0.91) & 94.9 & 44.7 & 35.0 & -- & 487 [353--810] & 16.1 \\
+MT late (perfusion) & 265 & 73.2 (13.5) & 0.76 (0.93) & 95.1 & 44.9 & 30.9 & -- & 620 [388--912] & 28.7 \\
+IVT early + MT early & 653 & 71.7 (12.5) & 0.57 (0.86) & 96.8 & 24.3 & 2.8 & 114 [94--140] & 215 [179--242] & 0.0 \\
+IVT early + MT late & 501 & 73.2 (13.0) & 0.48 (0.79) & 97.8 & 25.0 & 3.0 & 160 [127--197] & 335 [303--390] & 0.0 \\
+IVT early + MT late (perfusion) & 121 & 71.3 (12.9) & 0.50 (0.88) & 95.0 & 24.0 & 4.1 & 162 [129--196] & 380 [330--523] & 0.0 \\
+IVT late + MT late & 83 & 71.8 (12.9) & 0.53 (0.82) & 97.6 & 15.7 & 4.8 & 447 [322--638] & 630 [480--738] & 21.7 \\
+IVT late + MT late (perfusion) & 51 & 73.2 (13.3) & 0.76 (1.11) & 90.2 & 29.4 & 3.9 & 452 [330--657] & 588 [460--824] & 21.6 \\
+\end{longtable}
+\vspace{-0.5\baselineskip}
+\noindent{\scriptsize Matched characteristics are identical in the treated and untreated arms. Age is calculated from the midpoints of 5-year age bands. AF includes pre-existing AF and AF newly diagnosed on admission. Treatment times are for the treated arm, in minutes from stroke onset, among patients with a known onset time. SD, standard deviation; IQR, interquartile range. (perfusion), late treatment with perfusion imaging.}
+\end{landscape}
+
+\clearpage
+
+\subsection*{Results for each outcome}
+
+\subsubsection*{Good outcome}
+
+Treatment was associated with a higher percentage of patients with a good outcome at discharge in 27 of 34 groups after Holm adjustment (Figure~\ref{fig:outcome_target}, Supplementary Table~\ref{tab:supp_outcome_target}). In NIHSS 1--5, early IVT was associated with a small increase in good outcome (3.0 percentage points (pp); 95\% CI 2.0 to 4.0), and late IVT with a small decrease that was not statistically significant after adjustment for multiple comparisons ($-$3.1 pp, $-$6.1 to $-$0.1; Holm-adjusted $p = 0.310$). Differences were larger at higher stroke severity: early IVT was associated with increases of 16.0 pp (NIHSS 6--10), 19.9 pp (11--15), 17.7 pp (16--20) and 12.8 pp (21--25). The largest differences were seen with early IVT plus early MT: 34.2 pp (NIHSS 11--15), 28.4 pp (16--20) and 25.6 pp (21--25). The groups without a significant difference were late IVT in NIHSS 1--5 and six groups with late MT and perfusion imaging, all with fewer than 450 pairs.
+
+\subsubsection*{In-hospital death}
+
+In-hospital death was lower in treated patients in 19 groups and higher in 2 groups after Holm adjustment (Figure~\ref{fig:death}, Supplementary Table~\ref{tab:supp_death}). In NIHSS 1--5, deaths were rare but more common in treated patients, with both early IVT (2.0\% \textit{vs} 1.2\%) and late IVT (2.8\% \textit{vs} 1.0\%). In NIHSS 6--10, early IVT was associated with slightly fewer deaths ($-$0.8 pp, $-$1.3 to $-$0.3). The difference in deaths was larger with greater stroke severity. In NIHSS 21--25, in-hospital death was lower by 9.9 pp with early IVT, 18.3 pp with early MT and 18.8 pp with early IVT plus early MT. Late IVT alone was not associated with a significant difference in death in any band above NIHSS 1--5.
+
+\subsubsection*{Discharge disability}
+
+Treatment was associated with lower mean discharge mRS in 30 of 34 groups after Holm adjustment (Figure~\ref{fig:discharge_disability}, Supplementary Table~\ref{tab:supp_discharge_disability}). In NIHSS 1--5, the difference with early IVT was small ($-$0.11, $-$0.14 to $-$0.08) and there was no difference with late IVT. In other bands, early IVT was associated with mean reductions of 0.48 to 0.69 mRS points. The largest reductions were with early IVT plus early MT: $-$1.17 (NIHSS 11--15), $-$1.17 (16--20) and $-$1.32 (21--25). The four groups without a significant difference were late IVT in NIHSS 1--5, two NIHSS 11--15 groups with late MT and perfusion imaging, and IVT late + MT late (perfusion) in NIHSS 21--25.
+
+\subsubsection*{Length of stay}
+
+Length of stay was shorter in treated patients in 14 groups and longer in none after Holm adjustment (Figure~\ref{fig:length_of_stay}, Supplementary Table~\ref{tab:supp_length_of_stay}). Early IVT was associated with shorter stays in all bands, ranging from 1.2 days (NIHSS 1--5) to 12.7 days (NIHSS 11--15). The largest reductions were with early IVT plus early MT, at 18.6 days (NIHSS 11--15) and 18.1 days (16--20). In NIHSS 21--25, length of stay did not differ significantly after MT alone: after late MT, stays were 3.5 days longer, but not significantly so (95\% CI $-$1.4 to 8.3), alongside 8.7 pp fewer in-hospital deaths in the same group. Differences in length of stay for late treatment were often not significant. Because length of stay is counted to death for patients who die in hospital, treatment that prevents early deaths can lengthen the average stay (see Sensitivity analyses).
+
+\subsubsection*{Discharge destination}
+
+Discharge destination differed between treated and untreated patients in 25 of 34 groups after Holm adjustment (Figure~\ref{fig:discharge_destination}, Supplementary Table~\ref{tab:supp_discharge_destination}). Treated patients were more often discharged home or with community team or early supported discharge, and less often discharged to a care home or died in hospital. The combined percentage discharged home or with community team support was about 5 pp higher in treated patients in NIHSS 6--10. With early IVT plus early MT, it was higher by 20.6 pp (NIHSS 11--15), 27.6 pp (16--20) and 31.2 pp (21--25). In NIHSS 1--5, the distribution of destinations differed significantly, but discharge home or with community team support was similar between arms.
+
+
+\clearpage
 
 \section{Supplementary tables}
 
@@ -83,7 +261,7 @@ Supplementary Table~\ref{tab:supp_baseline_unmatched} compares the matched arms 
 \setlength{\tabcolsep}{4pt}
 
 {\normalsize
-Supplementary Table~\ref{tab:supp_baseline_unmatched} compares the treated and untreated arms on characteristics that were not used in matching: arrival NIHSS within the band, sex, hypertension, diabetes and congestive heart failure. The standardised mean difference (SMD, treated minus untreated) summarises the imbalance that remains after matching. Absolute values above 0.1 are often taken to indicate a meaningful imbalance.
+Supplementary Table~\ref{tab:supp_baseline_unmatched} compares the treated and untreated arms on characteristics that were not used in matching: arrival NIHSS within the band, sex, hypertension, diabetes and congestive heart failure. The standardised mean difference (SMD, treated minus untreated) summarises the imbalance that remains after matching. Absolute values below 0.1 are usually taken to indicate negligible imbalance; in the main text, absolute values of 0.2 or more are described as imbalance.
 \par}
 \bigskip
 
@@ -108,22 +286,22 @@ Treatment & \multicolumn{3}{c}{Arrival NIHSS, mean} & \multicolumn{3}{c}{Male, \
 \bottomrule
 \endlastfoot
 \multicolumn{16}{l}{\textbf{NIHSS 1--5}}\\
-IVT early & 3.7 & 2.6 & 0.83 & 61.4 & 58.8 & 0.05 & 51.2 & 54.5 & $-$0.07 & 19.0 & 24.1 & $-$0.12 & 3.5 & 3.4 & 0.01 \\
-IVT late & 3.6 & 2.6 & 0.74 & 63.8 & 61.0 & 0.06 & 53.9 & 52.9 & 0.02 & 18.7 & 25.4 & $-$0.16 & 3.3 & 3.3 & 0.00 \\
+IVT early & 3.7 & 2.7 & 0.83 & 61.4 & 58.8 & 0.05 & 51.2 & 54.5 & $-$0.07 & 19.0 & 24.1 & $-$0.12 & 3.5 & 3.4 & 0.01 \\
+IVT late & 3.6 & 2.6 & 0.74 & 63.7 & 61.0 & 0.06 & 53.9 & 52.9 & 0.02 & 18.7 & 25.3 & $-$0.16 & 3.3 & 3.3 & 0.00 \\
 \addlinespace
 \multicolumn{16}{l}{\textbf{NIHSS 6--10}}\\
 IVT early & 7.6 & 7.4 & 0.18 & 57.5 & 55.8 & 0.03 & 53.6 & 55.5 & $-$0.04 & 21.5 & 26.6 & $-$0.12 & 4.4 & 4.2 & 0.01 \\
-IVT late & 7.6 & 7.5 & 0.09 & 58.0 & 52.8 & 0.10 & 55.7 & 56.5 & $-$0.02 & 23.6 & 27.1 & $-$0.08 & 4.3 & 4.2 & 0.01 \\
+IVT late & 7.6 & 7.5 & 0.09 & 58.0 & 52.8 & 0.10 & 55.7 & 56.5 & $-$0.02 & 23.5 & 27.1 & $-$0.08 & 4.3 & 4.2 & 0.01 \\
 \addlinespace
 \multicolumn{16}{l}{\textbf{NIHSS 11--15}}\\
 IVT early & 12.8 & 12.7 & 0.03 & 53.8 & 49.8 & 0.08 & 54.4 & 55.4 & $-$0.02 & 22.3 & 24.1 & $-$0.04 & 5.0 & 5.3 & $-$0.01 \\
 IVT late & 12.8 & 12.7 & 0.03 & 51.9 & 49.5 & 0.05 & 56.1 & 56.1 & 0.00 & 24.4 & 23.2 & 0.03 & 6.8 & 6.2 & 0.03 \\
-MT early & 13.1 & 12.6 & 0.33 & 55.2 & 57.3 & $-$0.04 & 47.7 & 53.0 & $-$0.11 & 18.9 & 27.1 & $-$0.20 & 8.5 & 6.0 & 0.10 \\
+MT early & 13.1 & 12.6 & 0.33 & 55.2 & 57.3 & $-$0.04 & 47.7 & 53.0 & $-$0.11 & 18.9 & 27.0 & $-$0.20 & 8.5 & 6.0 & 0.10 \\
 MT late & 13.0 & 12.8 & 0.16 & 52.4 & 56.7 & $-$0.09 & 48.7 & 52.5 & $-$0.08 & 17.1 & 23.2 & $-$0.15 & 7.1 & 6.9 & 0.01 \\
 MT late (perfusion) & 13.0 & 12.8 & 0.20 & 51.9 & 55.4 & $-$0.07 & 56.3 & 55.6 & 0.01 & 14.3 & 24.4 & $-$0.26 & 6.6 & 7.0 & $-$0.02 \\
-IVT early + MT early & 13.2 & 12.7 & 0.33 & 52.5 & 56.9 & $-$0.09 & 42.8 & 50.5 & $-$0.16 & 10.7 & 23.0 & $-$0.33 & 3.2 & 2.4 & 0.05 \\
+IVT early + MT early & 13.2 & 12.7 & 0.33 & 52.5 & 56.9 & $-$0.09 & 42.8 & 50.5 & $-$0.16 & 10.7 & 23.0 & $-$0.33 & 3.2 & 2.3 & 0.05 \\
 IVT early + MT late & 13.0 & 12.7 & 0.23 & 55.6 & 56.2 & $-$0.01 & 47.8 & 49.7 & $-$0.04 & 15.3 & 20.6 & $-$0.14 & 4.0 & 3.9 & 0.01 \\
-IVT early + MT late (perfusion) & 13.1 & 12.6 & 0.36 & 58.7 & 55.9 & 0.06 & 49.2 & 52.0 & $-$0.06 & 14.0 & 20.1 & $-$0.16 & 3.4 & 6.2 & $-$0.13 \\
+IVT early + MT late (perfusion) & 13.1 & 12.6 & 0.36 & 58.7 & 55.9 & 0.06 & 49.2 & 52.0 & $-$0.06 & 14.0 & 20.1 & $-$0.16 & 3.4 & 6.1 & $-$0.13 \\
 IVT late + MT late & 13.0 & 12.8 & 0.10 & 44.4 & 50.4 & $-$0.12 & 51.3 & 55.6 & $-$0.09 & 17.1 & 19.7 & $-$0.07 & 2.6 & 6.0 & $-$0.17 \\
 IVT late + MT late (perfusion) & 13.0 & 12.9 & 0.11 & 55.4 & 50.8 & 0.09 & 52.3 & 49.2 & 0.06 & 18.5 & 15.4 & 0.08 & 10.8 & 3.1 & 0.30 \\
 \addlinespace
@@ -133,23 +311,23 @@ IVT late & 17.9 & 17.8 & 0.10 & 47.7 & 46.7 & 0.02 & 56.3 & 58.3 & $-$0.04 & 24.
 MT early & 18.2 & 17.8 & 0.27 & 54.1 & 51.6 & 0.05 & 51.9 & 53.8 & $-$0.04 & 18.0 & 23.7 & $-$0.14 & 12.3 & 9.4 & 0.10 \\
 MT late & 18.0 & 17.9 & 0.08 & 51.9 & 51.1 & 0.02 & 50.9 & 54.0 & $-$0.06 & 18.5 & 22.7 & $-$0.10 & 8.7 & 8.0 & 0.03 \\
 MT late (perfusion) & 17.9 & 18.0 & $-$0.10 & 53.6 & 50.5 & 0.06 & 50.7 & 52.1 & $-$0.03 & 19.1 & 24.6 & $-$0.13 & 7.5 & 4.3 & 0.14 \\
-IVT early + MT early & 18.1 & 17.9 & 0.10 & 59.4 & 54.6 & 0.10 & 47.3 & 49.5 & $-$0.04 & 14.5 & 19.9 & $-$0.15 & 4.3 & 4.7 & $-$0.02 \\
-IVT early + MT late & 18.0 & 18.0 & 0.00 & 52.3 & 55.2 & $-$0.06 & 51.5 & 51.7 & 0.00 & 16.2 & 21.1 & $-$0.13 & 4.5 & 5.0 & $-$0.02 \\
-IVT early + MT late (perfusion) & 17.9 & 18.0 & $-$0.02 & 59.0 & 51.7 & 0.15 & 47.4 & 50.0 & $-$0.05 & 14.2 & 21.6 & $-$0.19 & 5.2 & 6.9 & $-$0.07 \\
+IVT early + MT early & 18.1 & 17.9 & 0.10 & 59.4 & 54.7 & 0.10 & 47.3 & 49.5 & $-$0.04 & 14.5 & 19.9 & $-$0.15 & 4.3 & 4.7 & $-$0.02 \\
+IVT early + MT late & 18.0 & 18.0 & 0.00 & 52.3 & 55.2 & $-$0.06 & 51.5 & 51.7 & $-$0.00 & 16.2 & 21.1 & $-$0.13 & 4.5 & 5.0 & $-$0.02 \\
+IVT early + MT late (perfusion) & 17.9 & 18.0 & $-$0.02 & 59.1 & 51.7 & 0.15 & 47.4 & 50.0 & $-$0.05 & 14.2 & 21.6 & $-$0.19 & 5.2 & 6.9 & $-$0.07 \\
 IVT late + MT late & 18.1 & 18.0 & 0.10 & 46.7 & 49.6 & $-$0.06 & 42.3 & 48.2 & $-$0.12 & 15.3 & 24.8 & $-$0.24 & 2.2 & 7.3 & $-$0.24 \\
-IVT late + MT late (perfusion) & 18.2 & 18.1 & 0.07 & 56.9 & 48.3 & 0.17 & 53.5 & 43.1 & 0.21 & 12.1 & 27.6 & $-$0.39 & 6.9 & 5.2 & 0.07 \\
+IVT late + MT late (perfusion) & 18.2 & 18.1 & 0.07 & 56.9 & 48.3 & 0.17 & 53.4 & 43.1 & 0.21 & 12.1 & 27.6 & $-$0.39 & 6.9 & 5.2 & 0.07 \\
 \addlinespace
-\multicolumn{16}{l}{\textbf{NIHSS 21--42}}\\
-IVT early & 24.1 & 25.1 & $-$0.29 & 43.1 & 40.8 & 0.05 & 58.6 & 55.8 & 0.06 & 21.3 & 22.1 & $-$0.02 & 7.4 & 8.2 & $-$0.03 \\
-IVT late & 24.8 & 24.9 & $-$0.02 & 45.4 & 39.0 & 0.13 & 58.0 & 57.7 & 0.01 & 18.0 & 28.5 & $-$0.25 & 6.9 & 8.7 & $-$0.07 \\
-MT early & 24.2 & 25.1 & $-$0.23 & 54.5 & 48.4 & 0.12 & 60.4 & 57.8 & 0.05 & 17.7 & 24.7 & $-$0.17 & 13.6 & 10.5 & 0.09 \\
-MT late & 24.1 & 25.1 & $-$0.25 & 52.4 & 47.9 & 0.09 & 54.7 & 53.2 & 0.03 & 21.0 & 23.2 & $-$0.05 & 8.2 & 9.0 & $-$0.03 \\
-MT late (perfusion) & 24.0 & 24.9 & $-$0.23 & 51.3 & 47.2 & 0.08 & 52.3 & 45.2 & 0.14 & 14.5 & 19.0 & $-$0.12 & 8.8 & 7.7 & 0.04 \\
-IVT early + MT early & 24.0 & 24.9 & $-$0.27 & 55.8 & 52.0 & 0.08 & 50.0 & 51.9 & $-$0.04 & 15.0 & 21.6 & $-$0.17 & 5.0 & 5.9 & $-$0.04 \\
-IVT early + MT late & 24.2 & 25.0 & $-$0.21 & 50.5 & 51.1 & $-$0.01 & 53.2 & 52.9 & 0.01 & 17.1 & 21.4 & $-$0.11 & 4.7 & 5.3 & $-$0.03 \\
-IVT early + MT late (perfusion) & 23.8 & 25.3 & $-$0.38 & 55.6 & 51.0 & 0.09 & 53.0 & 53.0 & 0.00 & 14.6 & 21.9 & $-$0.19 & 6.6 & 5.3 & 0.06 \\
-IVT late + MT late & 23.8 & 25.7 & $-$0.53 & 54.1 & 47.7 & 0.13 & 55.0 & 54.1 & 0.02 & 21.1 & 23.9 & $-$0.07 & 2.8 & 5.5 & $-$0.14 \\
-IVT late + MT late (perfusion) & 23.7 & 25.3 & $-$0.43 & 46.5 & 51.7 & $-$0.10 & 50.0 & 48.3 & 0.03 & 10.3 & 22.4 & $-$0.33 & 8.6 & 6.9 & 0.06 \\
+\multicolumn{16}{l}{\textbf{NIHSS 21--25}}\\
+IVT early & 22.7 & 22.8 & $-$0.06 & 44.7 & 42.7 & 0.04 & 58.3 & 56.5 & 0.04 & 21.6 & 22.3 & $-$0.02 & 7.0 & 7.7 & $-$0.03 \\
+IVT late & 22.8 & 22.9 & $-$0.10 & 47.9 & 34.6 & 0.27 & 56.7 & 53.9 & 0.06 & 17.5 & 25.8 & $-$0.20 & 6.0 & 9.2 & $-$0.12 \\
+MT early & 22.9 & 22.8 & 0.07 & 55.6 & 47.9 & 0.15 & 60.7 & 59.5 & 0.02 & 18.0 & 24.6 & $-$0.16 & 15.7 & 10.9 & 0.14 \\
+MT late & 22.7 & 22.7 & 0.01 & 51.6 & 49.4 & 0.04 & 54.6 & 58.4 & $-$0.08 & 19.9 & 24.9 & $-$0.12 & 8.4 & 8.4 & 0.00 \\
+MT late (perfusion) & 22.7 & 22.9 & $-$0.17 & 53.6 & 51.7 & 0.04 & 52.8 & 57.0 & $-$0.08 & 15.5 & 19.6 & $-$0.11 & 10.2 & 8.3 & 0.07 \\
+IVT early + MT early & 22.9 & 22.8 & 0.09 & 56.0 & 49.2 & 0.14 & 50.1 & 52.4 & $-$0.05 & 14.4 & 18.2 & $-$0.10 & 4.7 & 5.1 & $-$0.01 \\
+IVT early + MT late & 22.7 & 22.8 & $-$0.01 & 51.9 & 46.5 & 0.11 & 55.5 & 50.9 & 0.09 & 18.0 & 20.0 & $-$0.05 & 4.4 & 4.6 & $-$0.01 \\
+IVT early + MT late (perfusion) & 22.7 & 22.7 & 0.01 & 56.2 & 52.1 & 0.08 & 51.2 & 45.5 & 0.12 & 13.2 & 18.2 & $-$0.14 & 4.1 & 4.1 & 0.00 \\
+IVT late + MT late & 22.7 & 22.7 & 0.04 & 49.4 & 57.8 & $-$0.17 & 51.8 & 49.4 & 0.05 & 21.7 & 20.5 & 0.03 & 2.4 & 3.6 & $-$0.07 \\
+IVT late + MT late (perfusion) & 23.1 & 22.9 & 0.12 & 43.1 & 49.0 & $-$0.12 & 52.9 & 51.0 & 0.04 & 9.8 & 27.5 & $-$0.46 & 7.8 & 2.0 & 0.27 \\
 \end{longtable}
 \vspace{-0.5\baselineskip}
 \noindent{\scriptsize SMD, standardised mean difference (treated minus untreated, divided by the pooled standard deviation). (perfusion), late treatment with perfusion imaging.}
@@ -193,12 +371,12 @@ MT late (perfusion) & 426 & 131 (30.8) & 116 (27.2) & 3.5 ($-$2.5 to 9.6) & 1.19
 IVT early + MT early & 596 & 357 (59.9) & 153 (25.7) & 34.2 (29.0 to 39.5) & 4.34 (3.29 to 5.74) & $<$0.001 & $<$0.001 \\
 IVT early + MT late & 694 & 309 (44.5) & 190 (27.4) & 17.1 (12.2 to 22.1) & 2.16 (1.71 to 2.72) & $<$0.001 & $<$0.001 \\
 IVT early + MT late (perfusion) & 179 & 71 (39.7) & 58 (32.4) & 7.3 ($-$2.9 to 17.4) & 1.35 (0.88 to 2.07) & 0.198 & 0.655 \\
-IVT late + MT late & 117 & 52 (44.4) & 28 (23.9) & 20.5 (8.7 to 32.3) & 2.60 (1.43 to 4.72) & 0.002 & 0.017 \\
+IVT late + MT late & 117 & 52 (44.4) & 28 (23.9) & 20.5 (8.7 to 32.3) & 2.60 (1.43 to 4.72) & 0.002 & 0.016 \\
 IVT late + MT late (perfusion) & 65 & 31 (47.7) & 22 (33.8) & 13.8 ($-$3.3 to 31.0) & 1.75 (0.86 to 3.56) & 0.164 & 0.655 \\
 \addlinespace
 \multicolumn{8}{l}{\textbf{NIHSS 16--20}}\\
 IVT early & 4,552 & 1,456 (32.0) & 651 (14.3) & 17.7 (16.1 to 19.3) & 3.12 (2.78 to 3.51) & $<$0.001 & $<$0.001 \\
-IVT late & 396 & 97 (24.5) & 63 (15.9) & 8.6 (3.4 to 13.8) & 1.85 (1.26 to 2.72) & 0.002 & 0.018 \\
+IVT late & 396 & 97 (24.5) & 63 (15.9) & 8.6 (3.4 to 13.8) & 1.85 (1.26 to 2.72) & 0.002 & 0.016 \\
 MT early & 405 & 139 (34.3) & 63 (15.6) & 18.8 (13.0 to 24.5) & 2.95 (2.05 to 4.24) & $<$0.001 & $<$0.001 \\
 MT late & 1,067 & 272 (25.5) & 159 (14.9) & 10.6 (7.2 to 13.9) & 1.98 (1.58 to 2.48) & $<$0.001 & $<$0.001 \\
 MT late (perfusion) & 491 & 129 (26.3) & 71 (14.5) & 11.8 (7.0 to 16.6) & 2.23 (1.58 to 3.15) & $<$0.001 & $<$0.001 \\
@@ -208,17 +386,17 @@ IVT early + MT late (perfusion) & 232 & 75 (32.3) & 37 (15.9) & 16.4 (8.5 to 24.
 IVT late + MT late & 137 & 55 (40.1) & 21 (15.3) & 24.8 (15.1 to 34.5) & 4.40 (2.21 to 8.74) & $<$0.001 & $<$0.001 \\
 IVT late + MT late (perfusion) & 58 & 15 (25.9) & 2 (3.4) & 22.4 (10.6 to 34.3) & 14.00 (1.84 to 106.47) & $<$0.001 & 0.011 \\
 \addlinespace
-\multicolumn{8}{l}{\textbf{NIHSS 21--42}}\\
-IVT early & 3,919 & 840 (21.4) & 339 (8.7) & 12.8 (11.3 to 14.3) & 3.04 (2.63 to 3.51) & $<$0.001 & $<$0.001 \\
-IVT late & 333 & 69 (20.7) & 25 (7.5) & 13.2 (8.3 to 18.1) & 3.93 (2.23 to 6.93) & $<$0.001 & $<$0.001 \\
-MT early & 457 & 118 (25.8) & 34 (7.4) & 18.4 (13.7 to 23.1) & 4.36 (2.82 to 6.73) & $<$0.001 & $<$0.001 \\
-MT late & 930 & 143 (15.4) & 70 (7.5) & 7.8 (5.1 to 10.6) & 2.40 (1.74 to 3.32) & $<$0.001 & $<$0.001 \\
-MT late (perfusion) & 352 & 51 (14.5) & 35 (9.9) & 4.5 ($-$0.4 to 9.4) & 1.52 (0.96 to 2.39) & 0.089 & 0.447 \\
-IVT early + MT early & 846 & 266 (31.4) & 69 (8.2) & 23.3 (19.8 to 26.8) & 5.92 (4.24 to 8.28) & $<$0.001 & $<$0.001 \\
-IVT early + MT late & 677 & 137 (20.2) & 49 (7.2) & 13.0 (9.5 to 16.5) & 3.51 (2.41 to 5.12) & $<$0.001 & $<$0.001 \\
-IVT early + MT late (perfusion) & 151 & 28 (18.5) & 12 (7.9) & 10.6 (3.7 to 17.5) & 3.29 (1.41 to 7.66) & 0.006 & 0.043 \\
-IVT late + MT late & 109 & 24 (22.0) & 7 (6.4) & 15.6 (6.3 to 24.9) & 3.83 (1.56 to 9.41) & 0.003 & 0.024 \\
-IVT late + MT late (perfusion) & 58 & 10 (17.2) & 5 (8.6) & 8.6 ($-$3.5 to 20.7) & 2.25 (0.69 to 7.31) & 0.267 & 0.655 \\
+\multicolumn{8}{l}{\textbf{NIHSS 21--25}}\\
+IVT early & 2,863 & 656 (22.9) & 290 (10.1) & 12.8 (11.0 to 14.6) & 2.92 (2.47 to 3.44) & $<$0.001 & $<$0.001 \\
+IVT late & 217 & 51 (23.5) & 17 (7.8) & 15.7 (9.1 to 22.2) & 3.83 (2.03 to 7.24) & $<$0.001 & $<$0.001 \\
+MT early & 338 & 90 (26.6) & 25 (7.4) & 19.2 (13.6 to 24.8) & 4.25 (2.61 to 6.92) & $<$0.001 & $<$0.001 \\
+MT late & 700 & 116 (16.6) & 53 (7.6) & 9.0 (5.6 to 12.4) & 2.47 (1.73 to 3.51) & $<$0.001 & $<$0.001 \\
+MT late (perfusion) & 265 & 36 (13.6) & 20 (7.5) & 6.0 (1.1 to 11.0) & 2.07 (1.12 to 3.83) & 0.027 & 0.189 \\
+IVT early + MT early & 653 & 212 (32.5) & 45 (6.9) & 25.6 (21.6 to 29.6) & 7.42 (4.93 to 11.18) & $<$0.001 & $<$0.001 \\
+IVT early + MT late & 501 & 109 (21.8) & 42 (8.4) & 13.4 (9.0 to 17.7) & 3.03 (2.04 to 4.49) & $<$0.001 & $<$0.001 \\
+IVT early + MT late (perfusion) & 121 & 24 (19.8) & 13 (10.7) & 9.1 (0.2 to 18.0) & 2.10 (0.99 to 4.46) & 0.072 & 0.362 \\
+IVT late + MT late & 83 & 19 (22.9) & 4 (4.8) & 18.1 (7.9 to 28.2) & 6.00 (1.77 to 20.37) & 0.001 & 0.015 \\
+IVT late + MT late (perfusion) & 51 & 6 (11.8) & 5 (9.8) & 2.0 ($-$10.9 to 14.8) & 1.20 (0.37 to 3.93) & 1.000 & 1.000 \\
 \end{longtable}
 \vspace{-0.5\baselineskip}
 \noindent{\scriptsize Good outcome is discharge mRS $\le$ 2 or no worse than pre-stroke mRS; higher is better. Difference is treated minus untreated, in percentage points (pp). Matched odds ratio (OR) is calculated from discordant pairs. $p$-values are from McNemar's test; Holm adjustment is across trial groups. (perfusion), late treatment with perfusion imaging. Trial groups with no treated patients (IVT late (perfusion) in every NIHSS band) are not shown.}
@@ -247,7 +425,7 @@ Treatment & Pairs & Treated, n (\%) & Untreated, n (\%) & Difference, pp (95\% C
 \endlastfoot
 \multicolumn{8}{l}{\textbf{NIHSS 1--5}}\\
 IVT early & 12,954 & 260 (2.0) & 160 (1.2) & 0.8 (0.5 to 1.1) & 1.65 (1.35 to 2.01) & $<$0.001 & $<$0.001 \\
-IVT late & 1,440 & 41 (2.8) & 14 (1.0) & 1.9 (0.9 to 2.8) & 3.25 (1.70 to 6.21) & $<$0.001 & 0.005 \\
+IVT late & 1,440 & 41 (2.8) & 14 (1.0) & 1.9 (0.9 to 2.8) & 3.25 (1.70 to 6.21) & $<$0.001 & 0.006 \\
 \addlinespace
 \multicolumn{8}{l}{\textbf{NIHSS 6--10}}\\
 IVT early & 13,618 & 578 (4.2) & 683 (5.0) & $-$0.8 ($-$1.3 to $-$0.3) & 0.84 (0.75 to 0.94) & 0.003 & 0.035 \\
@@ -255,12 +433,12 @@ IVT late & 1,478 & 75 (5.1) & 71 (4.8) & 0.3 ($-$1.3 to 1.8) & 1.06 (0.76 to 1.4
 \addlinespace
 \multicolumn{8}{l}{\textbf{NIHSS 11--15}}\\
 IVT early & 6,277 & 639 (10.2) & 920 (14.7) & $-$4.5 ($-$5.6 to $-$3.4) & 0.63 (0.57 to 0.71) & $<$0.001 & $<$0.001 \\
-IVT late & 643 & 58 (9.0) & 90 (14.0) & $-$5.0 ($-$8.5 to $-$1.5) & 0.61 (0.43 to 0.87) & 0.007 & 0.096 \\
+IVT late & 643 & 58 (9.0) & 90 (14.0) & $-$5.0 ($-$8.5 to $-$1.5) & 0.61 (0.43 to 0.87) & 0.007 & 0.089 \\
 MT early & 281 & 35 (12.5) & 38 (13.5) & $-$1.1 ($-$6.4 to 4.3) & 0.90 (0.54 to 1.51) & 0.795 & 1.000 \\
-MT late & 944 & 86 (9.1) & 121 (12.8) & $-$3.7 ($-$6.4 to $-$1.0) & 0.66 (0.49 to 0.90) & 0.010 & 0.117 \\
+MT late & 944 & 86 (9.1) & 121 (12.8) & $-$3.7 ($-$6.4 to $-$1.0) & 0.66 (0.49 to 0.90) & 0.010 & 0.107 \\
 MT late (perfusion) & 426 & 48 (11.3) & 52 (12.2) & $-$0.9 ($-$5.4 to 3.5) & 0.92 (0.61 to 1.38) & 0.754 & 1.000 \\
 IVT early + MT early & 596 & 22 (3.7) & 73 (12.2) & $-$8.6 ($-$11.5 to $-$5.6) & 0.26 (0.16 to 0.44) & $<$0.001 & $<$0.001 \\
-IVT early + MT late & 694 & 33 (4.8) & 71 (10.2) & $-$5.5 ($-$8.2 to $-$2.7) & 0.43 (0.28 to 0.67) & $<$0.001 & 0.003 \\
+IVT early + MT late & 694 & 33 (4.8) & 71 (10.2) & $-$5.5 ($-$8.2 to $-$2.7) & 0.43 (0.28 to 0.67) & $<$0.001 & 0.004 \\
 IVT early + MT late (perfusion) & 179 & 13 (7.3) & 20 (11.2) & $-$3.9 ($-$9.8 to 2.0) & 0.61 (0.29 to 1.29) & 0.265 & 1.000 \\
 IVT late + MT late & 117 & 6 (5.1) & 9 (7.7) & $-$2.6 ($-$8.6 to 3.5) & 0.62 (0.20 to 1.91) & 0.581 & 1.000 \\
 IVT late + MT late (perfusion) & 65 & 4 (6.2) & 9 (13.8) & $-$7.7 ($-$18.5 to 3.1) & 0.44 (0.14 to 1.44) & 0.267 & 1.000 \\
@@ -268,7 +446,7 @@ IVT late + MT late (perfusion) & 65 & 4 (6.2) & 9 (13.8) & $-$7.7 ($-$18.5 to 3.
 \multicolumn{8}{l}{\textbf{NIHSS 16--20}}\\
 IVT early & 4,552 & 965 (21.2) & 1,281 (28.1) & $-$6.9 ($-$8.7 to $-$5.2) & 0.67 (0.61 to 0.74) & $<$0.001 & $<$0.001 \\
 IVT late & 396 & 86 (21.7) & 114 (28.8) & $-$7.1 ($-$12.8 to $-$1.4) & 0.65 (0.46 to 0.93) & 0.020 & 0.197 \\
-MT early & 405 & 64 (15.8) & 103 (25.4) & $-$9.6 ($-$14.9 to $-$4.3) & 0.52 (0.36 to 0.75) & $<$0.001 & 0.011 \\
+MT early & 405 & 64 (15.8) & 103 (25.4) & $-$9.6 ($-$14.9 to $-$4.3) & 0.52 (0.36 to 0.75) & $<$0.001 & 0.012 \\
 MT late & 1,067 & 183 (17.2) & 269 (25.2) & $-$8.1 ($-$11.4 to $-$4.7) & 0.59 (0.47 to 0.74) & $<$0.001 & $<$0.001 \\
 MT late (perfusion) & 491 & 83 (16.9) & 123 (25.1) & $-$8.1 ($-$13.1 to $-$3.2) & 0.60 (0.43 to 0.82) & 0.002 & 0.029 \\
 IVT early + MT early & 913 & 87 (9.5) & 200 (21.9) & $-$12.4 ($-$15.6 to $-$9.2) & 0.35 (0.27 to 0.47) & $<$0.001 & $<$0.001 \\
@@ -277,17 +455,17 @@ IVT early + MT late (perfusion) & 232 & 28 (12.1) & 56 (24.1) & $-$12.1 ($-$18.9
 IVT late + MT late & 137 & 12 (8.8) & 33 (24.1) & $-$15.3 ($-$23.7 to $-$7.0) & 0.28 (0.13 to 0.60) & 0.001 & 0.017 \\
 IVT late + MT late (perfusion) & 58 & 9 (15.5) & 14 (24.1) & $-$8.6 ($-$19.7 to 2.5) & 0.38 (0.10 to 1.41) & 0.227 & 1.000 \\
 \addlinespace
-\multicolumn{8}{l}{\textbf{NIHSS 21--42}}\\
-IVT early & 3,919 & 1,384 (35.3) & 1,857 (47.4) & $-$12.1 ($-$14.1 to $-$10.0) & 0.58 (0.52 to 0.64) & $<$0.001 & $<$0.001 \\
-IVT late & 333 & 131 (39.3) & 154 (46.2) & $-$6.9 ($-$14.3 to 0.4) & 0.74 (0.54 to 1.02) & 0.079 & 0.633 \\
-MT early & 457 & 115 (25.2) & 198 (43.3) & $-$18.2 ($-$23.8 to $-$12.5) & 0.39 (0.28 to 0.54) & $<$0.001 & $<$0.001 \\
-MT late & 930 & 264 (28.4) & 407 (43.8) & $-$15.4 ($-$19.5 to $-$11.2) & 0.48 (0.39 to 0.59) & $<$0.001 & $<$0.001 \\
-MT late (perfusion) & 352 & 77 (21.9) & 135 (38.4) & $-$16.5 ($-$22.9 to $-$10.0) & 0.43 (0.30 to 0.61) & $<$0.001 & $<$0.001 \\
-IVT early + MT early & 846 & 162 (19.1) & 342 (40.4) & $-$21.3 ($-$25.3 to $-$17.2) & 0.31 (0.24 to 0.40) & $<$0.001 & $<$0.001 \\
-IVT early + MT late & 677 & 148 (21.9) & 286 (42.2) & $-$20.4 ($-$25.2 to $-$15.6) & 0.37 (0.29 to 0.48) & $<$0.001 & $<$0.001 \\
-IVT early + MT late (perfusion) & 151 & 26 (17.2) & 62 (41.1) & $-$23.8 ($-$33.5 to $-$14.1) & 0.28 (0.15 to 0.51) & $<$0.001 & $<$0.001 \\
-IVT late + MT late & 109 & 22 (20.2) & 39 (35.8) & $-$15.6 ($-$27.9 to $-$3.3) & 0.48 (0.27 to 0.88) & 0.022 & 0.200 \\
-IVT late + MT late (perfusion) & 58 & 8 (13.8) & 21 (36.2) & $-$22.4 ($-$37.7 to $-$7.1) & 0.28 (0.10 to 0.75) & 0.011 & 0.117 \\
+\multicolumn{8}{l}{\textbf{NIHSS 21--25}}\\
+IVT early & 2,863 & 929 (32.4) & 1,213 (42.4) & $-$9.9 ($-$12.3 to $-$7.5) & 0.63 (0.56 to 0.70) & $<$0.001 & $<$0.001 \\
+IVT late & 217 & 76 (35.0) & 82 (37.8) & $-$2.8 ($-$11.7 to 6.2) & 0.88 (0.59 to 1.32) & 0.614 & 1.000 \\
+MT early & 338 & 86 (25.4) & 148 (43.8) & $-$18.3 ($-$25.3 to $-$11.4) & 0.43 (0.31 to 0.61) & $<$0.001 & $<$0.001 \\
+MT late & 700 & 192 (27.4) & 253 (36.1) & $-$8.7 ($-$13.5 to $-$4.0) & 0.65 (0.52 to 0.83) & $<$0.001 & 0.009 \\
+MT late (perfusion) & 265 & 56 (21.1) & 103 (38.9) & $-$17.7 ($-$24.8 to $-$10.7) & 0.36 (0.23 to 0.56) & $<$0.001 & $<$0.001 \\
+IVT early + MT early & 653 & 116 (17.8) & 239 (36.6) & $-$18.8 ($-$23.4 to $-$14.3) & 0.34 (0.26 to 0.45) & $<$0.001 & $<$0.001 \\
+IVT early + MT late & 501 & 98 (19.6) & 194 (38.7) & $-$19.2 ($-$24.4 to $-$13.9) & 0.35 (0.26 to 0.48) & $<$0.001 & $<$0.001 \\
+IVT early + MT late (perfusion) & 121 & 19 (15.7) & 43 (35.5) & $-$19.8 ($-$30.3 to $-$9.4) & 0.31 (0.16 to 0.62) & $<$0.001 & 0.013 \\
+IVT late + MT late & 83 & 16 (19.3) & 32 (38.6) & $-$19.3 ($-$31.6 to $-$7.0) & 0.30 (0.13 to 0.71) & 0.006 & 0.080 \\
+IVT late + MT late (perfusion) & 51 & 8 (15.7) & 16 (31.4) & $-$15.7 ($-$32.5 to 1.1) & 0.43 (0.16 to 1.12) & 0.115 & 1.000 \\
 \end{longtable}
 \vspace{-0.5\baselineskip}
 \noindent{\scriptsize Lower is better. Difference is treated minus untreated, in percentage points (pp). Matched odds ratio (OR) is calculated from discordant pairs. $p$-values are from McNemar's test; Holm adjustment is across trial groups. (perfusion), late treatment with perfusion imaging. Trial groups with no treated patients (IVT late (perfusion) in every NIHSS band) are not shown.}
@@ -336,7 +514,7 @@ IVT early + MT early & 596 & 2.28 (1.53) & 2 [1--3] & 3.45 (1.56) & 4 [2--4] & $
 IVT early + MT late & 694 & 2.78 (1.47) & 3 [2--4] & 3.32 (1.47) & 3 [2--4] & $-$0.55 ($-$0.70 to $-$0.39) & $<$0.001 & $<$0.001 \\
 IVT early + MT late (perfusion) & 179 & 2.98 (1.64) & 3 [2--4] & 3.21 (1.58) & 3 [2--4] & $-$0.23 ($-$0.57 to 0.11) & 0.147 & 0.442 \\
 IVT late + MT late & 117 & 2.85 (1.47) & 3 [2--4] & 3.41 (1.38) & 4 [3--4] & $-$0.56 ($-$0.91 to $-$0.22) & 0.002 & 0.009 \\
-IVT late + MT late (perfusion) & 65 & 2.58 (1.67) & 3 [1--4] & 3.38 (1.65) & 4 [2--4] & $-$0.80 ($-$1.37 to $-$0.23) & 0.005 & 0.020 \\
+IVT late + MT late (perfusion) & 65 & 2.58 (1.67) & 3 [1--4] & 3.38 (1.65) & 4 [2--4] & $-$0.80 ($-$1.37 to $-$0.23) & 0.005 & 0.025 \\
 \addlinespace
 \multicolumn{9}{l}{\textbf{NIHSS 16--20}}\\
 IVT early & 4,552 & 3.70 (1.75) & 4 [3--5] & 4.39 (1.43) & 4 [4--6] & $-$0.69 ($-$0.75 to $-$0.63) & $<$0.001 & $<$0.001 \\
@@ -350,17 +528,17 @@ IVT early + MT late (perfusion) & 232 & 3.33 (1.63) & 4 [2--4] & 4.09 (1.56) & 4
 IVT late + MT late & 137 & 3.17 (1.65) & 3 [2--4] & 4.09 (1.54) & 4 [3--5] & $-$0.92 ($-$1.26 to $-$0.58) & $<$0.001 & $<$0.001 \\
 IVT late + MT late (perfusion) & 58 & 3.43 (1.80) & 3.5 [2.25--5] & 4.48 (1.10) & 4 [4--5] & $-$1.05 ($-$1.50 to $-$0.60) & $<$0.001 & $<$0.001 \\
 \addlinespace
-\multicolumn{9}{l}{\textbf{NIHSS 21--42}}\\
-IVT early & 3,919 & 4.34 (1.67) & 5 [3--6] & 4.94 (1.29) & 5 [4--6] & $-$0.60 ($-$0.66 to $-$0.54) & $<$0.001 & $<$0.001 \\
-IVT late & 333 & 4.43 (1.68) & 5 [3--6] & 5.00 (1.17) & 5 [4--6] & $-$0.57 ($-$0.78 to $-$0.36) & $<$0.001 & $<$0.001 \\
-MT early & 457 & 3.79 (1.70) & 4 [3--6] & 4.83 (1.33) & 5 [4--6] & $-$1.04 ($-$1.23 to $-$0.84) & $<$0.001 & $<$0.001 \\
-MT late & 930 & 4.20 (1.53) & 4 [3--6] & 4.81 (1.37) & 5 [4--6] & $-$0.61 ($-$0.73 to $-$0.49) & $<$0.001 & $<$0.001 \\
-MT late (perfusion) & 352 & 4.06 (1.48) & 4 [3--5] & 4.60 (1.49) & 5 [4--6] & $-$0.54 ($-$0.75 to $-$0.33) & $<$0.001 & $<$0.001 \\
-IVT early + MT early & 846 & 3.43 (1.76) & 3 [2--5] & 4.73 (1.38) & 5 [4--6] & $-$1.30 ($-$1.43 to $-$1.16) & $<$0.001 & $<$0.001 \\
-IVT early + MT late & 677 & 3.85 (1.60) & 4 [3--5] & 4.74 (1.40) & 5 [4--6] & $-$0.89 ($-$1.04 to $-$0.74) & $<$0.001 & $<$0.001 \\
-IVT early + MT late (perfusion) & 151 & 3.82 (1.51) & 4 [3--5] & 4.63 (1.44) & 5 [4--6] & $-$0.81 ($-$1.11 to $-$0.51) & $<$0.001 & $<$0.001 \\
-IVT late + MT late & 109 & 3.76 (1.60) & 4 [3--5] & 4.65 (1.37) & 5 [4--6] & $-$0.89 ($-$1.27 to $-$0.51) & $<$0.001 & $<$0.001 \\
-IVT late + MT late (perfusion) & 58 & 3.81 (1.67) & 4 [3--5] & 4.64 (1.40) & 5 [4--6] & $-$0.83 ($-$1.36 to $-$0.30) & 0.003 & 0.013 \\
+\multicolumn{9}{l}{\textbf{NIHSS 21--25}}\\
+IVT early & 2,863 & 4.23 (1.69) & 4 [3--6] & 4.82 (1.32) & 5 [4--6] & $-$0.59 ($-$0.66 to $-$0.51) & $<$0.001 & $<$0.001 \\
+IVT late & 217 & 4.29 (1.71) & 5 [3--6] & 4.75 (1.28) & 5 [4--6] & $-$0.46 ($-$0.73 to $-$0.19) & 0.001 & 0.007 \\
+MT early & 338 & 3.77 (1.71) & 4 [2--6] & 4.80 (1.34) & 5 [4--6] & $-$1.03 ($-$1.25 to $-$0.80) & $<$0.001 & $<$0.001 \\
+MT late & 700 & 4.15 (1.55) & 4 [3--6] & 4.62 (1.38) & 5 [4--6] & $-$0.47 ($-$0.61 to $-$0.32) & $<$0.001 & $<$0.001 \\
+MT late (perfusion) & 265 & 4.10 (1.40) & 4 [3--5] & 4.68 (1.41) & 5 [4--6] & $-$0.58 ($-$0.80 to $-$0.36) & $<$0.001 & $<$0.001 \\
+IVT early + MT early & 653 & 3.35 (1.76) & 3 [2--5] & 4.66 (1.34) & 5 [4--6] & $-$1.32 ($-$1.48 to $-$1.15) & $<$0.001 & $<$0.001 \\
+IVT early + MT late & 501 & 3.77 (1.60) & 4 [3--5] & 4.64 (1.42) & 5 [4--6] & $-$0.88 ($-$1.05 to $-$0.70) & $<$0.001 & $<$0.001 \\
+IVT early + MT late (perfusion) & 121 & 3.74 (1.48) & 4 [3--5] & 4.53 (1.48) & 5 [4--6] & $-$0.79 ($-$1.17 to $-$0.42) & $<$0.001 & $<$0.001 \\
+IVT late + MT late & 83 & 3.71 (1.64) & 4 [3--5] & 4.73 (1.36) & 5 [4--6] & $-$1.02 ($-$1.47 to $-$0.58) & $<$0.001 & $<$0.001 \\
+IVT late + MT late (perfusion) & 51 & 4.02 (1.50) & 4 [3--5] & 4.59 (1.31) & 5 [4--6] & $-$0.57 ($-$1.13 to $-$0.01) & 0.062 & 0.247 \\
 \end{longtable}
 \vspace{-0.5\baselineskip}
 \noindent{\scriptsize mRS at discharge (0--6, where 6 is death); lower is better. Mean difference is treated minus untreated within matched pairs. SD, standard deviation; IQR, interquartile range. $p$-values are from the Wilcoxon signed-rank test; Holm adjustment is across trial groups. (perfusion), late treatment with perfusion imaging. Trial groups with no treated patients (IVT late (perfusion) in every NIHSS band) are not shown.}
@@ -403,7 +581,7 @@ IVT late & 1,478 & 19.0 (27.3) & 7 [3--24] & 24.7 (31.7) & 13 [4--33.75] & $-$5.
 IVT early & 6,274 & 24.4 (32.2) & 11 [4--34] & 37.1 (37.8) & 25 [9--54] & $-$12.7 ($-$13.9 to $-$11.4) & $<$0.001 & $<$0.001 \\
 IVT late & 643 & 31.3 (38.4) & 17 [5--46] & 40.0 (38.7) & 28 [10--58.5] & $-$8.7 ($-$13.0 to $-$4.4) & $<$0.001 & $<$0.001 \\
 MT early & 281 & 22.8 (30.0) & 10 [5--30] & 35.0 (39.5) & 21 [8--53] & $-$12.2 ($-$17.9 to $-$6.4) & $<$0.001 & $<$0.001 \\
-MT late & 944 & 33.6 (37.4) & 19.5 [6--50] & 38.3 (39.3) & 25 [8--58] & $-$4.6 ($-$8.1 to $-$1.2) & 0.018 & 0.267 \\
+MT late & 944 & 33.6 (37.4) & 19.5 [6--50] & 38.3 (39.3) & 25 [8--58] & $-$4.6 ($-$8.1 to $-$1.2) & 0.018 & 0.321 \\
 MT late (perfusion) & 426 & 38.2 (39.7) & 26 [8--54.75] & 36.6 (41.6) & 23 [8--54.75] & 1.7 ($-$3.5 to 6.8) & 0.291 & 1.000 \\
 IVT early + MT early & 596 & 20.5 (32.1) & 6 [3--22] & 39.0 (41.4) & 25.5 [8--57] & $-$18.6 ($-$22.7 to $-$14.4) & $<$0.001 & $<$0.001 \\
 IVT early + MT late & 694 & 30.3 (37.5) & 15 [5--41.75] & 37.8 (39.9) & 25 [10--53] & $-$7.5 ($-$11.5 to $-$3.5) & $<$0.001 & $<$0.001 \\
@@ -415,25 +593,25 @@ IVT late + MT late (perfusion) & 65 & 36.6 (51.9) & 13 [5--58] & 37.5 (31.4) & 3
 IVT early & 4,552 & 29.6 (35.3) & 15 [5--44] & 41.6 (41.1) & 30 [10--61] & $-$12.0 ($-$13.5 to $-$10.4) & $<$0.001 & $<$0.001 \\
 IVT late & 396 & 36.7 (39.0) & 24.5 [7--55] & 40.5 (40.0) & 29 [10--60] & $-$3.8 ($-$9.4 to 1.8) & 0.152 & 1.000 \\
 MT early & 405 & 32.9 (34.5) & 19 [6--53] & 42.1 (38.1) & 31 [12--61] & $-$9.2 ($-$14.2 to $-$4.2) & $<$0.001 & 0.002 \\
-MT late & 1,066 & 39.4 (37.6) & 30 [9--59] & 45.0 (42.8) & 35 [10--65.75] & $-$5.5 ($-$9.0 to $-$2.1) & 0.005 & 0.103 \\
+MT late & 1,066 & 39.4 (37.6) & 30 [9--59] & 45.0 (42.8) & 35 [10--65.75] & $-$5.5 ($-$9.0 to $-$2.1) & 0.005 & 0.108 \\
 MT late (perfusion) & 491 & 44.9 (42.6) & 35 [11.5--67] & 45.0 (42.9) & 37 [11--68] & $-$0.1 ($-$5.5 to 5.4) & 0.949 & 1.000 \\
 IVT early + MT early & 913 & 29.3 (41.2) & 13 [4--41] & 47.3 (42.7) & 39 [11--70] & $-$18.1 ($-$21.9 to $-$14.3) & $<$0.001 & $<$0.001 \\
 IVT early + MT late & 882 & 38.7 (38.5) & 25 [8--60] & 50.1 (43.8) & 42 [13--75.75] & $-$11.4 ($-$15.4 to $-$7.4) & $<$0.001 & $<$0.001 \\
-IVT early + MT late (perfusion) & 232 & 38.4 (39.4) & 21 [9--57.25] & 46.1 (40.1) & 37 [13--68.25] & $-$7.7 ($-$14.8 to $-$0.5) & 0.016 & 0.254 \\
+IVT early + MT late (perfusion) & 232 & 38.4 (39.4) & 21 [9--57.25] & 46.1 (40.1) & 37 [13--68.25] & $-$7.7 ($-$14.8 to $-$0.5) & 0.016 & 0.302 \\
 IVT late + MT late & 137 & 39.3 (43.7) & 18 [6--66] & 39.5 (40.4) & 28 [7--58] & $-$0.2 ($-$9.3 to 8.9) & 0.857 & 1.000 \\
-IVT late + MT late (perfusion) & 58 & 35.7 (37.9) & 22 [8.25--50] & 56.0 (47.5) & 48.5 [17.25--83.75] & $-$20.3 ($-$37.3 to $-$3.3) & 0.025 & 0.350 \\
+IVT late + MT late (perfusion) & 58 & 35.7 (37.9) & 22 [8.25--50] & 56.0 (47.5) & 48.5 [17.25--83.75] & $-$20.3 ($-$37.3 to $-$3.3) & 0.025 & 0.425 \\
 \addlinespace
-\multicolumn{9}{l}{\textbf{NIHSS 21--42}}\\
-IVT early & 3,919 & 30.4 (38.0) & 15 [5--43] & 34.5 (39.8) & 18 [6--51] & $-$4.0 ($-$5.7 to $-$2.4) & $<$0.001 & $<$0.001 \\
-IVT late & 333 & 29.3 (36.0) & 13 [5--40] & 38.2 (42.8) & 19 [6--60] & $-$8.9 ($-$15.0 to $-$2.8) & 0.008 & 0.135 \\
-MT early & 457 & 37.9 (42.4) & 25 [7--56] & 40.1 (47.8) & 26 [6--58] & $-$2.2 ($-$7.9 to 3.5) & 0.687 & 1.000 \\
-MT late & 930 & 47.9 (44.9) & 35 [12--74] & 37.7 (43.0) & 21 [6--55.75] & 10.2 (6.2 to 14.2) & $<$0.001 & $<$0.001 \\
-MT late (perfusion) & 352 & 50.8 (46.2) & 39.5 [13.75--72] & 43.3 (52.2) & 22.5 [6--65.5] & 7.4 (0.1 to 14.8) & 0.007 & 0.129 \\
-IVT early + MT early & 846 & 34.6 (39.7) & 17.5 [6--54] & 44.2 (48.8) & 30 [7--66.75] & $-$9.6 ($-$13.8 to $-$5.4) & $<$0.001 & $<$0.001 \\
-IVT early + MT late & 677 & 41.3 (45.9) & 28 [9--58] & 42.9 (42.2) & 32 [8--65] & $-$1.6 ($-$6.2 to 3.0) & 0.371 & 1.000 \\
-IVT early + MT late (perfusion) & 151 & 46.3 (39.6) & 37 [9.5--72] & 39.1 (41.2) & 26 [6.5--55.5] & 7.2 ($-$2.4 to 16.8) & 0.090 & 1.000 \\
-IVT late + MT late & 109 & 44.7 (41.2) & 34 [11--65] & 41.0 (42.7) & 28 [6--66] & 3.7 ($-$7.2 to 14.6) & 0.661 & 1.000 \\
-IVT late + MT late (perfusion) & 58 & 43.1 (36.1) & 32.5 [11.5--74.5] & 52.3 (54.6) & 42 [6--74.5] & $-$9.2 ($-$25.8 to 7.4) & 0.334 & 1.000 \\
+\multicolumn{9}{l}{\textbf{NIHSS 21--25}}\\
+IVT early & 2,863 & 31.1 (38.4) & 16 [5--44] & 37.8 (40.6) & 23 [7--57] & $-$6.7 ($-$8.7 to $-$4.7) & $<$0.001 & $<$0.001 \\
+IVT late & 217 & 30.6 (35.7) & 15 [6--44] & 38.1 (39.9) & 22 [8--59] & $-$7.6 ($-$14.9 to $-$0.3) & 0.026 & 0.425 \\
+MT early & 338 & 35.8 (36.7) & 23.5 [7--55] & 38.4 (37.8) & 27.5 [8.25--59.75] & $-$2.6 ($-$8.3 to 3.1) & 0.249 & 1.000 \\
+MT late & 700 & 48.5 (46.2) & 35 [12--74] & 45.0 (45.8) & 31.5 [9--67] & 3.5 ($-$1.4 to 8.3) & 0.107 & 1.000 \\
+MT late (perfusion) & 265 & 51.0 (46.1) & 40 [15--71] & 46.9 (49.4) & 33 [9--72] & 4.1 ($-$3.6 to 11.8) & 0.116 & 1.000 \\
+IVT early + MT early & 653 & 33.1 (38.6) & 17 [6--50] & 47.0 (47.6) & 36 [8--70] & $-$13.9 ($-$18.6 to $-$9.2) & $<$0.001 & $<$0.001 \\
+IVT early + MT late & 501 & 42.2 (48.2) & 28 [9--61] & 43.9 (43.8) & 30 [9--65] & $-$1.8 ($-$7.3 to 3.7) & 0.425 & 1.000 \\
+IVT early + MT late (perfusion) & 121 & 45.4 (40.0) & 36 [9--72] & 52.2 (53.8) & 33 [9--76] & $-$6.8 ($-$18.9 to 5.2) & 0.518 & 1.000 \\
+IVT late + MT late & 83 & 43.1 (40.6) & 32 [10--64] & 47.3 (48.9) & 31 [8.5--74] & $-$4.3 ($-$18.9 to 10.4) & 0.572 & 1.000 \\
+IVT late + MT late (perfusion) & 51 & 45.0 (36.7) & 38 [13.5--76.5] & 41.8 (46.4) & 28 [6.5--59.5] & 3.2 ($-$13.8 to 20.2) & 0.636 & 1.000 \\
 \end{longtable}
 \vspace{-0.5\baselineskip}
 \noindent{\scriptsize Length of stay in days, including patients who died in hospital. Mean difference is treated minus untreated within matched pairs. SD, standard deviation; IQR, interquartile range. $p$-values are from the Wilcoxon signed-rank test; Holm adjustment is across trial groups. (perfusion), late treatment with perfusion imaging. Trial groups with no treated patients (IVT late (perfusion) in every NIHSS band) are not shown.}
@@ -463,7 +641,7 @@ Treatment & Pairs & Arm & \makecell{Home} & \makecell{Community team /\\ ESD} & 
 \multicolumn{10}{l}{\textbf{NIHSS 1--5}}\\
 IVT early & 12,952 & Treated & 41.3 & 52.6 & 1.7 & 1.6 & 0.8 & 2.0 & $<$0.001 \\*
  & & Untreated & 35.1 & 58.6 & 2.2 & 1.9 & 0.9 & 1.2 & \\[2pt]
-IVT late & 1,440 & Treated & 35.1 & 58.3 & 1.7 & 1.2 & 0.8 & 2.8 & 0.018 \\*
+IVT late & 1,440 & Treated & 35.1 & 58.3 & 1.7 & 1.2 & 0.8 & 2.8 & 0.021 \\*
  & & Untreated & 37.8 & 56.0 & 2.2 & 1.9 & 1.1 & 1.0 & \\[2pt]
 \addlinespace
 \multicolumn{10}{l}{\textbf{NIHSS 6--10}}\\
@@ -477,7 +655,7 @@ IVT early & 6,277 & Treated & 22.5 & 54.0 & 4.7 & 6.9 & 1.6 & 10.2 & $<$0.001 \\
  & & Untreated & 14.8 & 50.2 & 7.7 & 10.3 & 2.4 & 14.7 & \\[2pt]
 IVT late & 643 & Treated & 17.3 & 59.7 & 6.7 & 5.9 & 1.4 & 9.0 & 0.001 \\*
  & & Untreated & 17.6 & 47.9 & 7.8 & 9.5 & 3.3 & 14.0 & \\[2pt]
-MT early & 281 & Treated & 22.8 & 56.9 & 4.3 & 1.1 & 2.5 & 12.5 & 0.152 \\*
+MT early & 281 & Treated & 22.8 & 56.9 & 4.3 & 1.1 & 2.5 & 12.5 & 0.203 \\*
  & & Untreated & 19.2 & 51.2 & 8.2 & 5.3 & 2.5 & 13.5 & \\[2pt]
 MT late & 944 & Treated & 16.8 & 61.1 & 6.2 & 4.3 & 2.3 & 9.1 & 0.013 \\*
  & & Untreated & 17.5 & 52.2 & 7.2 & 6.6 & 3.7 & 12.8 & \\[2pt]
@@ -491,7 +669,7 @@ IVT early + MT late (perfusion) & 179 & Treated & 20.7 & 60.9 & 6.7 & 2.8 & 1.7 
  & & Untreated & 14.5 & 64.2 & 3.9 & 3.9 & 2.2 & 11.2 & \\[2pt]
 IVT late + MT late & 117 & Treated & 12.8 & 70.9 & 6.8 & 1.7 & 2.6 & 5.1 & 0.409 \\*
  & & Untreated & 14.5 & 57.3 & 8.5 & 9.4 & 2.6 & 7.7 & \\[2pt]
-IVT late + MT late (perfusion) & 65 & Treated & 18.5 & 60.0 & 4.6 & 9.2 & 1.5 & 6.2 & 0.295 \\*
+IVT late + MT late (perfusion) & 65 & Treated & 18.5 & 60.0 & 4.6 & 9.2 & 1.5 & 6.2 & 0.369 \\*
  & & Untreated & 13.8 & 49.2 & 13.8 & 4.6 & 4.6 & 13.8 & \\[2pt]
 \addlinespace
 \multicolumn{10}{l}{\textbf{NIHSS 16--20}}\\
@@ -513,31 +691,227 @@ IVT early + MT late (perfusion) & 232 & Treated & 12.9 & 59.5 & 9.5 & 4.7 & 1.3 
  & & Untreated & 10.8 & 43.5 & 8.2 & 9.9 & 3.4 & 24.1 & \\[2pt]
 IVT late + MT late & 137 & Treated & 13.9 & 55.5 & 13.9 & 6.6 & 1.5 & 8.8 & 0.005 \\*
  & & Untreated & 7.3 & 38.0 & 15.3 & 10.2 & 5.1 & 24.1 & \\[2pt]
-IVT late + MT late (perfusion) & 58 & Treated & 12.1 & 56.9 & 12.1 & 1.7 & 1.7 & 15.5 & 0.294 \\*
+IVT late + MT late (perfusion) & 58 & Treated & 12.1 & 56.9 & 12.1 & 1.7 & 1.7 & 15.5 & 0.353 \\*
  & & Untreated & 8.6 & 31.0 & 20.7 & 12.1 & 3.4 & 24.1 & \\[2pt]
 \addlinespace
-\multicolumn{10}{l}{\textbf{NIHSS 21--42}}\\
-IVT early & 3,919 & Treated & 12.2 & 33.1 & 5.4 & 11.7 & 2.3 & 35.3 & $<$0.001 \\*
- & & Untreated & 6.7 & 24.0 & 6.1 & 13.0 & 2.8 & 47.4 & \\[2pt]
-IVT late & 333 & Treated & 9.3 & 35.1 & 5.1 & 9.9 & 1.2 & 39.3 & 0.014 \\*
- & & Untreated & 7.2 & 22.8 & 7.5 & 13.8 & 2.4 & 46.2 & \\[2pt]
-MT early & 457 & Treated & 9.8 & 47.9 & 8.3 & 6.6 & 2.2 & 25.2 & $<$0.001 \\*
- & & Untreated & 8.3 & 23.2 & 8.3 & 12.9 & 3.9 & 43.3 & \\[2pt]
-MT late & 930 & Treated & 8.2 & 45.2 & 7.3 & 8.4 & 2.6 & 28.4 & $<$0.001 \\*
- & & Untreated & 6.6 & 26.6 & 7.8 & 12.5 & 2.8 & 43.8 & \\[2pt]
-MT late (perfusion) & 352 & Treated & 6.2 & 52.0 & 7.7 & 7.7 & 4.5 & 21.9 & $<$0.001 \\*
- & & Untreated & 7.1 & 26.4 & 12.2 & 10.2 & 5.7 & 38.4 & \\[2pt]
-IVT early + MT early & 846 & Treated & 11.6 & 55.4 & 6.3 & 5.6 & 2.0 & 19.1 & $<$0.001 \\*
- & & Untreated & 7.7 & 26.8 & 9.3 & 12.4 & 3.3 & 40.4 & \\[2pt]
-IVT early + MT late & 677 & Treated & 14.0 & 47.7 & 8.1 & 5.8 & 2.5 & 21.9 & $<$0.001 \\*
- & & Untreated & 6.1 & 28.7 & 8.1 & 11.1 & 3.8 & 42.2 & \\[2pt]
-IVT early + MT late (perfusion) & 151 & Treated & 7.9 & 55.6 & 7.3 & 7.9 & 4.0 & 17.2 & $<$0.001 \\*
- & & Untreated & 6.0 & 31.8 & 11.9 & 5.3 & 4.0 & 41.1 & \\[2pt]
-IVT late + MT late & 109 & Treated & 12.8 & 53.2 & 9.2 & 4.6 & 0.0 & 20.2 & 0.018 \\*
- & & Untreated & 10.1 & 30.3 & 9.2 & 11.9 & 2.8 & 35.8 & \\[2pt]
-IVT late + MT late (perfusion) & 58 & Treated & 12.1 & 48.3 & 12.1 & 12.1 & 1.7 & 13.8 & 0.076 \\*
- & & Untreated & 5.2 & 24.1 & 8.6 & 20.7 & 5.2 & 36.2 & \\[2pt]
+\multicolumn{10}{l}{\textbf{NIHSS 21--25}}\\
+IVT early & 2,863 & Treated & 12.8 & 35.5 & 5.7 & 11.1 & 2.4 & 32.4 & $<$0.001 \\*
+ & & Untreated & 7.4 & 26.1 & 7.2 & 14.0 & 2.9 & 42.4 & \\[2pt]
+IVT late & 217 & Treated & 10.6 & 37.8 & 5.1 & 10.6 & 0.9 & 35.0 & 0.405 \\*
+ & & Untreated & 8.8 & 28.1 & 9.2 & 13.8 & 2.3 & 37.8 & \\[2pt]
+MT early & 338 & Treated & 10.1 & 49.1 & 7.1 & 6.5 & 1.8 & 25.4 & $<$0.001 \\*
+ & & Untreated & 9.5 & 24.6 & 8.3 & 10.1 & 3.8 & 43.8 & \\[2pt]
+MT late & 700 & Treated & 8.7 & 46.1 & 6.4 & 8.6 & 2.7 & 27.4 & $<$0.001 \\*
+ & & Untreated & 8.1 & 29.6 & 9.6 & 12.7 & 3.9 & 36.1 & \\[2pt]
+MT late (perfusion) & 265 & Treated & 4.9 & 54.0 & 7.2 & 7.5 & 5.3 & 21.1 & $<$0.001 \\*
+ & & Untreated & 5.7 & 29.1 & 9.4 & 13.2 & 3.8 & 38.9 & \\[2pt]
+IVT early + MT early & 653 & Treated & 11.8 & 57.1 & 6.7 & 4.7 & 1.8 & 17.8 & $<$0.001 \\*
+ & & Untreated & 9.0 & 28.6 & 10.6 & 12.7 & 2.5 & 36.6 & \\[2pt]
+IVT early + MT late & 501 & Treated & 16.0 & 48.3 & 7.8 & 5.8 & 2.6 & 19.6 & $<$0.001 \\*
+ & & Untreated & 7.4 & 30.1 & 7.8 & 11.4 & 4.6 & 38.7 & \\[2pt]
+IVT early + MT late (perfusion) & 121 & Treated & 8.3 & 57.9 & 5.8 & 9.1 & 3.3 & 15.7 & 0.005 \\*
+ & & Untreated & 8.3 & 28.9 & 13.2 & 10.7 & 3.3 & 35.5 & \\[2pt]
+IVT late + MT late & 83 & Treated & 12.0 & 56.6 & 6.0 & 6.0 & 0.0 & 19.3 & 0.060 \\*
+ & & Untreated & 7.2 & 31.3 & 8.4 & 13.3 & 1.2 & 38.6 & \\[2pt]
+IVT late + MT late (perfusion) & 51 & Treated & 9.8 & 49.0 & 13.7 & 11.8 & 0.0 & 15.7 & 0.273 \\*
+ & & Untreated & 11.8 & 19.6 & 13.7 & 19.6 & 3.9 & 31.4 & \\[2pt]
 \end{longtable}
 \vspace{-0.5\baselineskip}
 \noindent{\scriptsize Values are percentages of patients in each arm. ESD, early supported discharge. Pairs with a missing destination for either patient are excluded. $p$-values are from the Stuart--Maxwell test of marginal homogeneity, Holm-adjusted across trial groups. (perfusion), late treatment with perfusion imaging. Trial groups with no treated patients (IVT late (perfusion) in every NIHSS band) are not shown.}
 \end{landscape}
+
+
+\clearpage
+
+\section{Sensitivity analyses}\label{sec:supp_sensitivity}
+
+The main analysis rests on several design choices and on the assumption that there is no important unmeasured confounding. Each sensitivity analysis below changes one of these choices, or asks how much unmeasured confounding would be needed to change the conclusions. For each, we describe what was done, what it means in practice, and what we found. Supplementary Figures~\ref{fig:supp_sens_good} and~\ref{fig:supp_sens_death} compare good outcome and in-hospital death across the analyses, and Supplementary Table~\ref{tab:supp_evalues} gives E-values for the main treatment groups. Supplementary Table~\ref{tab:sensitivity} summarises agreement with the primary analysis.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Sensitivity analyses compared with the primary analysis. For each outcome: the number of trial groups in which the difference had the same direction as in the primary analysis; the number with a Holm-adjusted $p < 0.05$ in the primary analysis and in the sensitivity analysis; and the median change in the difference (sensitivity minus primary, percentage points). A negative change for death means fewer deaths in treated patients. Full results for each trial group are given with the analysis code.}
+\label{tab:sensitivity}
+\begin{tabular}{lrrrrrrr}
+\toprule
+ & & \multicolumn{3}{c}{Good outcome} & \multicolumn{3}{c}{In-hospital death} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+Analysis & Groups & \makecell{Same\\direction} & \makecell{Significant\\(primary $\rightarrow$)} & \makecell{Median\\change} & \makecell{Same\\direction} & \makecell{Significant\\(primary $\rightarrow$)} & \makecell{Median\\change} \\
+\midrule
+Exact NIHSS & 34 & 33 & 27 $\rightarrow$ 25 & 0.2 & 33 & 21 $\rightarrow$ 19 & $-$0.3 \\
+More covariates & 34 & 33 & 27 $\rightarrow$ 24 & $-$0.3 & 33 & 21 $\rightarrow$ 18 & $-$0.1 \\
+Known onset time & 34 & 32 & 27 $\rightarrow$ 22 & $-$1.2 & 32 & 21 $\rightarrow$ 17 & 0.5 \\
+LVO (MT groups only) & 24 & 23 & 18 $\rightarrow$ 10 & 6.5 & 24 & 15 $\rightarrow$ 6 & $-$6.7 \\
+Landmark at 1 day & 34 & 34 & 27 $\rightarrow$ 27 & 0.1 & 34 & 21 $\rightarrow$ 21 & $-$0.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{1. Matching on exact NIHSS score}
+
+\textbf{What we did.} Arrival NIHSS score was added to the five matching variables, so that each treated patient was paired with an untreated patient with the same NIHSS score, not just the same NIHSS band.
+
+\textbf{In practice.} The main analysis compared treated and untreated patients within the same severity band, such as NIHSS 1--5. Within a band, though, treated patients tended to have somewhat more severe strokes: in NIHSS 1--5, a treated patient with a score of 4 might be paired with an untreated patient with a score of 2. Because more severe strokes have worse outcomes, this makes treatment look less effective than it is. Pairing on the exact score removes this difference.
+
+\textbf{What we found.} At least 94.1\% of treated patients were still matched in every group. The direction of the difference in good outcome and in-hospital death was unchanged in 33 of 34 groups. The largest change was in mild stroke: with early IVT in NIHSS 1--5, the difference in good outcome rose from 3.0 to 9.6 percentage points, the reduction in discharge mRS from 0.11 to 0.32 points, and the excess of in-hospital deaths fell from 0.77 to 0.39 percentage points. This suggests that the main analysis underestimates the benefit of IVT in mild stroke.
+
+\subsection*{2. Matching on more patient characteristics}
+
+\textbf{What we did.} Sex, hypertension, diabetes and congestive heart failure were added to the matching variables.
+
+\textbf{In practice.} These conditions affect outcome and may also affect whether a patient is treated. If the main results were driven by differences in these conditions between treated and untreated patients, removing those differences should change the results.
+
+\textbf{What we found.} At least 86.8\% of treated patients were matched in every group. The direction of the difference was unchanged in 33 of 34 groups for both good outcome and death, and the median change was less than half a percentage point. The results do not appear to be explained by these characteristics.
+
+\subsection*{3. Patients with a known onset time only}
+
+\textbf{What we did.} Both treated and untreated patients were restricted to those with a known time of stroke onset.
+
+\textbf{In practice.} In the main analysis, patients whose onset time was not known, including wake-up strokes, were counted as having late treatment, even though some may have been treated early in their stroke. This analysis leaves them out, so that \textit{late} means treatment known to have been given more than 4.5 hours after onset.
+
+\textbf{What we found.} At least 95.9\% of treated patients were matched in every group. The direction of the difference was unchanged in 32 of 34 groups for both good outcome and death. Differences were slightly smaller (median 1.2 percentage points less for good outcome), and fewer groups were statistically significant, mainly because the late-treatment groups were smaller.
+
+\subsection*{4. Large-vessel occlusion in thrombectomy groups}
+
+\textbf{What we did.} In the 24 trial groups that included MT, both treated and untreated patients were restricted to those with a recorded large-vessel occlusion (LVO). IVT-only groups were not repeated.
+
+\textbf{In practice.} Thrombectomy is only given to patients with a blocked large artery. In the main analysis, the untreated comparison patients for thrombectomy groups did not need to have an LVO, so some will have had a different type of stroke with a different outlook despite the same NIHSS band. This analysis compares like with like: thrombectomy patients with an LVO against untreated patients who also had an LVO.
+
+\textbf{What we found.} LVO was recorded as present in only 2,650 of 10,229 treated patients (26\%) in the MT groups, so these groups were much smaller (13 to 272 matched pairs), and 69\% to 100\% of treated patients were matched. The associations were larger than in the main analysis, with a median of 6.5 percentage points more good outcomes and 6.7 percentage points fewer deaths. The direction was unchanged in 23 of 24 groups for good outcome and in all 24 for death. This suggests that untreated controls without an LVO had a better outlook than treated patients, which would make thrombectomy look less effective in the main analysis. Because LVO was recorded in a minority of patients, this analysis may be affected by which patients had LVO recorded.
+
+\subsection*{5. Excluding very early deaths and discharges (landmark at 1 day)}
+
+\textbf{What we did.} Using the matched pairs from the main analysis, we kept only pairs in which both patients were still in hospital 1 day after arrival.
+
+\textbf{In practice.} A patient who dies or deteriorates within hours of arrival may never have the chance to be treated, and so ends up in the untreated group. This makes the untreated group look worse and treatment look better than it is (immortal time bias). Removing pairs affected by very early death or discharge tests whether such patients drive the results.
+
+\textbf{What we found.} At least 95.7\% of pairs were kept in every group. The direction of every difference was unchanged, and the same groups were statistically significant. Very early deaths and discharges do not explain the results. This check does not remove all forms of immortal time bias, such as deterioration over the first few days.
+
+\subsection*{6. Length of stay in survivors}
+
+\textbf{What we did.} Length of stay was compared only in pairs in which both patients survived to discharge.
+
+\textbf{In practice.} In the main analysis, length of stay for patients who died in hospital was measured to the day of death. A treatment that prevents early deaths can therefore lengthen the average stay, because survivors stay on for rehabilitation. Looking only at survivors separates the effect of treatment on recovery from its effect on survival.
+
+\textbf{What we found.} Stays were shorter with treatment in 19 groups after Holm adjustment, compared with 14 in the main analysis, and the median reduction was 4.6 days larger. After late MT in NIHSS 21--25, the longer stay in the main analysis (3.5 days) became a shorter stay in survivors (4.6 days shorter, 95\% CI 12.4 days shorter to 3.3 days longer), although neither difference was statistically significant. Among patients who survive, treatment is associated with faster discharge.
+
+\subsection*{7. E-values for unmeasured confounding}
+
+\textbf{What we did.} For good outcome and in-hospital death in the main analysis, we calculated the matched-pair risk ratio and its E-value\cite{vanderweele_sensitivity_2017}. The E-value is the minimum strength of association, on the risk ratio scale, that an unmeasured confounder would need with both treatment and outcome to fully explain away the observed association. We also calculated the E-value for the confidence limit closest to no effect: the strength of confounding needed to make the association no longer statistically significant.
+
+\textbf{In practice.} Registry data cannot capture everything that influences both treatment decisions and outcomes, such as a clinician's judgement that a patient is too frail to benefit or is approaching the end of life. The E-value asks how strong such a hidden factor would have to be to account for the whole of the observed difference. For example, an E-value of 2 means that the hidden factor would have to make untreated patients about twice as likely to have the outcome, and be about twice as common in untreated patients, after accounting for the matching variables. The larger the E-value, the harder the result is to explain away. There is no fixed threshold: whether a given E-value is reassuring depends on how strong plausible unmeasured confounders are likely to be.
+
+\textbf{What we found.} E-values were largest for early IVT plus early MT: 4.1 to 8.9 for good outcome and 3.5 to 6.1 for in-hospital death (Supplementary Table~\ref{tab:supp_evalues}). Confounding this strong is unlikely, so these associations are hard to explain away. E-values for good outcome with early IVT were 2.0 to 4.0 in NIHSS 6--25. E-values for in-hospital death with early IVT were lower, about 1.6 to 2.2. A factor such as a decision that a patient was not for active treatment could plausibly be associated with both no reperfusion treatment and death this strongly, so the lower mortality with early IVT alone should be interpreted with caution. For early IVT in NIHSS 1--5, the E-value for good outcome was only 1.24, so this small association could be explained by weak confounding; however, matching on exact NIHSS (analysis 1) suggests that the main analysis underestimates it.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Matched-pair risk ratios (RR) and E-values for good outcome and in-hospital death in the main analysis, for early treatment groups. The E-value for the CI is for the confidence limit closest to no effect (1.0 means that the CI includes no effect). For in-hospital death, an RR below 1 means fewer deaths with treatment; the E-value is calculated from 1/RR.}
+\label{tab:supp_evalues}
+\begin{tabular}{llrrrrrr}
+\toprule
+ & & \multicolumn{3}{c}{Good outcome} & \multicolumn{3}{c}{In-hospital death} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}
+NIHSS & Treatment & RR & E-value & E-value (CI) & RR & E-value & E-value (CI) \\
+\midrule
+1--5 & IVT early & 1.04 & 1.24 & 1.19 & 1.63 & 2.63 & 2.01 \\
+6--10 & IVT early & 1.34 & 2.01 & 1.95 & 0.85 & 1.64 & 1.32 \\
+11--15 & IVT early & 1.73 & 2.86 & 2.69 & 0.69 & 2.24 & 1.96 \\
+ & MT early & 1.53 & 2.44 & 1.84 & 0.92 & 1.39 & 1.00 \\
+ & IVT early + MT early & 2.33 & 4.10 & 3.43 & 0.30 & 6.09 & 3.63 \\
+16--20 & IVT early & 2.24 & 3.90 & 3.55 & 0.75 & 1.99 & 1.78 \\
+ & MT early & 2.21 & 3.84 & 2.79 & 0.62 & 2.60 & 1.77 \\
+ & IVT early + MT early & 2.95 & 5.34 & 4.40 & 0.44 & 4.03 & 3.06 \\
+21--25 & IVT early & 2.26 & 3.95 & 3.42 & 0.77 & 1.94 & 1.75 \\
+ & MT early & 3.60 & 6.66 & 4.15 & 0.58 & 2.83 & 2.12 \\
+ & IVT early + MT early & 4.71 & 8.89 & 6.46 & 0.49 & 3.54 & 2.81 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+{\footnotesize In NIHSS 1--5, the RR for in-hospital death is above 1 (more deaths with treatment); its E-value describes the confounding needed to explain away this excess. E-values for all trial groups are given with the analysis code.}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_sensitivity_outcome_target_chart.png}
+\caption{Difference in good outcome at discharge (treated minus untreated, percentage points) with 95\% CI in each trial group, in the primary analysis and five sensitivity analyses. Filled markers show a Holm-adjusted $p < 0.05$ within that analysis. The LVO analysis includes only trial groups with MT.}
+\label{fig:supp_sens_good}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_sensitivity_death_chart.png}
+\caption{Difference in in-hospital death (treated minus untreated, percentage points) with 95\% CI in each trial group, in the primary analysis and five sensitivity analyses. Negative values mean fewer deaths in treated patients. Filled markers show a Holm-adjusted $p < 0.05$ within that analysis. The LVO analysis includes only trial groups with MT.}
+\label{fig:supp_sens_death}
+\end{figure}
+
+
+\clearpage
+
+\section{TARGET reporting checklist}\label{sec:supp_target}
+
+Supplementary Table~\ref{tab:supp_target} lists each item of the TARGET guideline for reporting observational studies emulating a target trial\cite{cashin_target_2025}, with a summary of the recommendation (paraphrased) and how and where it is addressed in this paper. Items 6 and 7 are paired: item 6 describes the target trial and item 7 how it was emulated.
+
+{\small
+\begin{longtable}{p{1.0cm} p{4.6cm} p{10.4cm}}
+\caption{TARGET checklist: how each item is addressed.}\label{tab:supp_target}\\
+\toprule
+Item & Recommendation & How it is addressed \\
+\midrule
+\endfirsthead
+\multicolumn{3}{l}{\textit{(continued)}}\\
+\toprule
+Item & Recommendation & How it is addressed \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\textit{Continued on next page}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{3}{l}{\textbf{Abstract}}\\
+1a & Identify the study as an observational emulation of a target trial, state its objectives and summarise the target trial. & Title (``a series of emulated target trials''). The abstract Patients and methods name target trial emulation and summarise the trials: severity bands, treatment type and timing, perfusion imaging, matching variables and outcomes. \\
+1b & Report the data sources. & Abstract Patients and methods: national stroke audit data for England and Wales, 2020--2025. \\
+1c & Summarise the assumptions, methods, findings and conclusions. & Abstract Patients and methods, Results (with 95\% confidence intervals), Discussion (robustness to sensitivity analyses, and possible unmeasured confounding of the mortality findings) and Conclusion. \\
+\addlinespace
+\multicolumn{3}{l}{\textbf{Introduction}}\\
+2 & Describe the scientific background and the gap in knowledge. & Introduction, paragraphs 1--3: trial evidence for IVT and MT, and the gaps in outcomes reported, power by stroke severity and representativeness. \\
+3 & Summarise the causal question. & Introduction, final paragraph: the effect of each combination of treatment type and timing, compared with no reperfusion treatment, on five discharge outcomes, addressed through three questions. \\
+4 & Explain why target trial emulation is appropriate and cite the trials that inform it. & Introduction, paragraph 4: bias in simple registry comparisons and how target trial emulation addresses it. The trials that inform the target trials (NINDS, ECASS III, EXTEND, PRISMS, HERMES, DAWN, DEFUSE 3) are cited in paragraph 2. \\
+\addlinespace
+\multicolumn{3}{l}{\textbf{Methods}}\\
+5 & Describe each data source: purpose, type, setting, location, period and any linkage. & Patients and methods, Data source: SSNAP, the national audit of stroke care for England and Wales, admissions 2020--2025, accessed through HQIP (HQIP515). No linkage was used. \\
+6a / 7a & Eligibility criteria, and how they were operationalised. & Table~\ref{tab:target_trial} (Eligibility); Patients and methods, Study population. Infarction, arrival NIHSS within the band and a recorded discharge mRS; IVT after MT excluded. Supplementary Figure~\ref{fig:supp_flow} gives the numbers at each step. \\
+6b / 7b & Treatment strategies, and how they were operationalised. & Table~\ref{tab:target_trial} (Treatment strategies); Patients and methods, Treatment groups, and Supplementary Section~\ref{sec:supp_methods}: early and late defined at 270 minutes from onset, unknown onset classed as late, perfusion imaging for late groups, exact match to each group's pattern, and no IVT or MT for controls. \\
+6c / 7c & Assignment procedures (random, and whether open-label), and how individuals were classified in the data. & Table~\ref{tab:target_trial} (Assignment): random, open-label allocation at arrival in the target trial. Emulation by treatment received with 1:1 exact matching without replacement within each trial group (Patients and methods, Matching). \\
+6d / 7d & Start and end of follow-up, and how they were determined in the data. & Table~\ref{tab:target_trial} (Time zero, Follow-up): from hospital arrival to discharge or in-hospital death. The incomplete alignment of time zero and assignment is stated in Table~\ref{tab:target_trial} and the Discussion, and tested with a landmark analysis. \\
+6e / 7e & Outcomes, and how they were ascertained. & Patients and methods, Outcomes: definitions of good outcome, in-hospital death, discharge mRS, length of stay and discharge destination, all from SSNAP discharge data. \\
+6f / 7f & Causal contrasts and effect measures, and their observational analogues. & Table~\ref{tab:target_trial} (Causal contrast): per-protocol effect in the target trial; observational analogue of the per-protocol effect in the treated, estimated from matched pairs. Patients and methods, Statistical analysis: differences in percentage points, matched-pair odds ratios and mean differences. \\
+6g / 7g & Identifying assumptions, including for baseline confounding, and how related variables were measured. & Table~\ref{tab:target_trial} (Identifying assumptions); Patients and methods, Identifying assumptions: conditional exchangeability, positivity, consistency and no selection bias from requiring a discharge mRS. Matching variables are recorded at or before arrival (Patients and methods, Matching). \\
+6h / 7h & Data analysis plan, including missing data; emulation-specific analysis and sensitivity analyses. & Patients and methods, Statistical analysis: paired tests, Holm adjustment, and exclusion of pairs with a missing outcome without imputation. Patients and methods, Sensitivity analyses, and Supplementary Section~\ref{sec:supp_sensitivity}: seven sensitivity analyses. \\
+\addlinespace
+\multicolumn{3}{l}{\textbf{Results}}\\
+8 & Numbers assessed, eligible and assigned to each strategy, preferably with a flow diagram. & Results, Study population and matching; Supplementary Figure~\ref{fig:supp_flow} (flow diagram); Supplementary Table~\ref{tab:supp_matching} (treated and matched patients in each trial group). \\
+9 & Baseline characteristics by treatment strategy. & Supplementary Table~\ref{tab:baseline_matched} (matching variables and treatment times); Supplementary Table~\ref{tab:supp_baseline_unmatched} (characteristics not used in matching, with standardised mean differences). \\
+10 & Length of follow-up and reasons it ended. & Follow-up ended at discharge or in-hospital death. Length of stay (the length of follow-up) is reported by arm (Figure~\ref{fig:length_of_stay}, Supplementary Table~\ref{tab:supp_length_of_stay}), and in-hospital death by arm (Figure~\ref{fig:death}). \\
+11 & Missing data by treatment strategy. & Results, Study population and matching; Supplementary Section~\ref{sec:supp_flow}: no missing good outcome, death or discharge mRS; length of stay missing for 4 treated and 6 untreated patients, and discharge destination for 1 treated and 2 untreated patients. No treated patients or untreated controls were missing a matching variable. \\
+12 & Frequency or distribution of each outcome by treatment strategy. & Figures~\ref{fig:outcome_target}--\ref{fig:discharge_destination}; Supplementary Tables~\ref{tab:supp_outcome_target}--\ref{tab:supp_discharge_destination}. \\
+13 & Estimates for each causal contrast, with precision, on absolute and relative scales. & Absolute: differences in percentage points and mean differences with 95\% CIs. Relative: matched-pair odds ratios with 95\% CIs (Supplementary Tables~\ref{tab:supp_outcome_target} and~\ref{tab:supp_death}) and risk ratios (Supplementary Table~\ref{tab:supp_evalues}). \\
+14 & Results of additional and sensitivity analyses. & Results, Sensitivity analyses; Supplementary Table~\ref{tab:sensitivity}; Supplementary Section~\ref{sec:supp_sensitivity}, Supplementary Figures~\ref{fig:supp_sens_good} and~\ref{fig:supp_sens_death} and Supplementary Table~\ref{tab:supp_evalues}. \\
+\addlinespace
+\multicolumn{3}{l}{\textbf{Discussion}}\\
+15 & Interpret the main findings in the light of their precision and the assumptions. & Discussion (Main findings; Comparison with clinical trials; Stroke severity and the type and timing of treatment) and Conclusion. The mortality results are interpreted with reference to the E-values. \\
+16 & Discuss differences from the target trial and the plausibility of the assumptions. & Discussion, Strengths and limitations: residual confounding (including LVO and treatment decisions), imbalance within NIHSS bands, misalignment of time zero and assignment (immortal time bias), late classification of unknown onset times, discharge rather than 90-day outcomes, and the findings of the sensitivity analyses. \\
+\addlinespace
+\multicolumn{3}{l}{\textbf{Other information}}\\
+17 & Ethics approval, with approval numbers. & Patients and methods, Ethics: section 251 approval for SSNAP (ECC 6-02(FT3)/2012), HQIP approval (HQIP515), and confirmation that research ethics approval was not required (NHS Health Research Authority decision tool). \\
+18 & Whether, when and where the protocol was registered. & Protocol registration: the protocol was not registered. A protocol written after the analysis, setting out the design and analysis, is given in Supplementary Section~\ref{sec:protocol}. \\
+19 & Availability of data, code and other materials. & Data availability: SSNAP data available on application to HQIP. All analysis code is archived on Zenodo (doi:10.5281/zenodo.24308374) and available on GitHub (Patients and methods, Software and code availability). \\
+20 & Sources of funding and the role of funders. & Funding: NIHR Applied Research Collaboration South West and NIHR Health and Social Care Delivery Research (NIHR134326 and NIHR168927). The funders had no role in design, analysis, interpretation or the decision to submit. \\
+21 & Conflicts of interest for all authors. & Conflicts of interest: none declared. \\
+\end{longtable}
+}
+
+
+\clearpage
+\input{chapters/9_protocol}

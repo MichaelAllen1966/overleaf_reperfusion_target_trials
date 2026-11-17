@@ -27,7 +27,7 @@
 \usepackage{pdflscape} % To create landscape pages that show as landscape in PDF viewer
 \usepackage{ragged2e} % Better right ragged edges (allows hyphenation)
 \usepackage{subcaption} % Allows use of subfigures
-\usepackage[super]{natbib} % Citations using superscript
+\usepackage[super,comma,sort&compress]{natbib} % Citations using superscript
 \usepackage{titlesec} % For title spacing
 \usepackage[toc,page]{appendix}
 \usepackage{url} % Tidy web links
@@ -36,6 +36,7 @@
 \usepackage{xcolor} % For coloured text
 \usepackage{xurl} % For url but with more flexible linebreaking
 \usepackage{placeins} % to use \FloatBarrier where want a hard break between content (to force and order of text and figures
+\usepackage{xr-hyper} % Cross-references between main paper and supplement (see below)
 \usepackage[hidelinks]{hyperref}
 
 
@@ -59,7 +60,7 @@
 %   1 = main paper only (no supplement)
 %   2 = supplement only
 %   3 = everything (main paper + supplement)
-\newcommand{\compilemode}{3}
+\providecommand{\compilemode}{3} % (supplement.tex and mainpaper.tex set their own mode)
 
 \newif\ifincludemain
 \newif\ifincludesupplement
@@ -68,6 +69,20 @@
   \or \includemainfalse \includesupplementtrue  % 2: supplement only
   \or \includemaintrue  \includesupplementtrue  % 3: everything
   \else \errmessage{compilemode must be 1, 2 or 3}
+\fi
+
+% Cross-references between the main paper and the supplement when they are compiled
+% as separate PDFs (xr package). In mode 1, numbers of supplementary tables, figures and
+% sections are read from supplement.tex; in mode 2 (supplement.tex), numbers of main-paper
+% tables and figures are read from mainpaper.tex. latexmkrc compiles these files
+% automatically. In mode 3 everything is in one document, so no external files are needed.
+\makeatletter
+\newcommand*{\addFileDependency}[1]{\typeout{(#1)}\@addtofilelist{#1}\IfFileExists{#1}{}{\typeout{No file #1.}}}
+\makeatother
+\newcommand*{\myexternaldocument}[1]{\externaldocument{#1}\addFileDependency{#1.tex}\addFileDependency{#1.aux}}
+\ifdefined\noexternalrefs\else
+  \ifnum\compilemode=1 \myexternaldocument{supplement}\fi
+  \ifnum\compilemode=2 \myexternaldocument{mainpaper}\fi
 \fi
 
 % Abstract: choose length
@@ -119,7 +134,7 @@
 \include{chapters/6_discussion}
 
 %\section{References}
-\bibliographystyle{naturemag}
+\bibliographystyle{ama_esj}
 %\bibliographystyle{plainnat}
 %\bibliographystyle{unsrt}
 %\bibliographystyle{unsrtnat}
@@ -142,7 +157,7 @@
 
 % Supplement-only: the supplement has its own citations, so add a reference list
 \ifincludemain\else
-  \bibliographystyle{naturemag}
+  \bibliographystyle{ama_esj}
   \bibliography{references}
 \fi
 

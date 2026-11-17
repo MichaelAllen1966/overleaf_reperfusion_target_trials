@@ -1,0 +1,7 @@
+% Helper file: compiles the main paper on its own so that supplement.tex can cite its
+% table, figure and section numbers (xr package). You do not need to compile it yourself.
+% It does not read external references itself, which stops the two documents compiling
+% each other in a loop.
+\newcommand{\compilemode}{1}
+\newcommand{\noexternalrefs}{}
+\input{main}
