@@ -40,6 +40,8 @@
 \usepackage[hidelinks]{hyperref}
 
 
+
+
 % Info on wordcounts:
 % https://www.overleaf.com/learn/how-to/Is_there_a_way_to_run_a_word_count_that_doesn%27t_include_LaTeX_commands%3F
 
@@ -90,6 +92,12 @@
 % or \shortabstractfalse for the ~500-word abstract
 \newif\ifshortabstract
 \shortabstracttrue
+
+% Alt text for figures (required by ESJ), printed below each caption.
+% Use \showalttextfalse to hide it, for example in a preprint.
+\newif\ifshowalttext
+\showalttextfalse
+\newcommand{\alttext}[1]{\ifshowalttext\par\vspace{0.75ex}{\footnotesize\raggedright\textit{Alt text:} #1\par}\fi}
 
 % Number for supplementary material
 \newcommand{\beginsupplement}{

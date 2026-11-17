@@ -15,7 +15,7 @@ National registry data cover almost all patients treated in routine care, but si
 To estimate the association between reperfusion treatment and outcomes at hospital discharge in routine care in England and Wales, for each combination of stroke severity, treatment type (IVT, MT or both) and treatment timing. Specifically, to describe:
 \begin{enumerate}
 \item how the association varies with stroke severity;
-\item how it varies with the type and timing of treatment, including the use of perfusion imaging for late treatment; and
+\item how it varies with the type and timing of treatment, including the use of perfusion imaging for late/unknown treatment; and
 \item whether the pattern is consistent across outcomes.
 \end{enumerate}
 
@@ -38,13 +38,13 @@ Table~\ref{tab:prot_target_trial} summarises the protocol of the target trials a
 \midrule
 Eligibility & Adults admitted with ischaemic stroke and an arrival NIHSS within the trial's severity band. & SSNAP patients with infarction, an arrival NIHSS within the band, and a recorded discharge mRS. Patients receiving IVT after MT are excluded. \\
 \addlinespace
-Treatment strategies & Treatment with the trial's reperfusion strategy (IVT and/or MT, early or late, with or without perfusion imaging for late treatment) versus no reperfusion treatment. & Treated arm: patients in the band whose recorded treatment exactly matches the trial's pattern. Control arm: patients in the band who received neither IVT nor MT. \\
+Treatment strategies & Treatment with the trial's reperfusion strategy (IVT and/or MT, early or late/unknown, with or without perfusion imaging for late/unknown treatment) versus no reperfusion treatment. & Treated arm: patients in the band whose recorded treatment exactly matches the trial's pattern. Control arm: patients in the band who received neither IVT nor MT. \\
 \addlinespace
 Assignment & Random allocation at hospital arrival. Allocation is open-label. & Classification by treatment received. Each treated patient is matched 1:1, without replacement within each trial, to an untreated patient on pre-stroke mRS, NIHSS band, age band, AF diagnosis and anticoagulant use for AF. \\
 \addlinespace
-Time zero & Hospital arrival, when eligibility is assessed and treatment is assigned. & Hospital arrival. Treatment status is taken from treatment received at any point during the admission, so time zero and assignment are not fully aligned. Treatment timing is measured from stroke onset. \\
+Time zero & Stroke onset, from which the timing of treatment is measured. Eligibility is assessed, and treatment assigned, at hospital arrival. & Stroke onset. Treatment is early (within 4.5 hours of onset) or late/unknown (more than 4.5 hours after onset, or onset time not known). Eligibility is assessed at hospital arrival, and treatment status is taken from treatment received at any point during the admission, so time zero, eligibility and assignment are not fully aligned. \\
 \addlinespace
-Follow-up & From hospital arrival until discharge or in-hospital death. & As in the target trial. \\
+Follow-up & From stroke onset until discharge or in-hospital death. & As in the target trial. Length of stay is counted from hospital arrival. \\
 \addlinespace
 Outcomes & Good functional outcome; in-hospital death; discharge mRS; length of stay; discharge destination. & As in the target trial, taken from SSNAP discharge data. \\
 \addlinespace
@@ -72,12 +72,12 @@ The upper limit of NIHSS 25 excludes the most severe strokes, in which decisions
 
 \subsection{Treatment strategies and trial groups}
 
-Treatment timing is measured from stroke onset, using onset-to-needle time for IVT and onset-to-arterial-puncture time for MT. Treatment is \textit{early} if it starts within 270 minutes (4.5 hours) of onset, the window within which the benefit of IVT is established\cite{emberson_effect_2014}, and \textit{late} otherwise. Treatment given when the time of onset is not known is classed as late. For late treatment, groups are further divided by whether perfusion imaging was recorded. Perfusion imaging is recorded in the thrombectomy section of the SSNAP dataset.
+Treatment timing is measured from stroke onset, using onset-to-needle time for IVT and onset-to-arterial-puncture time for MT. Treatment is \textit{early} if it starts within 270 minutes (4.5 hours) of onset, the window within which the benefit of IVT is established\cite{emberson_effect_2014}, and \textit{late/unknown} otherwise. Treatment given when the time of onset is not known is also classed as late/unknown. For late/unknown treatment, groups are further divided by whether perfusion imaging was recorded. Perfusion imaging is recorded in the thrombectomy section of the SSNAP dataset.
 
-Each trial group is defined by an NIHSS band, a pattern of early and/or late IVT and MT, and, for groups with late treatment, perfusion imaging status. Treated patients must match the group's pattern exactly: for example, the \textit{IVT early} group includes only patients who received early IVT and no MT. Groups with only early treatment include patients with or without perfusion imaging. Thirty-nine groups are defined:
+Each trial group is defined by an NIHSS band, a pattern of early and/or late/unknown IVT and MT, and, for groups with late/unknown treatment, perfusion imaging status. Treated patients must match the group's pattern exactly: for example, the \textit{IVT early} group includes only patients who received early IVT and no MT. Groups with only early treatment include patients with or without perfusion imaging. Thirty-nine groups are defined:
 \begin{itemize}
-\item NIHSS 1--5 and 6--10: IVT early; IVT late; IVT late (perfusion). MT groups are not defined for these bands.
-\item NIHSS 11--15, 16--20 and 21--25: IVT early; IVT late; IVT late (perfusion); MT early; MT late; MT late (perfusion); IVT early + MT early; IVT early + MT late; IVT early + MT late (perfusion); IVT late + MT late; IVT late + MT late (perfusion).
+\item NIHSS 1--5 and 6--10: IVT early; IVT late/unknown; IVT late/unknown (perfusion). MT groups are not defined for these bands.
+\item NIHSS 11--15, 16--20 and 21--25: IVT early; IVT late/unknown; IVT late/unknown (perfusion); MT early; MT late/unknown; MT late/unknown (perfusion); IVT early + MT early; IVT early + MT late/unknown; IVT early + MT late/unknown (perfusion); IVT late/unknown + MT late/unknown; IVT late/unknown + MT late/unknown (perfusion).
 \end{itemize}
 The comparison strategy in every group is no reperfusion treatment: patients in the same NIHSS band who received neither IVT nor MT at any time during the admission.
 
@@ -97,7 +97,7 @@ These variables describe the patient before or at arrival and are related to bot
 
 \subsection{Time zero and follow-up}
 
-Time zero is hospital arrival, when eligibility (arrival NIHSS) is assessed. Follow-up runs from arrival until discharge or in-hospital death. Because treatment status is taken from treatment received at any point during the admission, rather than from a decision at arrival, time zero and assignment are not fully aligned, and patients who die or deteriorate very early are more likely to be untreated. This is addressed in a sensitivity analysis (landmark at 1 day).
+Time zero is stroke onset, the point from which the timing of treatment is measured. When the onset time is not known, time zero cannot be fixed precisely, and treatment is classed as late/unknown. Eligibility (arrival NIHSS) is assessed at hospital arrival. Follow-up runs from stroke onset until discharge or in-hospital death; length of stay is counted from hospital arrival. Because eligibility is assessed at arrival and treatment status is taken from treatment received at any point during the admission, rather than from a decision at a single time point, time zero, eligibility and assignment are not fully aligned. Patients who die before reaching hospital are not included, and patients who die or deteriorate very early after arrival are more likely to be untreated. This is addressed in a sensitivity analysis (landmark at 1 day).
 
 \subsection{Outcomes}
 

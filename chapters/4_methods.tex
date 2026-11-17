@@ -16,7 +16,7 @@ We included patients with ischaemic stroke and a recorded mRS at discharge\cite{
 
 \subsection{Target trial specification and emulation}
 
-Table~\ref{tab:target_trial} sets out the target trial and how each component was emulated. In the target trial, eligible patients would be randomly allocated at hospital arrival to a reperfusion strategy or to no reperfusion treatment. In routine care, the treatment a patient receives depends largely on their clinical suitability and on how soon after onset they reach hospital. We therefore grouped patients by the treatment they actually received, and used matching to make treated and untreated patients alike at baseline.
+Table~\ref{tab:target_trial} sets out the target trial and how each component was emulated. In the target trial, eligible patients would be randomly allocated at hospital arrival to a reperfusion strategy or to no reperfusion treatment. Time zero is stroke onset, the point from which the timing of treatment is measured. In routine care, the treatment a patient receives depends largely on their clinical suitability and on how soon after onset they reach hospital. We therefore grouped patients by the treatment they actually received, and used matching to make treated and untreated patients alike at baseline.
 
 \begin{table}[H]
 \centering
@@ -29,13 +29,13 @@ Table~\ref{tab:target_trial} sets out the target trial and how each component wa
 \midrule
 Eligibility & Adults admitted with ischaemic stroke and an arrival NIHSS within the trial's severity band. & SSNAP patients with infarction, an arrival NIHSS within the band, and a recorded discharge mRS. Patients receiving IVT after MT were excluded. \\
 \addlinespace
-Treatment strategies & Treatment with the trial's reperfusion strategy (IVT and/or MT, early or late, with or without perfusion imaging for late treatment) versus no reperfusion treatment. & Treated arm: patients in the band whose recorded treatment exactly matched the trial's pattern. Control arm: patients in the band who received neither IVT nor MT. \\
+Treatment strategies & Treatment with the trial's reperfusion strategy (IVT and/or MT, early or late/unknown, with or without perfusion imaging for late/unknown treatment) versus no reperfusion treatment. & Treated arm: patients in the band whose recorded treatment exactly matched the trial's pattern. Control arm: patients in the band who received neither IVT nor MT. \\
 \addlinespace
 Assignment & Random allocation at hospital arrival. Allocation is open-label: patients and clinicians know the assigned strategy. & Patients were classified by the treatment they actually received. Each treated patient was matched 1:1, without replacement within each trial group, to an untreated patient on pre-stroke mRS, NIHSS band, age band, anticoagulant use for atrial fibrillation (AF), and AF diagnosis. An untreated patient could serve as a control in more than one trial group. \\
 \addlinespace
-Time zero & Hospital arrival, when eligibility (arrival NIHSS) is assessed and treatment is assigned. & Hospital arrival, when eligibility was assessed. Treatment status was taken from treatment received at any point during the admission, not from a decision at arrival, so time zero and assignment are not fully aligned (see Discussion). Treatment timing (early or late) was measured from stroke onset; patients with an unknown onset time were classed as \textit{late}.\\
+Time zero & Stroke onset, from which the timing of treatment is measured. Eligibility (arrival NIHSS) is assessed, and treatment assigned, at hospital arrival. & Stroke onset. Treatment was classed as early (within 4.5 hours of onset) or late/unknown (more than 4.5 hours after onset, or onset time not known); when the onset time was not known, time zero could not be fixed precisely. Eligibility was assessed at hospital arrival, and treatment status was taken from treatment received at any point during the admission, not from a decision at arrival, so time zero, eligibility and assignment are not fully aligned (see Discussion).\\
 \addlinespace
-Follow-up & From hospital arrival until discharge or in-hospital death. & From hospital arrival until discharge or in-hospital death. \\
+Follow-up & From stroke onset until discharge or in-hospital death. & From stroke onset until discharge or in-hospital death. Length of stay was counted from hospital arrival. \\
 \addlinespace
 Outcomes & Good functional outcome at discharge; in-hospital death; discharge mRS; length of stay; discharge destination. & As in the target trial, taken from SSNAP discharge data. \\
 \addlinespace
@@ -50,7 +50,7 @@ Analysis & Comparison of outcomes between randomised arms. & Paired comparison o
 
 \subsection{Treatment groups}
 
-Treatment was classed as early if it started within 270 minutes (4.5 hours) of onset, the window within which the benefit of IVT is established\cite{emberson_effect_2014}, and as late otherwise, using onset-to-needle time for IVT and onset-to-arterial-puncture time for MT. Treatment given when the time of onset was not known was classed as late. Each trial group was defined by NIHSS band, the exact pattern of early and late IVT and MT received and, for groups with late treatment, whether perfusion imaging was recorded (marked `(perfusion)'). Three IVT-only groups were defined in each of NIHSS 1--5 and 6--10, and eleven groups (IVT only, MT only, and IVT plus MT) in each of the three higher bands: 39 in all (Supplementary Section~\ref{sec:supp_methods}). Because perfusion imaging is recorded only in the thrombectomy section of SSNAP, the five IVT late (perfusion) groups could not contain patients and are not reported. Controls were patients in the same NIHSS band who received neither IVT nor MT.
+Treatment was classed as early if it started within 270 minutes (4.5 hours) of onset, the window within which the benefit of IVT is established\cite{emberson_effect_2014}, and otherwise as late/unknown, using onset-to-needle time for IVT and onset-to-arterial-puncture time for MT. The late/unknown category includes treatment started more than 4.5 hours after onset and treatment given when the time of onset was not known, for example after wake-up stroke. Each trial group was defined by NIHSS band, the exact pattern of early and late/unknown IVT and MT received and, for groups with late/unknown treatment, whether perfusion imaging was recorded (marked `(perfusion)'). Three IVT-only groups were defined in each of NIHSS 1--5 and 6--10, and eleven groups (IVT only, MT only, and IVT plus MT) in each of the three higher bands: 39 in all (Supplementary Section~\ref{sec:supp_methods}). Because perfusion imaging is recorded only in the thrombectomy section of SSNAP, the five IVT late/unknown (perfusion) groups could not contain patients and are not reported. Controls were patients in the same NIHSS band who received neither IVT nor MT.
 
 \subsection{Matching}
 
