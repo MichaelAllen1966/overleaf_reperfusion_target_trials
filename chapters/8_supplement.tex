@@ -151,7 +151,7 @@ This section gives the baseline characteristics of the matched patients and the 
 
 Baseline characteristics of the matched patients are given in Supplementary Table~\ref{tab:baseline_matched}. Mean age ranged from 67.0 to 78.4 years across groups. Patients given MT alone often had AF (36\% to 62\%) and were often anticoagulated (23\% to 54\%), compared with 6\% or fewer anticoagulated in groups that included IVT. Patients given MT had little disability before their stroke (pre-stroke mRS 0--2 in 90\% to 99\%). In IVT-only groups, the percentage with pre-stroke mRS 0--2 fell from about 94\% in NIHSS 1--5 to 70\% in NIHSS 21--25. Median onset-to-treatment time for early IVT ranged from 114 to 171 minutes. In groups where all treatment was classed as late/unknown, 14\% to 41\% of treated patients had an unknown onset time.
 
-The matching variables were identical between arms by design. Balance on characteristics not used in matching was mixed (Supplementary Table~\ref{tab:supp_baseline_unmatched}). Sex, hypertension and heart failure were generally similar between arms (absolute SMD below 0.2 in all but five comparisons, each in a group with fewer than 250 pairs). Diabetes was less common in treated patients in 30 of 34 groups (SMD as low as $-$0.46). Arrival NIHSS differed between arms within some bands. In NIHSS 1--5, treated patients had higher scores than their controls (mean 3.7 \textit{vs} 2.6 for early IVT; SMD 0.83). In NIHSS 6--20, differences were smaller (SMD $-$0.10 to 0.36). In NIHSS 21--25, arrival NIHSS was similar in the two arms (mean 22.8 in both; SMD $-$0.17 to 0.12).
+The matching variables were identical between arms by design. Balance on characteristics not used in matching was mixed (Supplementary Table~\ref{tab:supp_baseline_unmatched}). Sex, hypertension and heart failure were generally similar between arms (absolute SMD below 0.2 in all but five comparisons, each in a group with fewer than 250 pairs). Diabetes was less common in treated patients in 30 of 34 groups (SMD as low as $-$0.46). Arrival NIHSS differed between arms within some bands. In NIHSS 1--5, treated patients had higher scores than their controls (mean 3.7 \textit{vs} 2.7 for early IVT; SMD 0.83). In NIHSS 6--20, differences were smaller (SMD $-$0.10 to 0.36). In NIHSS 21--25, arrival NIHSS was similar in the two arms (mean 22.8 in both; SMD $-$0.17 to 0.12).
 
 Outcome data were almost complete in the matched pairs. No pairs were missing good outcome, in-hospital death or discharge mRS. Ten pairs were excluded from the length of stay analysis and three from the discharge destination analysis because of missing data (length of stay missing for 4 treated and 6 untreated patients; discharge destination missing for 1 treated and 2 untreated patients).
 
@@ -736,12 +736,12 @@ IVT late/unknown + MT late/unknown (perfusion) & 51 & Treated & 9.8 & 49.0 & 13.
 
 \section{Sensitivity analyses}\label{sec:supp_sensitivity}
 
-The main analysis rests on several design choices and on the assumption that there is no important unmeasured confounding. Each sensitivity analysis below changes one of these choices, or asks how much unmeasured confounding would be needed to change the conclusions. For each, we describe what was done, what it means in practice, and what we found. Supplementary Figures~\ref{fig:supp_sens_good} and~\ref{fig:supp_sens_death} compare good outcome and in-hospital death across the analyses, and Supplementary Table~\ref{tab:supp_evalues} gives E-values for the main treatment groups. Supplementary Table~\ref{tab:sensitivity} summarises agreement with the primary analysis.
+The main analysis rests on several design choices and on the assumption that there is no important unmeasured confounding. Each sensitivity analysis below changes one of these choices, or asks how much unmeasured confounding would be needed to change the conclusions. For each, we describe what was done, what it means in practice, and what we found. Analyses 1 to 12 change a design choice; analyses 13 and 14 ask how much unmeasured confounding would be needed to change the conclusions. Analyses 7 to 12 and 14 were added after the study protocol (Supplementary Section~\ref{sec:protocol}) was written. Supplementary Table~\ref{tab:sensitivity} summarises agreement with the primary analysis, and Supplementary Tables~\ref{tab:supp_sens_all_good} and~\ref{tab:supp_sens_all_death} give the difference in good outcome and in-hospital death in every trial group for every analysis that changes the matching, cohort or outcome definition. Supplementary Figures~\ref{fig:supp_sens_good}, \ref{fig:supp_sens_death}, \ref{fig:supp_sens_good_further}, \ref{fig:supp_sens_death_further} and~\ref{fig:supp_sens_outcome_definitions} compare the analyses graphically. Supplementary Table~\ref{tab:supp_evalues} gives E-values, Supplementary Table~\ref{tab:supp_sensemakr} sensemakr robustness values for the main treatment groups, and Supplementary Table~\ref{tab:supp_seeds} the variation from the random choice of controls.
 
 \begin{table}[H]
 \centering
 \small
-\caption{Sensitivity analyses compared with the primary analysis. For each outcome: the number of trial groups in which the difference had the same direction as in the primary analysis; the number with a Holm-adjusted $p < 0.05$ in the primary analysis and in the sensitivity analysis; and the median change in the difference (sensitivity minus primary, percentage points). A negative change for death means fewer deaths in treated patients. Full results for each trial group are given with the analysis code.}
+\caption{Sensitivity analyses compared with the primary analysis. For each outcome: the number of trial groups in which the difference had the same direction as in the primary analysis; the number with a Holm-adjusted $p < 0.05$ in the primary analysis and in the sensitivity analysis; and the median change in the difference (sensitivity minus primary, percentage points). A negative change for death means fewer deaths in treated patients. The alternative definitions of good outcome (analysis 10) apply to good outcome only. Analysis 11 (random seeds) is summarised in Supplementary Table~\ref{tab:supp_seeds}. Results for each trial group are given in Supplementary Tables~\ref{tab:supp_sens_all_good} and~\ref{tab:supp_sens_all_death}.}
 \label{tab:sensitivity}
 \begin{tabular}{lrrrrrrr}
 \toprule
@@ -754,6 +754,17 @@ More covariates & 34 & 33 & 27 $\rightarrow$ 24 & $-$0.3 & 33 & 21 $\rightarrow$
 Known onset time & 34 & 32 & 27 $\rightarrow$ 22 & $-$1.2 & 32 & 21 $\rightarrow$ 17 & 0.5 \\
 LVO (MT groups only) & 24 & 23 & 18 $\rightarrow$ 10 & 6.5 & 24 & 15 $\rightarrow$ 6 & $-$6.7 \\
 Landmark at 1 day & 34 & 34 & 27 $\rightarrow$ 27 & 0.1 & 34 & 21 $\rightarrow$ 21 & $-$0.1 \\
+\addlinespace
+Controls reused up to 3 times & 34 & 34 & 27 $\rightarrow$ 27 & 0.0 & 34 & 21 $\rightarrow$ 21 & 0.0 \\
+Unlimited control reuse & 34 & 34 & 27 $\rightarrow$ 27 & 0.0 & 34 & 21 $\rightarrow$ 21 & 0.0 \\
+Early/late cut-off 240 min & 34 & 33 & 27 $\rightarrow$ 25 & 0.3 & 34 & 21 $\rightarrow$ 23 & $-$0.2 \\
+Early/late cut-off 300 min & 34 & 33 & 27 $\rightarrow$ 24 & $-$1.0 & 32 & 21 $\rightarrow$ 17 & 0.2 \\
+Teams with $\ge$10 thrombectomies & 34 & 34 & 27 $\rightarrow$ 24 & $-$0.4 & 33 & 21 $\rightarrow$ 18 & 0.5 \\
+Good outcome: mRS 0--2 only & 34 & 34 & 27 $\rightarrow$ 27 & $-$0.1 & -- & -- & -- \\
+Good outcome: mRS 0--1 or no worse & 34 & 33 & 27 $\rightarrow$ 21 & $-$5.4 & -- & -- & -- \\
+Good outcome: mRS 0--3 or no worse & 34 & 33 & 27 $\rightarrow$ 27 & 3.2 & -- & -- & -- \\
+Without age & 34 & 34 & 27 $\rightarrow$ 25 & 1.1 & 33 & 21 $\rightarrow$ 24 & $-$1.7 \\
+Without pre-stroke mRS & 34 & 33 & 27 $\rightarrow$ 19 & $-$4.3 & 33 & 21 $\rightarrow$ 20 & $-$0.6 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -806,7 +817,309 @@ Landmark at 1 day & 34 & 34 & 27 $\rightarrow$ 27 & 0.1 & 34 & 21 $\rightarrow$ 
 
 \textbf{What we found.} Stays were shorter with treatment in 19 groups after Holm adjustment, compared with 14 in the main analysis, and the median reduction was 4.6 days larger. After late/unknown MT in NIHSS 21--25, the longer stay in the main analysis (3.5 days) became a shorter stay in survivors (4.6 days shorter, 95\% CI 12.4 days shorter to 3.3 days longer), although neither difference was statistically significant. Among patients who survive, treatment is associated with faster discharge.
 
-\subsection*{7. E-values for unmeasured confounding}
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_sensitivity_outcome_target_chart.png}
+\caption{Difference in good outcome at discharge (treated minus untreated, percentage points) with 95\% CI in each trial group, in the primary analysis and five sensitivity analyses. Filled markers show a Holm-adjusted $p < 0.05$ within that analysis. The LVO analysis includes only trial groups with MT.}
+\label{fig:supp_sens_good}
+\alttext{Dot plot with a vertical list of trial groups. For each group, the difference in good outcome between treated and matched untreated patients, with its 95\% confidence interval, is shown for the primary analysis and for five sensitivity analyses side by side, with a vertical line at zero. The estimates mostly overlap. Matching on exact NIHSS gives a larger difference for early thrombolysis in NIHSS 1--5, and restricting to large-vessel occlusion gives larger differences in thrombectomy groups.}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_sensitivity_death_chart.png}
+\caption{Difference in in-hospital death (treated minus untreated, percentage points) with 95\% CI in each trial group, in the primary analysis and five sensitivity analyses. Negative values mean fewer deaths in treated patients. Filled markers show a Holm-adjusted $p < 0.05$ within that analysis. The LVO analysis includes only trial groups with MT.}
+\label{fig:supp_sens_death}
+\alttext{Dot plot with a vertical list of trial groups. For each group, the difference in in-hospital death between treated and matched untreated patients, with its 95\% confidence interval, is shown for the primary analysis and for five sensitivity analyses side by side, with a vertical line at zero. The estimates mostly overlap. Restricting to large-vessel occlusion gives larger reductions in death in thrombectomy groups.}
+\end{figure}
+
+\clearpage
+
+\subsection*{7. Reusing untreated controls}
+
+\textbf{What we did.} In the main analysis, each untreated patient could be a control only once within a trial group (matching without replacement). We repeated the matching allowing each untreated patient to be a control up to three times, and then without limit, within a trial group. Within each combination of matching variables, untreated patients were used in turn, so that uses were spread evenly.
+
+\textbf{In practice.} Matching without replacement can leave treated patients unmatched when there are fewer suitable untreated patients than treated patients with the same characteristics, and the treated patients left unmatched may differ from the rest. Allowing controls to be reused lets more treated patients be matched. Pairs that share a control are not independent, which the paired confidence intervals do not allow for.
+
+\textbf{What we found.} The results were the same as in the main analysis: the median change was 0.0 percentage points for good outcome and in-hospital death, and the direction of the difference and the number of statistically significant groups were unchanged. Matching rates rose only slightly (for example, from 6,277 to 6,287 pairs for early IVT in NIHSS 11--15), because the pool of untreated patients was large enough that almost every treated patient already had an exact match. Matching without replacement does not affect the results.
+
+\subsection*{8. Early/late cut-off}
+
+\textbf{What we did.} Early treatment was redefined as treatment within 240 minutes, and then within 300 minutes, of onset, instead of 270 minutes. The trial groups were re-formed and the matching repeated. Treatment with an unknown onset time remained late/unknown.
+
+\textbf{In practice.} The 4.5-hour cut-off reflects the time window in which the benefit of IVT is established, but any single boundary is somewhat arbitrary, particularly for MT. Moving the boundary also moves patients between the early and late groups, so this analysis tests whether the comparison of early and late treatment depends on exactly where the line is drawn.
+
+\textbf{What we found.} Group sizes changed with the cut-off: for example, the IVT late/unknown group in NIHSS 1--5 had 2,983 treated patients with a 240-minute cut-off and 1,013 with a 300-minute cut-off, compared with 1,441 with 270 minutes. The direction of the difference in good outcome was unchanged in 33 of 34 groups with either cut-off, with median changes of 0.3 and $-$1.0 percentage points. The difference with late/unknown IVT in NIHSS 1--5 remained close to zero ($-$0.5 and $-$1.0 percentage points). The largest changes were in small groups, such as early MT in NIHSS 11--15 (21.5 and 24.2 percentage points, against 17.1). With both cut-offs, early treatment remained associated with larger differences than late/unknown treatment for MT alone, and for MT after early IVT, in every NIHSS band.
+
+\subsection*{9. Stroke teams with access to thrombectomy}
+
+\textbf{What we did.} Both treated and untreated patients were restricted to those admitted to stroke teams that gave at least 10 thrombectomies in the study population.
+
+\textbf{In practice.} Untreated patients admitted to hospitals without access to thrombectomy might differ from those admitted to thrombectomy-capable hospitals, in their care as well as in their characteristics. Restricting to teams that gave thrombectomy compares patients who were all seen by services with access to it.
+
+\textbf{What we found.} 114 of 116 stroke teams gave at least 10 thrombectomies, and they admitted 99.8\% of the study population, so the restriction removed very few patients. The results were close to the main analysis: the direction of the difference was unchanged in all 34 groups for good outcome and in 33 for in-hospital death, with median changes of $-$0.4 and 0.5 percentage points. The changes were mainly in small groups, and reflect a new random choice of controls (analysis 11) rather than the restriction itself.
+
+\subsection*{10. Definition of good outcome}
+
+\textbf{What we did.} Using the matched pairs from the main analysis, good outcome was redefined in three ways: discharge mRS 0--2 only (without counting a return to pre-stroke mRS); discharge mRS 0--1, or no worse than before the stroke; and discharge mRS 0--3, or no worse than before the stroke.
+
+\textbf{In practice.} The main outcome counts a return to the patient's pre-stroke level of disability as a good outcome, so that patients with pre-stroke disability can be included. Trials often use mRS 0--1 (excellent outcome) or 0--2 (functional independence). The stricter and looser definitions show whether the conclusions depend on where the line between a good and a poor outcome is drawn.
+
+\textbf{What we found.} With mRS 0--2 only, the results were almost identical to the main analysis (median change $-$0.1 percentage points; 27 groups statistically significant, as in the main analysis). With the stricter outcome of mRS 0--1 or no worse than before the stroke, differences were smaller in most groups (median change $-$5.4 percentage points; 21 groups significant): for example, early IVT plus early MT in NIHSS 11--15 fell from 34.2 to 22.8 percentage points. Early IVT in NIHSS 1--5 was the exception, rising from 3.0 to 4.7 percentage points. With the looser outcome of mRS 0--3 or no worse than before the stroke, differences were larger in severe stroke (median change 3.2 percentage points; 27 groups significant): for example, early IVT plus early MT in NIHSS 21--25 rose from 25.6 to 39.1 percentage points. Early IVT in NIHSS 1--5 fell to 0.8 percentage points (not significant), because most patients with mild stroke reach this outcome with or without treatment. For every definition, the direction of the difference was unchanged in at least 33 of 34 groups (Supplementary Figure~\ref{fig:supp_sens_outcome_definitions}).
+
+\subsection*{11. Random choice of control}
+
+\textbf{What we did.} When several untreated patients had the same values of all the matching variables, one was chosen at random. We repeated the matching of the main analysis with 20 different random seeds and, for good outcome and in-hospital death, report the median and range of the difference across seeds, and the number of seeds in which the 95\% CI excluded zero and the Holm-adjusted $p$-value was below 0.05 (Supplementary Table~\ref{tab:supp_seeds}).
+
+\textbf{In practice.} The same analysis, run again with a different random choice of controls, gives a slightly different answer. This analysis shows how much the results depend on chance alone, and whether the random choice made in the main analysis was typical.
+
+\textbf{What we found.} The estimates for large groups were stable: for example, 15.3 to 16.7 percentage points for early IVT in NIHSS 6--10, and 1.9 to 3.5 percentage points in NIHSS 1--5. The estimates for small groups varied more: for example, 17.8 to 27.4 percentage points for early MT in NIHSS 11--15, and 6.8 to 25.6 for late/unknown IVT plus late/unknown MT in NIHSS 11--15. For good outcome, the 95\% CI excluded zero with all 20 seeds in 24 of 34 groups, and the difference was statistically significant after Holm adjustment with all 20 seeds in 23 groups. The random choice made in the main analysis was unusual for some small groups. The difference of $-$3.1 percentage points with late/unknown IVT in NIHSS 1--5 lay outside the range across the 20 seeds ($-$2.5 to 1.3; median $-$0.9). Late/unknown IVT plus late/unknown MT with perfusion imaging in NIHSS 16--20 was statistically significant in the main analysis (22.4 percentage points) but with none of the 20 seeds (median 13.8), and late/unknown IVT plus late/unknown MT in NIHSS 21--25 and 11--15 with only 3 and 7 of the 20 seeds. For in-hospital death, the 95\% CI for the excess of deaths with early IVT in NIHSS 1--5 excluded zero with all 20 seeds (0.4 to 0.8 percentage points). Results for small groups should therefore be interpreted with caution; reporting the median across several matchings would give more representative estimates for them.
+
+\subsection*{12. Leaving out a matching variable}
+
+\textbf{What we did.} Age, and then pre-stroke mRS, were removed from the matching variables, and the matching and analyses were repeated. NIHSS band was not removed, because each trial is defined within an NIHSS band; analysis 1 tests the dependence on severity within bands.
+
+\textbf{In practice.} Leaving out a measured confounder is a deliberate misspecification. The change in the estimate shows how much each result depends on matching for that variable, and so how much bias an unmeasured confounder of similar strength, acting in the same direction, could cause.
+
+\textbf{What we found.} At least 99.5\% of treated patients were matched in every group. Without age, the differences in good outcome changed little (median change 1.1 percentage points; direction unchanged in all 34 groups; 25 groups significant), and the reductions in in-hospital death were slightly larger (median change $-$1.7 percentage points). Without pre-stroke mRS, the differences in good outcome were smaller (median change $-$4.3 percentage points; 19 groups significant, against 27 in the main analysis): for example, early IVT in NIHSS 11--15 fell from 19.9 to 15.5 percentage points, late/unknown MT in NIHSS 11--15 from 11.5 to 4.7, and early IVT plus early MT in NIHSS 16--20 from 28.4 to 22.5. Pre-stroke mRS is both a strong confounder and part of the definition of a good outcome (no worse than before the stroke), so the good-outcome results depend on matching for it. An unmeasured confounder as strong as pre-stroke disability could change the estimates by several percentage points.
+
+\clearpage
+
+{\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{longtable}{p{4.3cm}rlrrrlrr}
+\caption{Variation from the random choice of controls (sensitivity analysis 11): difference (treated minus untreated, percentage points) in good outcome and in-hospital death with the random seed of the main analysis, and the median and range across 20 other random seeds, with the number of seeds (of 20) in which the 95\% CI excluded zero and in which the Holm-adjusted $p$-value was below 0.05.}\label{tab:supp_seeds}\\
+\toprule
+& \multicolumn{4}{c}{Good outcome} & \multicolumn{4}{c}{In-hospital death} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}
+Treatment & Main & Median (range) & \makecell{CI\\excludes 0} & \makecell{Holm\\$p<0.05$} & Main & Median (range) & \makecell{CI\\excludes 0} & \makecell{Holm\\$p<0.05$} \\
+\midrule
+\endfirsthead
+\multicolumn{9}{l}{\textit{(continued)}}\\
+\toprule
+& \multicolumn{4}{c}{Good outcome} & \multicolumn{4}{c}{In-hospital death} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}
+Treatment & Main & Median (range) & \makecell{CI\\excludes 0} & \makecell{Holm\\$p<0.05$} & Main & Median (range) & \makecell{CI\\excludes 0} & \makecell{Holm\\$p<0.05$} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{9}{r}{\textit{Continued on next page}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{9}{l}{\textbf{NIHSS 1--5}}\\
+IVT early & 3.0 & 2.9 (1.9 to 3.5) & 20 & 20 & 0.8 & 0.7 (0.4 to 0.8) & 20 & 19 \\
+IVT late/unknown & $-$3.1 & $-$0.9 ($-$2.5 to 1.3) & 0 & 0 & 1.9 & 1.5 (0.8 to 1.9) & 16 & 8 \\
+\addlinespace
+\multicolumn{9}{l}{\textbf{NIHSS 6--10}}\\
+IVT early & 16.0 & 16.1 (15.3 to 16.7) & 20 & 20 & $-$0.8 & $-$0.8 ($-$1.0 to $-$0.6) & 20 & 12 \\
+IVT late/unknown & 13.3 & 12.4 (9.9 to 13.5) & 20 & 20 & 0.3 & $-$0.1 ($-$1.2 to 0.9) & 0 & 0 \\
+\addlinespace
+\multicolumn{9}{l}{\textbf{NIHSS 11--15}}\\
+IVT early & 19.9 & 20.3 (19.4 to 20.9) & 20 & 20 & $-$4.5 & $-$3.9 ($-$4.7 to $-$3.4) & 20 & 20 \\
+IVT late/unknown & 16.2 & 15.0 (12.0 to 17.4) & 20 & 20 & $-$5.0 & $-$5.1 ($-$8.4 to $-$4.2) & 20 & 8 \\
+MT early & 17.1 & 22.2 (17.8 to 27.4) & 20 & 20 & $-$1.1 & $-$2.0 ($-$6.4 to 1.8) & 2 & 0 \\
+MT late/unknown & 11.5 & 11.2 (9.2 to 13.5) & 20 & 20 & $-$3.7 & $-$3.7 ($-$6.0 to $-$2.1) & 17 & 5 \\
+MT late/unknown (perfusion) & 3.5 & 3.5 (0.5 to 8.7) & 3 & 0 & $-$0.9 & $-$1.6 ($-$3.8 to 2.8) & 0 & 0 \\
+IVT early + MT early & 34.2 & 32.1 (30.0 to 33.6) & 20 & 20 & $-$8.6 & $-$6.9 ($-$9.1 to $-$4.9) & 20 & 20 \\
+IVT early + MT late/unknown & 17.1 & 17.0 (14.7 to 19.6) & 20 & 20 & $-$5.5 & $-$6.1 ($-$7.9 to $-$3.6) & 20 & 19 \\
+IVT early + MT late/unknown (perfusion) & 7.3 & 11.5 (7.3 to 15.6) & 16 & 3 & $-$3.9 & $-$2.8 ($-$6.7 to $-$0.6) & 1 & 0 \\
+IVT late/unknown + MT late/unknown & 20.5 & 17.1 (6.8 to 25.6) & 18 & 7 & $-$2.6 & $-$5.1 ($-$12.0 to $-$1.7) & 9 & 0 \\
+IVT late/unknown + MT late/unknown (perfusion) & 13.8 & 17.7 (9.2 to 30.8) & 10 & 4 & $-$7.7 & $-$2.3 ($-$10.8 to 4.6) & 1 & 0 \\
+\addlinespace
+\multicolumn{9}{l}{\textbf{NIHSS 16--20}}\\
+IVT early & 17.7 & 16.8 (16.3 to 17.7) & 20 & 20 & $-$6.9 & $-$6.6 ($-$7.2 to $-$5.9) & 20 & 20 \\
+IVT late/unknown & 8.6 & 10.1 (6.8 to 13.6) & 20 & 17 & $-$7.1 & $-$5.4 ($-$9.1 to $-$2.5) & 9 & 0 \\
+MT early & 18.8 & 20.5 (17.3 to 22.2) & 20 & 20 & $-$9.6 & $-$11.6 ($-$14.6 to $-$7.9) & 20 & 17 \\
+MT late/unknown & 10.6 & 11.6 (9.6 to 13.5) & 20 & 20 & $-$8.1 & $-$8.0 ($-$10.8 to $-$6.3) & 20 & 20 \\
+MT late/unknown (perfusion) & 11.8 & 12.0 (8.1 to 14.7) & 20 & 20 & $-$8.1 & $-$6.9 ($-$10.4 to $-$4.1) & 18 & 7 \\
+IVT early + MT early & 28.4 & 28.7 (26.9 to 29.5) & 20 & 20 & $-$12.4 & $-$10.8 ($-$12.3 to $-$8.2) & 20 & 20 \\
+IVT early + MT late/unknown & 17.9 & 16.4 (14.6 to 17.5) & 20 & 20 & $-$6.8 & $-$7.5 ($-$9.2 to $-$4.8) & 20 & 19 \\
+IVT early + MT late/unknown (perfusion) & 16.4 & 17.7 (13.8 to 22.0) & 20 & 20 & $-$12.1 & $-$9.7 ($-$14.2 to 1.3) & 16 & 7 \\
+IVT late/unknown + MT late/unknown & 24.8 & 27.4 (20.4 to 31.4) & 20 & 20 & $-$15.3 & $-$12.8 ($-$17.5 to $-$3.6) & 18 & 10 \\
+IVT late/unknown + MT late/unknown (perfusion) & 22.4 & 13.8 (6.9 to 19.0) & 8 & 0 & $-$8.6 & $-$6.9 ($-$17.2 to $-$1.7) & 3 & 0 \\
+\addlinespace
+\multicolumn{9}{l}{\textbf{NIHSS 21--25}}\\
+IVT early & 12.8 & 13.0 (12.4 to 13.6) & 20 & 20 & $-$9.9 & $-$9.5 ($-$10.5 to $-$8.6) & 20 & 20 \\
+IVT late/unknown & 15.7 & 13.8 (10.6 to 17.5) & 20 & 20 & $-$2.8 & $-$7.4 ($-$15.2 to $-$2.8) & 5 & 2 \\
+MT early & 19.2 & 18.2 (16.9 to 21.0) & 20 & 20 & $-$18.3 & $-$15.2 ($-$17.8 to $-$12.7) & 20 & 20 \\
+MT late/unknown & 9.0 & 8.4 (6.7 to 9.9) & 20 & 20 & $-$8.7 & $-$11.1 ($-$15.0 to $-$7.7) & 20 & 20 \\
+MT late/unknown (perfusion) & 6.0 & 6.0 (1.9 to 7.9) & 13 & 2 & $-$17.7 & $-$17.2 ($-$20.4 to $-$11.7) & 20 & 20 \\
+IVT early + MT early & 25.6 & 23.7 (22.1 to 26.2) & 20 & 20 & $-$18.8 & $-$17.5 ($-$21.4 to $-$13.8) & 20 & 20 \\
+IVT early + MT late/unknown & 13.4 & 13.7 (12.0 to 15.4) & 20 & 20 & $-$19.2 & $-$16.4 ($-$20.6 to $-$14.2) & 20 & 20 \\
+IVT early + MT late/unknown (perfusion) & 9.1 & 10.7 (5.0 to 14.0) & 14 & 6 & $-$19.8 & $-$18.2 ($-$26.4 to $-$14.0) & 20 & 12 \\
+IVT late/unknown + MT late/unknown & 18.1 & 14.5 (10.8 to 18.1) & 19 & 3 & $-$19.3 & $-$16.9 ($-$25.3 to $-$3.6) & 12 & 3 \\
+IVT late/unknown + MT late/unknown (perfusion) & 2.0 & 2.0 ($-$5.9 to 7.8) & 0 & 0 & $-$15.7 & $-$17.6 ($-$29.4 to $-$9.8) & 12 & 3 \\
+\end{longtable}
+\vspace{-0.5\baselineskip}
+\noindent{\scriptsize Main: random seed used in the main analysis. A negative difference for in-hospital death means fewer deaths in treated patients. (perfusion), late/unknown treatment with perfusion imaging. Trial groups with no treated patients (IVT late/unknown (perfusion) in every NIHSS band) are not shown.}
+}
+
+\clearpage
+\begin{landscape}
+{\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{p{4.9cm}rrrrrrrrrrrrrr}
+\caption{Difference in good outcome at discharge (treated minus untreated, percentage points) in each trial group, in the main analysis and in each sensitivity analysis that changes the matching, cohort or outcome definition. The number of the sensitivity analysis is given in brackets. Bold: Holm-adjusted $p < 0.05$ within that analysis.}\label{tab:supp_sens_all_good}\\
+\toprule
+Treatment & Main & \makecell{Exact\\NIHSS\\(1)} & \makecell{More\\covariates\\(2)} & \makecell{Known\\onset\\(3)} & \makecell{LVO,\\MT groups\\(4)} & \makecell{Landmark\\1 day\\(5)} & \makecell{Cut-off\\240 min\\(8)} & \makecell{Cut-off\\300 min\\(8)} & \makecell{Teams\\$\ge$10 MT\\(9)} & \makecell{mRS 0--2\\only\\(10)} & \makecell{mRS 0--1\\or no worse\\(10)} & \makecell{mRS 0--3\\or no worse\\(10)} & \makecell{Without\\age\\(12)} & \makecell{Without\\pre-stroke\\mRS (12)} \\
+\midrule
+\endfirsthead
+\multicolumn{15}{l}{\textit{(continued)}}\\
+\toprule
+Treatment & Main & \makecell{Exact\\NIHSS\\(1)} & \makecell{More\\covariates\\(2)} & \makecell{Known\\onset\\(3)} & \makecell{LVO,\\MT groups\\(4)} & \makecell{Landmark\\1 day\\(5)} & \makecell{Cut-off\\240 min\\(8)} & \makecell{Cut-off\\300 min\\(8)} & \makecell{Teams\\$\ge$10 MT\\(9)} & \makecell{mRS 0--2\\only\\(10)} & \makecell{mRS 0--1\\or no worse\\(10)} & \makecell{mRS 0--3\\or no worse\\(10)} & \makecell{Without\\age\\(12)} & \makecell{Without\\pre-stroke\\mRS (12)} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{15}{r}{\textit{Continued on next page}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{15}{l}{\textbf{NIHSS 1--5}}\\
+IVT early & \textbf{3.0} & \textbf{9.6} & \textbf{2.4} & \textbf{1.6} & -- & \textbf{3.6} & \textbf{3.2} & \textbf{2.9} & \textbf{2.3} & \textbf{3.1} & \textbf{4.7} & 0.8 & \textbf{3.4} & \textbf{3.9} \\
+IVT late/unknown & $-$3.1 & 2.7 & 0.6 & $-$2.0 & -- & $-$2.3 & $-$0.5 & $-$1.0 & $-$1.0 & $-$2.9 & $-$0.5 & $-$1.0 & $-$2.5 & $-$2.4 \\
+\addlinespace
+\multicolumn{15}{l}{\textbf{NIHSS 6--10}}\\
+IVT early & \textbf{16.0} & \textbf{17.1} & \textbf{15.8} & \textbf{14.7} & -- & \textbf{16.2} & \textbf{15.9} & \textbf{16.6} & \textbf{16.4} & \textbf{15.2} & \textbf{15.4} & \textbf{9.5} & \textbf{16.4} & \textbf{14.7} \\
+IVT late/unknown & \textbf{13.3} & \textbf{13.2} & \textbf{11.8} & \textbf{11.3} & -- & \textbf{13.3} & \textbf{13.4} & \textbf{15.2} & \textbf{11.1} & \textbf{12.8} & \textbf{14.7} & \textbf{9.3} & \textbf{14.1} & \textbf{12.2} \\
+\addlinespace
+\multicolumn{15}{l}{\textbf{NIHSS 11--15}}\\
+IVT early & \textbf{19.9} & \textbf{20.2} & \textbf{20.5} & \textbf{19.4} & -- & \textbf{20.0} & \textbf{20.6} & \textbf{20.2} & \textbf{20.2} & \textbf{18.6} & \textbf{15.2} & \textbf{17.9} & \textbf{19.8} & \textbf{15.5} \\
+IVT late/unknown & \textbf{16.2} & \textbf{14.8} & \textbf{16.0} & \textbf{14.9} & -- & \textbf{16.1} & \textbf{14.8} & \textbf{13.1} & \textbf{15.6} & \textbf{15.1} & \textbf{9.3} & \textbf{14.0} & \textbf{16.2} & \textbf{12.8} \\
+MT early & \textbf{17.1} & \textbf{25.9} & \textbf{25.1} & \textbf{22.4} & 23.1 & \textbf{17.6} & \textbf{21.5} & \textbf{24.2} & \textbf{19.6} & \textbf{17.1} & 8.9 & \textbf{15.3} & \textbf{24.2} & \textbf{13.5} \\
+MT late/unknown & \textbf{11.5} & \textbf{11.1} & \textbf{10.9} & \textbf{9.7} & \textbf{21.2} & \textbf{12.0} & \textbf{12.2} & \textbf{9.4} & \textbf{10.2} & \textbf{11.8} & 3.9 & \textbf{8.8} & \textbf{13.4} & 4.7 \\
+MT late/unknown (perfusion) & 3.5 & 1.2 & 1.7 & 2.7 & 15.4 & 3.5 & 4.8 & 1.7 & 1.9 & 3.5 & 0.2 & $-$2.8 & 5.4 & $-$5.1 \\
+IVT early + MT early & \textbf{34.2} & \textbf{34.5} & \textbf{33.1} & \textbf{35.2} & \textbf{39.6} & \textbf{34.9} & \textbf{34.5} & \textbf{28.9} & \textbf{30.9} & \textbf{33.7} & \textbf{22.8} & \textbf{31.7} & \textbf{35.9} & \textbf{29.0} \\
+IVT early + MT late/unknown & \textbf{17.1} & \textbf{17.1} & \textbf{16.7} & \textbf{17.4} & \textbf{31.4} & \textbf{17.4} & \textbf{20.9} & \textbf{16.8} & \textbf{19.9} & \textbf{17.1} & \textbf{10.7} & \textbf{13.0} & \textbf{18.7} & \textbf{9.5} \\
+IVT early + MT late/unknown (perfusion) & 7.3 & 8.4 & 10.8 & 12.8 & 27.3 & 6.7 & 13.1 & 10.9 & \textbf{17.3} & 8.4 & 3.9 & 0.6 & 8.9 & 2.8 \\
+IVT late/unknown + MT late/unknown & \textbf{20.5} & \textbf{23.9} & 15.8 & 18.9 & \textbf{32.8} & \textbf{20.5} & 12.8 & 18.4 & 18.8 & \textbf{20.5} & 11.1 & 17.1 & \textbf{25.6} & 11.1 \\
+IVT late/unknown + MT late/unknown (perfusion) & 13.8 & 18.8 & 6.3 & 8.2 & 42.9 & 13.8 & 9.8 & 12.5 & 16.9 & 13.8 & 18.5 & 20.0 & 15.4 & 4.6 \\
+\addlinespace
+\multicolumn{15}{l}{\textbf{NIHSS 16--20}}\\
+IVT early & \textbf{17.7} & \textbf{17.8} & \textbf{17.2} & \textbf{16.2} & -- & \textbf{17.8} & \textbf{18.2} & \textbf{17.3} & \textbf{17.1} & \textbf{15.2} & \textbf{12.5} & \textbf{20.6} & \textbf{17.6} & \textbf{13.6} \\
+IVT late/unknown & \textbf{8.6} & \textbf{10.9} & \textbf{11.3} & 9.1 & -- & \textbf{8.7} & \textbf{11.7} & \textbf{11.4} & 7.3 & \textbf{9.8} & 2.5 & \textbf{14.1} & \textbf{9.1} & 4.3 \\
+MT early & \textbf{18.8} & \textbf{18.9} & \textbf{17.4} & \textbf{19.4} & \textbf{22.2} & \textbf{18.7} & \textbf{24.5} & \textbf{16.3} & \textbf{22.7} & \textbf{19.3} & \textbf{13.8} & \textbf{21.2} & \textbf{22.7} & \textbf{14.5} \\
+MT late/unknown & \textbf{10.6} & \textbf{10.9} & \textbf{11.0} & \textbf{9.8} & \textbf{17.6} & \textbf{10.6} & \textbf{10.3} & \textbf{11.7} & \textbf{11.1} & \textbf{10.4} & \textbf{3.9} & \textbf{17.2} & \textbf{12.5} & 4.3 \\
+MT late/unknown (perfusion) & \textbf{11.8} & \textbf{9.9} & \textbf{10.1} & \textbf{10.6} & 10.7 & \textbf{12.0} & \textbf{10.4} & \textbf{10.0} & \textbf{13.6} & \textbf{10.6} & \textbf{6.7} & \textbf{15.1} & \textbf{13.6} & \textbf{8.7} \\
+IVT early + MT early & \textbf{28.4} & \textbf{28.2} & \textbf{29.2} & \textbf{27.6} & \textbf{37.1} & \textbf{28.5} & \textbf{31.7} & \textbf{26.2} & \textbf{28.6} & \textbf{28.0} & \textbf{16.4} & \textbf{34.2} & \textbf{29.9} & \textbf{22.5} \\
+IVT early + MT late/unknown & \textbf{17.9} & \textbf{18.5} & \textbf{15.4} & \textbf{16.6} & \textbf{24.9} & \textbf{18.0} & \textbf{18.2} & \textbf{15.3} & \textbf{16.4} & \textbf{17.3} & \textbf{9.0} & \textbf{23.5} & \textbf{18.8} & \textbf{11.3} \\
+IVT early + MT late/unknown (perfusion) & \textbf{16.4} & \textbf{17.8} & \textbf{17.8} & \textbf{17.2} & 25.0 & \textbf{16.4} & \textbf{19.0} & \textbf{15.5} & \textbf{14.2} & \textbf{14.7} & \textbf{10.8} & \textbf{20.7} & \textbf{19.0} & 12.1 \\
+IVT late/unknown + MT late/unknown & \textbf{24.8} & \textbf{21.9} & \textbf{27.9} & 17.1 & \textbf{33.8} & \textbf{25.6} & \textbf{20.4} & \textbf{22.3} & \textbf{23.4} & \textbf{23.4} & 10.2 & \textbf{25.5} & \textbf{26.3} & \textbf{21.2} \\
+IVT late/unknown + MT late/unknown (perfusion) & \textbf{22.4} & 17.2 & 14.5 & 8.8 & 15.4 & \textbf{21.1} & 12.7 & 18.5 & 15.5 & \textbf{22.4} & \textbf{17.2} & \textbf{39.7} & 15.5 & 12.1 \\
+\addlinespace
+\multicolumn{15}{l}{\textbf{NIHSS 21--25}}\\
+IVT early & \textbf{12.8} & \textbf{12.8} & \textbf{13.1} & \textbf{11.5} & -- & \textbf{13.0} & \textbf{14.0} & \textbf{13.1} & \textbf{13.3} & \textbf{10.7} & \textbf{8.7} & \textbf{17.6} & \textbf{13.1} & \textbf{9.1} \\
+IVT late/unknown & \textbf{15.7} & \textbf{16.0} & \textbf{13.5} & \textbf{13.0} & -- & \textbf{15.4} & \textbf{11.1} & \textbf{16.3} & \textbf{12.4} & \textbf{11.1} & \textbf{12.0} & \textbf{18.9} & \textbf{14.1} & \textbf{11.4} \\
+MT early & \textbf{19.2} & \textbf{19.0} & \textbf{20.6} & \textbf{19.0} & 21.7 & \textbf{19.2} & \textbf{22.0} & \textbf{17.2} & \textbf{18.9} & \textbf{18.6} & \textbf{10.4} & \textbf{27.5} & \textbf{18.8} & \textbf{15.0} \\
+MT late/unknown & \textbf{9.0} & \textbf{8.0} & \textbf{7.9} & \textbf{8.8} & 11.5 & \textbf{8.9} & \textbf{8.9} & \textbf{8.3} & \textbf{7.1} & \textbf{8.3} & \textbf{5.1} & \textbf{13.7} & \textbf{9.1} & \textbf{6.4} \\
+MT late/unknown (perfusion) & 6.0 & 5.8 & 4.8 & 0.0 & 20.0 & 6.1 & 5.8 & 4.8 & 6.4 & 6.4 & $-$0.4 & \textbf{14.7} & 6.4 & 3.0 \\
+IVT early + MT early & \textbf{25.6} & \textbf{24.5} & \textbf{26.6} & \textbf{23.9} & \textbf{23.7} & \textbf{25.9} & \textbf{26.2} & \textbf{21.7} & \textbf{25.1} & \textbf{25.9} & \textbf{14.5} & \textbf{39.1} & \textbf{26.3} & \textbf{18.3} \\
+IVT early + MT late/unknown & \textbf{13.4} & \textbf{14.7} & \textbf{13.9} & \textbf{15.0} & 7.7 & \textbf{13.5} & \textbf{13.5} & \textbf{13.7} & \textbf{15.0} & \textbf{13.6} & \textbf{7.6} & \textbf{23.0} & \textbf{14.7} & 6.8 \\
+IVT early + MT late/unknown (perfusion) & 9.1 & 5.1 & 11.1 & 8.3 & 9.5 & 9.2 & \textbf{17.6} & 9.8 & 10.7 & 8.3 & 4.1 & \textbf{21.5} & 10.7 & 5.8 \\
+IVT late/unknown + MT late/unknown & \textbf{18.1} & 14.6 & 17.3 & 12.3 & 8.9 & \textbf{17.3} & 13.8 & 8.5 & 10.8 & \textbf{18.1} & 7.2 & \textbf{30.1} & 15.7 & 10.8 \\
+IVT late/unknown + MT late/unknown (perfusion) & 2.0 & 6.1 & 5.9 & $-$2.5 & 0.0 & 2.0 & $-$1.7 & $-$2.4 & 2.0 & 3.9 & 2.0 & 15.7 & 3.9 & 2.0 \\
+\end{longtable}
+\vspace{-0.5\baselineskip}
+\noindent{\scriptsize --, not analysed (the LVO analysis includes only trial groups with MT). Analyses 1 to 4, 8, 9 and 12 repeat the matching; analyses 5 and 10 use the matched pairs of the main analysis. Reusing controls (analysis 7) gave the same results as the main analysis and is not shown. Good outcome: discharge mRS 0--2 or no worse than before the stroke, except in analysis 10. (perfusion), late/unknown treatment with perfusion imaging. Trial groups with no treated patients (IVT late/unknown (perfusion) in every NIHSS band) are not shown.}
+}
+\end{landscape}
+
+\clearpage
+\begin{landscape}
+{\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{p{4.9cm}rrrrrrrrrrr}
+\caption{Difference in in-hospital death (treated minus untreated, percentage points) in each trial group, in the main analysis and in each sensitivity analysis that changes the matching or cohort. Negative values mean fewer deaths in treated patients. The number of the sensitivity analysis is given in brackets. Bold: Holm-adjusted $p < 0.05$ within that analysis.}\label{tab:supp_sens_all_death}\\
+\toprule
+Treatment & Main & \makecell{Exact\\NIHSS\\(1)} & \makecell{More\\covariates\\(2)} & \makecell{Known\\onset\\(3)} & \makecell{LVO,\\MT groups\\(4)} & \makecell{Landmark\\1 day\\(5)} & \makecell{Cut-off\\240 min\\(8)} & \makecell{Cut-off\\300 min\\(8)} & \makecell{Teams\\$\ge$10 MT\\(9)} & \makecell{Without\\age\\(12)} & \makecell{Without\\pre-stroke\\mRS (12)} \\
+\midrule
+\endfirsthead
+\multicolumn{12}{l}{\textit{(continued)}}\\
+\toprule
+Treatment & Main & \makecell{Exact\\NIHSS\\(1)} & \makecell{More\\covariates\\(2)} & \makecell{Known\\onset\\(3)} & \makecell{LVO,\\MT groups\\(4)} & \makecell{Landmark\\1 day\\(5)} & \makecell{Cut-off\\240 min\\(8)} & \makecell{Cut-off\\300 min\\(8)} & \makecell{Teams\\$\ge$10 MT\\(9)} & \makecell{Without\\age\\(12)} & \makecell{Without\\pre-stroke\\mRS (12)} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{12}{r}{\textit{Continued on next page}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{12}{l}{\textbf{NIHSS 1--5}}\\
+IVT early & \textbf{0.8} & 0.4 & \textbf{0.6} & \textbf{0.7} & -- & \textbf{0.7} & \textbf{0.5} & \textbf{0.7} & \textbf{0.6} & \textbf{0.7} & \textbf{0.6} \\
+IVT late/unknown & \textbf{1.9} & 1.1 & \textbf{1.7} & 1.7 & -- & \textbf{1.9} & 1.0 & 1.4 & 1.0 & \textbf{1.7} & 1.6 \\
+\addlinespace
+\multicolumn{12}{l}{\textbf{NIHSS 6--10}}\\
+IVT early & \textbf{$-$0.8} & \textbf{$-$1.0} & \textbf{$-$0.9} & $-$0.5 & -- & \textbf{$-$0.9} & \textbf{$-$0.9} & \textbf{$-$1.0} & \textbf{$-$0.8} & \textbf{$-$1.0} & \textbf{$-$1.4} \\
+IVT late/unknown & 0.3 & 0.0 & 0.2 & $-$0.6 & -- & 0.2 & 0.2 & 0.0 & 0.1 & $-$0.1 & $-$1.2 \\
+\addlinespace
+\multicolumn{12}{l}{\textbf{NIHSS 11--15}}\\
+IVT early & \textbf{$-$4.5} & \textbf{$-$4.3} & \textbf{$-$4.7} & \textbf{$-$3.6} & -- & \textbf{$-$4.7} & \textbf{$-$4.2} & \textbf{$-$4.2} & \textbf{$-$3.9} & \textbf{$-$4.6} & \textbf{$-$5.2} \\
+IVT late/unknown & $-$5.0 & $-$4.7 & $-$4.6 & $-$4.2 & -- & $-$5.3 & \textbf{$-$4.4} & $-$5.6 & $-$3.3 & $-$5.1 & $-$5.1 \\
+MT early & $-$1.1 & $-$1.8 & $-$3.7 & 0.4 & $-$11.5 & $-$1.4 & $-$3.9 & 0.0 & $-$0.7 & $-$4.6 & $-$2.8 \\
+MT late/unknown & $-$3.7 & \textbf{$-$5.3} & $-$3.6 & $-$2.8 & $-$5.7 & $-$3.4 & $-$4.0 & $-$4.2 & $-$3.5 & \textbf{$-$5.9} & $-$3.1 \\
+MT late/unknown (perfusion) & $-$0.9 & $-$3.3 & 0.0 & $-$5.2 & $-$11.5 & $-$0.9 & $-$2.7 & $-$3.9 & $-$0.2 & $-$3.0 & $-$1.9 \\
+IVT early + MT early & \textbf{$-$8.6} & \textbf{$-$9.4} & \textbf{$-$9.7} & \textbf{$-$4.5} & $-$12.6 & \textbf{$-$8.5} & \textbf{$-$8.2} & \textbf{$-$5.9} & \textbf{$-$8.2} & \textbf{$-$8.9} & \textbf{$-$10.6} \\
+IVT early + MT late/unknown & \textbf{$-$5.5} & \textbf{$-$6.5} & \textbf{$-$6.1} & \textbf{$-$6.5} & $-$6.4 & \textbf{$-$5.7} & \textbf{$-$5.0} & \textbf{$-$6.4} & \textbf{$-$7.1} & \textbf{$-$6.8} & \textbf{$-$7.5} \\
+IVT early + MT late/unknown (perfusion) & $-$3.9 & $-$5.6 & $-$2.3 & $-$8.4 & $-$9.1 & $-$3.4 & $-$2.6 & $-$3.0 & $-$4.5 & $-$3.4 & $-$1.1 \\
+IVT late/unknown + MT late/unknown & $-$2.6 & $-$10.3 & $-$6.1 & $-$10.5 & $-$8.6 & $-$2.6 & \textbf{$-$9.2} & $-$1.1 & $-$11.1 & $-$4.3 & $-$4.3 \\
+IVT late/unknown + MT late/unknown (perfusion) & $-$7.7 & $-$6.3 & $-$3.2 & $-$4.1 & $-$21.4 & $-$7.7 & $-$6.1 & $-$5.4 & 0.0 & $-$13.8 & $-$4.6 \\
+\addlinespace
+\multicolumn{12}{l}{\textbf{NIHSS 16--20}}\\
+IVT early & \textbf{$-$6.9} & \textbf{$-$6.6} & \textbf{$-$6.5} & \textbf{$-$5.7} & -- & \textbf{$-$7.0} & \textbf{$-$7.1} & \textbf{$-$6.4} & \textbf{$-$6.9} & \textbf{$-$7.8} & \textbf{$-$7.4} \\
+IVT late/unknown & $-$7.1 & $-$7.9 & $-$7.9 & $-$4.7 & -- & $-$7.2 & \textbf{$-$6.9} & $-$5.8 & $-$3.3 & $-$7.1 & $-$7.6 \\
+MT early & \textbf{$-$9.6} & \textbf{$-$10.6} & \textbf{$-$11.3} & \textbf{$-$9.4} & $-$16.7 & \textbf{$-$9.5} & \textbf{$-$10.8} & \textbf{$-$10.2} & \textbf{$-$13.1} & \textbf{$-$15.4} & \textbf{$-$15.4} \\
+MT late/unknown & \textbf{$-$8.1} & \textbf{$-$9.9} & \textbf{$-$6.4} & \textbf{$-$8.3} & \textbf{$-$14.7} & \textbf{$-$8.1} & \textbf{$-$7.4} & \textbf{$-$9.5} & \textbf{$-$7.0} & \textbf{$-$11.3} & \textbf{$-$11.1} \\
+MT late/unknown (perfusion) & \textbf{$-$8.1} & \textbf{$-$8.5} & $-$6.2 & $-$4.3 & $-$10.7 & \textbf{$-$8.5} & $-$3.9 & \textbf{$-$7.9} & $-$7.3 & \textbf{$-$13.0} & \textbf{$-$9.6} \\
+IVT early + MT early & \textbf{$-$12.4} & \textbf{$-$11.2} & \textbf{$-$9.3} & \textbf{$-$8.5} & \textbf{$-$19.2} & \textbf{$-$12.1} & \textbf{$-$12.6} & \textbf{$-$7.7} & \textbf{$-$10.3} & \textbf{$-$14.1} & \textbf{$-$14.7} \\
+IVT early + MT late/unknown & \textbf{$-$6.8} & \textbf{$-$5.9} & \textbf{$-$7.4} & \textbf{$-$6.4} & $-$12.2 & \textbf{$-$7.1} & \textbf{$-$8.2} & \textbf{$-$8.8} & \textbf{$-$7.0} & \textbf{$-$9.0} & \textbf{$-$8.5} \\
+IVT early + MT late/unknown (perfusion) & \textbf{$-$12.1} & \textbf{$-$13.0} & $-$8.0 & $-$8.6 & $-$18.8 & \textbf{$-$12.1} & $-$7.5 & $-$9.8 & \textbf{$-$10.8} & \textbf{$-$14.2} & \textbf{$-$15.1} \\
+IVT late/unknown + MT late/unknown & \textbf{$-$15.3} & $-$13.1 & $-$10.3 & $-$7.2 & $-$19.5 & \textbf{$-$15.0} & \textbf{$-$13.0} & $-$11.6 & $-$9.5 & \textbf{$-$21.2} & \textbf{$-$13.9} \\
+IVT late/unknown + MT late/unknown (perfusion) & $-$8.6 & $-$3.4 & $-$5.5 & $-$14.7 & $-$15.4 & $-$8.8 & $-$10.1 & $-$7.4 & $-$15.5 & $-$5.2 & $-$8.6 \\
+\addlinespace
+\multicolumn{12}{l}{\textbf{NIHSS 21--25}}\\
+IVT early & \textbf{$-$9.9} & \textbf{$-$10.0} & \textbf{$-$10.2} & \textbf{$-$9.4} & -- & \textbf{$-$10.3} & \textbf{$-$9.6} & \textbf{$-$9.7} & \textbf{$-$9.5} & \textbf{$-$10.9} & \textbf{$-$10.6} \\
+IVT late/unknown & $-$2.8 & $-$3.3 & $-$8.7 & $-$7.5 & -- & $-$2.3 & \textbf{$-$10.2} & $-$7.8 & $-$0.5 & $-$1.4 & $-$1.8 \\
+MT early & \textbf{$-$18.3} & \textbf{$-$14.0} & \textbf{$-$18.9} & \textbf{$-$15.8} & \textbf{$-$33.3} & \textbf{$-$18.3} & \textbf{$-$18.9} & \textbf{$-$19.2} & \textbf{$-$17.5} & \textbf{$-$19.9} & \textbf{$-$18.2} \\
+MT late/unknown & \textbf{$-$8.7} & \textbf{$-$11.0} & \textbf{$-$11.4} & \textbf{$-$11.7} & \textbf{$-$25.6} & \textbf{$-$8.5} & \textbf{$-$12.9} & \textbf{$-$8.1} & \textbf{$-$8.1} & \textbf{$-$12.6} & \textbf{$-$11.0} \\
+MT late/unknown (perfusion) & \textbf{$-$17.7} & \textbf{$-$15.1} & \textbf{$-$16.8} & \textbf{$-$15.4} & $-$26.7 & \textbf{$-$17.8} & \textbf{$-$13.0} & \textbf{$-$19.2} & \textbf{$-$15.5} & \textbf{$-$22.5} & \textbf{$-$19.5} \\
+IVT early + MT early & \textbf{$-$18.8} & \textbf{$-$16.3} & \textbf{$-$19.2} & \textbf{$-$14.6} & \textbf{$-$29.8} & \textbf{$-$19.0} & \textbf{$-$17.5} & \textbf{$-$15.4} & \textbf{$-$17.8} & \textbf{$-$22.8} & \textbf{$-$18.1} \\
+IVT early + MT late/unknown & \textbf{$-$19.2} & \textbf{$-$18.9} & \textbf{$-$17.6} & \textbf{$-$18.8} & $-$21.2 & \textbf{$-$19.1} & \textbf{$-$16.1} & \textbf{$-$19.8} & \textbf{$-$18.2} & \textbf{$-$20.5} & \textbf{$-$18.7} \\
+IVT early + MT late/unknown (perfusion) & \textbf{$-$19.8} & $-$16.1 & \textbf{$-$20.5} & \textbf{$-$20.7} & $-$14.3 & \textbf{$-$20.0} & \textbf{$-$22.1} & $-$18.8 & \textbf{$-$20.7} & \textbf{$-$20.7} & \textbf{$-$18.2} \\
+IVT late/unknown + MT late/unknown & $-$19.3 & $-$22.0 & $-$17.3 & \textbf{$-$24.6} & \textbf{$-$33.3} & $-$18.5 & \textbf{$-$21.6} & $-$15.5 & $-$12.0 & \textbf{$-$22.9} & $-$13.3 \\
+IVT late/unknown + MT late/unknown (perfusion) & $-$15.7 & \textbf{$-$34.7} & $-$17.6 & $-$15.0 & $-$26.7 & $-$16.0 & $-$20.7 & $-$16.7 & $-$21.6 & \textbf{$-$27.5} & $-$27.5 \\
+\end{longtable}
+\vspace{-0.5\baselineskip}
+\noindent{\scriptsize --, not analysed (the LVO analysis includes only trial groups with MT). Analyses 1 to 4, 8, 9 and 12 repeat the matching; analysis 5 uses the matched pairs of the main analysis. Reusing controls (analysis 7) gave the same results as the main analysis and is not shown. (perfusion), late/unknown treatment with perfusion imaging. Trial groups with no treated patients (IVT late/unknown (perfusion) in every NIHSS band) are not shown.}
+}
+\end{landscape}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_sensitivity_outcome_target_chart_further.png}
+\caption{Difference in good outcome at discharge (treated minus untreated, percentage points) with 95\% CI in each trial group, in the primary analysis and in the further sensitivity analyses: reuse of controls up to 3 times and without limit (analysis 7), early/late cut-off of 240 and 300 minutes (analysis 8), stroke teams that gave at least 10 thrombectomies (analysis 9), and matching without age and without pre-stroke mRS (analysis 12). Filled markers show a Holm-adjusted $p < 0.05$ within that analysis.}
+\label{fig:supp_sens_good_further}
+\alttext{Dot plot with a vertical list of trial groups. For each group, the difference in good outcome between treated and matched untreated patients, with its 95\% confidence interval, is shown for the primary analysis and for eight further sensitivity analyses side by side, with a vertical line at zero. The estimates mostly overlap. Matching without pre-stroke mRS gives smaller differences in several groups, and estimates for small late and combined groups vary most.}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_sensitivity_death_chart_further.png}
+\caption{Difference in in-hospital death (treated minus untreated, percentage points) with 95\% CI in each trial group, in the primary analysis and in the further sensitivity analyses: reuse of controls up to 3 times and without limit (analysis 7), early/late cut-off of 240 and 300 minutes (analysis 8), stroke teams that gave at least 10 thrombectomies (analysis 9), and matching without age and without pre-stroke mRS (analysis 12). Negative values mean fewer deaths in treated patients. Filled markers show a Holm-adjusted $p < 0.05$ within that analysis.}
+\label{fig:supp_sens_death_further}
+\alttext{Dot plot with a vertical list of trial groups. For each group, the difference in in-hospital death between treated and matched untreated patients, with its 95\% confidence interval, is shown for the primary analysis and for eight further sensitivity analyses side by side, with a vertical line at zero. The estimates mostly overlap, with wider variation in small late and combined groups.}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_sensitivity_outcome_definitions_chart.png}
+\caption{Difference in good outcome at discharge (treated minus untreated, percentage points) with 95\% CI in each trial group, with the primary definition (discharge mRS 0--2 or no worse than before the stroke) and three alternative definitions (analysis 10): mRS 0--2 only; mRS 0--1 or no worse than before the stroke; and mRS 0--3 or no worse than before the stroke. All use the matched pairs of the main analysis. Filled markers show a Holm-adjusted $p < 0.05$ within that analysis.}
+\label{fig:supp_sens_outcome_definitions}
+\alttext{Dot plot with a vertical list of trial groups. For each group, the difference in good outcome between treated and matched untreated patients, with its 95\% confidence interval, is shown for four definitions of good outcome side by side, with a vertical line at zero. The stricter definition gives smaller differences in most groups and the looser definition larger differences in severe stroke.}
+\end{figure}
+
+\clearpage
+
+\subsection*{13. E-values for unmeasured confounding}
 
 \textbf{What we did.} For good outcome and in-hospital death in the main analysis, we calculated the matched-pair risk ratio and its E-value\cite{vanderweele_sensitivity_2017}. The E-value is the minimum strength of association, on the risk ratio scale, that an unmeasured confounder would need with both treatment and outcome to fully explain away the observed association. We also calculated the E-value for the confidence limit closest to no effect: the strength of confounding needed to make the association no longer statistically significant.
 
@@ -842,22 +1155,66 @@ NIHSS & Treatment & RR & E-value & E-value (CI) & RR & E-value & E-value (CI) \\
 
 {\footnotesize In NIHSS 1--5, the RR for in-hospital death is above 1 (more deaths with treatment); its E-value describes the confounding needed to explain away this excess. E-values for all trial groups are given with the analysis code.}
 
+\subsection*{14. Sensemakr: omitted variable bias}
+
+\textbf{What we did.} We applied the omitted variable bias framework of Cinelli and Hazlett\cite{cinelli_making_2020} to good outcome and in-hospital death. In each trial group, a linear probability model was fitted to the matched pairs, with the outcome regressed on treatment and the baseline characteristics (sex, pre-stroke mRS, arrival NIHSS, age, congestive heart failure, hypertension, diabetes, anticoagulant use for AF and AF diagnosis). Its treatment coefficient is the difference in percentage points, adjusted for any imbalance remaining after matching. From this model we calculated the robustness value ($RV_q$), the minimum partial $R^2$ that an unmeasured confounder would need with both treatment and outcome to reduce the difference to zero, and $RV_{q,\alpha}$, the minimum needed to make the 95\% CI include zero. We also calculated the adjusted difference if an unmeasured confounder were one, two or three times as strongly associated with treatment and outcome as a measured characteristic (pre-stroke mRS, arrival NIHSS or age). Groups with fewer than 20 matched pairs were not analysed. The formulas of the sensemakr package were implemented directly, and reproduce the package's published worked example. This analysis was added after the study protocol (Supplementary Section~\ref{sec:protocol}) was written.
+
+\textbf{In practice.} The E-value describes a hidden factor by risk ratios; sensemakr instead describes it by how much of the remaining variation in treatment and in outcome it explains, after the measured characteristics. A robustness value of 25\% means that a hidden factor would have to explain a quarter of the remaining variation in both whether patients were treated and whether they had a good outcome to account for the whole difference. Comparing with measured characteristics helps to judge whether such a factor is plausible. Pre-stroke mRS and age were matched exactly, so within the matched pairs they are almost unrelated to treatment and do not help. Arrival NIHSS was matched only in bands, so it is the most useful comparison.
+
+\textbf{What we found.} The regression estimates were close to the main analysis, except for early IVT in NIHSS 1--5 (8.0 percentage points, against 3.0), where adjusting for arrival NIHSS within the band had the same effect as matching on exact NIHSS (analysis 1). For good outcome, robustness values were largest for early IVT plus early MT ($RV_{q,\alpha}$ 24.7\% to 27.4\%) and early IVT in NIHSS 6--25 (14.0\% to 17.8\%), and confounding three times as strong as within-band NIHSS would reduce these estimates by at most 6 percentage points (Supplementary Table~\ref{tab:supp_sensemakr}). Early IVT in NIHSS 1--5 was the exception: within this band, NIHSS explained 17.5\% of the remaining variation in treatment, so a hidden factor as strong as within-band NIHSS, acting against treatment, would reduce the difference to 0.4 percentage points. For in-hospital death, robustness values were smaller, because death is less common: 10.3\% to 15.7\% for early IVT plus early MT, but 1.2\% to 7.7\% for early IVT alone. The lower mortality with early IVT alone is therefore again the finding most open to unmeasured confounding. Small groups have low $RV_{q,\alpha}$ because their confidence intervals are wide. Supplementary Figure~\ref{fig:supp_sensemakr} shows robustness values for every trial group. Supplementary Figures~\ref{fig:supp_sensemakr_contours_good} and~\ref{fig:supp_sensemakr_contours_death} show, for each trial group, how the difference would change with an unmeasured confounder of any strength: in almost every group, confounders as strong as the measured characteristics lie well inside the line where the difference would fall to zero, the exception being early IVT in NIHSS 1--5, where a confounder as strong as within-band NIHSS would remove the association with good outcome.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Sensemakr results for good outcome and in-hospital death, for early treatment groups. Difference: treatment coefficient from a linear probability model in the matched pairs, adjusted for baseline characteristics (percentage points, 95\% CI). $RV_q$: partial $R^2$ (\%) that an unmeasured confounder would need with both treatment and outcome to reduce the difference to zero; $RV_{q,\alpha}$: to make the 95\% CI include zero. 3$\times$ NIHSS: adjusted difference if a confounder were three times as strongly associated with treatment and outcome as arrival NIHSS within the band.}
+\label{tab:supp_sensemakr}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llrrrrrrr}
+\toprule
+& & \multicolumn{4}{c}{Good outcome} & \multicolumn{3}{c}{In-hospital death} \\
+\cmidrule(lr){3-6}\cmidrule(lr){7-9}
+NIHSS & Treatment & Difference (95\% CI) & $RV_q$ & $RV_{q,\alpha}$ & 3$\times$ NIHSS & Difference (95\% CI) & $RV_q$ & $RV_{q,\alpha}$ \\
+\midrule
+1--5 & IVT early & 8.0 (6.9 to 9.1) & 8.6 & 7.4 & $-$25.2 & 0.4 (0.1 to 0.7) & 1.4 & 0.2 \\
+6--10 & IVT early & 16.6 (15.4 to 17.7) & 15.8 & 14.8 & 13.8 & $-$1.0 ($-$1.5 to $-$0.5) & 2.4 & 1.2 \\
+11--15 & IVT early & 19.8 (18.2 to 21.4) & 19.2 & 17.8 & 19.4 & $-$4.6 ($-$5.7 to $-$3.5) & 7.0 & 5.3 \\
+& MT early & 17.8 (9.8 to 25.8) & 17.0 & 9.8 & 12.8 & $-$1.3 ($-$6.8 to 4.2) & 2.0 & 0.0 \\
+& IVT early + MT early & 35.4 (30.1 to 40.7) & 31.3 & 27.4 & 29.7 & $-$9.0 ($-$12.0 to $-$5.9) & 15.3 & 10.3 \\
+16--20 & IVT early & 17.7 (16.0 to 19.3) & 19.6 & 17.9 & 17.6 & $-$7.1 ($-$8.8 to $-$5.4) & 8.3 & 6.4 \\
+& MT early & 18.5 (12.7 to 24.3) & 19.9 & 14.1 & 16.7 & $-$10.0 ($-$15.3 to $-$4.6) & 12.1 & 5.8 \\
+& IVT early + MT early & 28.2 (24.3 to 32.1) & 28.0 & 24.7 & 27.6 & $-$12.7 ($-$15.9 to $-$9.5) & 16.7 & 12.8 \\
+21--25 & IVT early & 12.8 (10.9 to 14.6) & 16.2 & 14.0 & 12.7 & $-$9.8 ($-$12.2 to $-$7.4) & 10.0 & 7.7 \\
+& MT early & 19.8 (14.3 to 25.4) & 23.9 & 17.9 & 19.8 & $-$18.8 ($-$25.7 to $-$11.9) & 18.7 & 12.3 \\
+& IVT early + MT early & 25.3 (21.2 to 29.4) & 28.7 & 24.7 & 25.2 & $-$18.7 ($-$23.3 to $-$14.2) & 20.1 & 15.7 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+{\footnotesize Results for all trial groups, including benchmark bounds for pre-stroke mRS, NIHSS and age, are given with the analysis code.}
+
 \begin{figure}[p]
 \centering
-\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_sensitivity_outcome_target_chart.png}
-\caption{Difference in good outcome at discharge (treated minus untreated, percentage points) with 95\% CI in each trial group, in the primary analysis and five sensitivity analyses. Filled markers show a Holm-adjusted $p < 0.05$ within that analysis. The LVO analysis includes only trial groups with MT.}
-\label{fig:supp_sens_good}
-\alttext{Dot plot with a vertical list of trial groups. For each group, the difference in good outcome between treated and matched untreated patients, with its 95\% confidence interval, is shown for the primary analysis and for five sensitivity analyses side by side, with a vertical line at zero. The estimates mostly overlap. Matching on exact NIHSS gives a larger difference for early thrombolysis in NIHSS 1--5, and restricting to large-vessel occlusion gives larger differences in thrombectomy groups.}
+\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_sensitivity_sensemakr_chart.png}
+\caption{Sensemakr robustness values for good outcome (left) and in-hospital death (right) in each trial group with at least 20 matched pairs. Pale bars: $RV_q$, the partial $R^2$ (\% of the remaining variance) that an unmeasured confounder would need with both treatment and outcome to reduce the difference to zero. Dark bars: $RV_{q,\alpha}$, the partial $R^2$ needed to make the 95\% CI include zero.}
+\label{fig:supp_sensemakr}
+\alttext{Horizontal bar chart in two panels, good outcome and in-hospital death, sharing a vertical list of trial groups. For each group, a pale bar shows the robustness value for the estimate and a dark bar the robustness value for the confidence interval, as a percentage of remaining variance. For good outcome the longest bars, about 25 to 30 percent, are for early thrombolysis plus early thrombectomy. Bars for in-hospital death are shorter, and very short for thrombolysis in NIHSS 1--10.}
 \end{figure}
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_sensitivity_death_chart.png}
-\caption{Difference in in-hospital death (treated minus untreated, percentage points) with 95\% CI in each trial group, in the primary analysis and five sensitivity analyses. Negative values mean fewer deaths in treated patients. Filled markers show a Holm-adjusted $p < 0.05$ within that analysis. The LVO analysis includes only trial groups with MT.}
-\label{fig:supp_sens_death}
-\alttext{Dot plot with a vertical list of trial groups. For each group, the difference in in-hospital death between treated and matched untreated patients, with its 95\% confidence interval, is shown for the primary analysis and for five sensitivity analyses side by side, with a vertical line at zero. The estimates mostly overlap. Restricting to large-vessel occlusion gives larger reductions in death in thrombectomy groups.}
+\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_sensitivity_sensemakr_contours_outcome_target.png}
+\caption{Sensemakr contour plots for good outcome at discharge, by trial group. Each panel shows the adjusted difference (percentage points) for a hypothetical unmeasured confounder with a given partial $R^2$ with treatment (horizontal axis) and with the outcome (vertical axis), from the linear probability model in the matched pairs. Solid grey contours are positive and dashed grey contours negative differences; the red dashed line is where the difference would fall to zero. The blue star is the unadjusted estimate, and black markers show confounders 1, 2 and 3 times as strongly associated with treatment and outcome as pre-stroke mRS (circles), arrival NIHSS (squares) and age (triangles). Trial groups with at least 20 matched pairs are shown.}
+\label{fig:supp_sensemakr_contours_good}
+\alttext{Grid of small contour plots, one per trial group. In each, curved contour lines show how the difference in good outcome would shrink as an unmeasured confounder becomes more strongly associated with treatment and outcome, with a red dashed line where it would reach zero. In almost every group the benchmark markers sit near the origin, well inside the red line; in NIHSS 1--5 with early thrombolysis, the NIHSS markers lie beyond it.}
 \end{figure}
 
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth,height=0.8\textheight,keepaspectratio]{chapters/images/all_ischaemic_stroke_target_trials_sensitivity_sensemakr_contours_death.png}
+\caption{Sensemakr contour plots for in-hospital death, by trial group. Negative differences mean fewer deaths in treated patients. Each panel shows the adjusted difference (percentage points) for a hypothetical unmeasured confounder with a given partial $R^2$ with treatment (horizontal axis) and with the outcome (vertical axis), from the linear probability model in the matched pairs. Solid grey contours are positive and dashed grey contours negative differences; the red dashed line is where the difference would fall to zero. The blue star is the unadjusted estimate, and black markers show confounders 1, 2 and 3 times as strongly associated with treatment and outcome as pre-stroke mRS (circles), arrival NIHSS (squares) and age (triangles). Trial groups with at least 20 matched pairs are shown.}
+\label{fig:supp_sensemakr_contours_death}
+\alttext{Grid of small contour plots, one per trial group, for the difference in in-hospital death, with a red dashed line where the difference would reach zero and markers for confounders as strong as measured characteristics. The red lines lie closer to the origin than for good outcome.}
+\end{figure}
 
 \clearpage
 
@@ -901,7 +1258,7 @@ Item & Recommendation & How it is addressed \\
 6e / 7e & Outcomes, and how they were ascertained. & Patients and methods, Outcomes: definitions of good outcome, in-hospital death, discharge mRS, length of stay and discharge destination, all from SSNAP discharge data. \\
 6f / 7f & Causal contrasts and effect measures, and their observational analogues. & Table~\ref{tab:target_trial} (Causal contrast): per-protocol effect in the target trial; observational analogue of the per-protocol effect in the treated, estimated from matched pairs. Patients and methods, Statistical analysis: differences in percentage points, matched-pair odds ratios and mean differences. \\
 6g / 7g & Identifying assumptions, including for baseline confounding, and how related variables were measured. & Table~\ref{tab:target_trial} (Identifying assumptions); Patients and methods, Identifying assumptions: conditional exchangeability, positivity, consistency and no selection bias from requiring a discharge mRS. Matching variables are recorded at or before arrival (Patients and methods, Matching). \\
-6h / 7h & Data analysis plan, including missing data; emulation-specific analysis and sensitivity analyses. & Patients and methods, Statistical analysis: paired tests, Holm adjustment, and exclusion of pairs with a missing outcome without imputation. Patients and methods, Sensitivity analyses, and Supplementary Section~\ref{sec:supp_sensitivity}: seven sensitivity analyses. \\
+6h / 7h & Data analysis plan, including missing data; emulation-specific analysis and sensitivity analyses. & Patients and methods, Statistical analysis: paired tests, Holm adjustment, and exclusion of pairs with a missing outcome without imputation. Patients and methods, Sensitivity analyses, and Supplementary Section~\ref{sec:supp_sensitivity}: fourteen sensitivity analyses. \\
 \addlinespace
 \multicolumn{3}{l}{\textbf{Results}}\\
 8 & Numbers assessed, eligible and assigned to each strategy, preferably with a flow diagram. & Results, Study population and matching; Supplementary Figure~\ref{fig:supp_flow} (flow diagram); Supplementary Table~\ref{tab:supp_matching} (treated and matched patients in each trial group). \\
@@ -910,7 +1267,7 @@ Item & Recommendation & How it is addressed \\
 11 & Missing data by treatment strategy. & Results, Study population and matching; Supplementary Section~\ref{sec:supp_flow}: no missing good outcome, death or discharge mRS; length of stay missing for 4 treated and 6 untreated patients, and discharge destination for 1 treated and 2 untreated patients. No treated patients or untreated controls were missing a matching variable. \\
 12 & Frequency or distribution of each outcome by treatment strategy. & Figures~\ref{fig:outcome_target}--\ref{fig:length_of_stay} and Supplementary Figure~\ref{fig:discharge_destination}; Supplementary Tables~\ref{tab:supp_outcome_target}--\ref{tab:supp_discharge_destination}. \\
 13 & Estimates for each causal contrast, with precision, on absolute and relative scales. & Absolute: differences in percentage points and mean differences with 95\% CIs. Relative: matched-pair odds ratios with 95\% CIs (Supplementary Tables~\ref{tab:supp_outcome_target} and~\ref{tab:supp_death}) and risk ratios (Supplementary Table~\ref{tab:supp_evalues}). \\
-14 & Results of additional and sensitivity analyses. & Results, Sensitivity analyses; Supplementary Table~\ref{tab:sensitivity}; Supplementary Section~\ref{sec:supp_sensitivity}, Supplementary Figures~\ref{fig:supp_sens_good} and~\ref{fig:supp_sens_death} and Supplementary Table~\ref{tab:supp_evalues}. \\
+14 & Results of additional and sensitivity analyses. & Results, Sensitivity analyses; Supplementary Table~\ref{tab:sensitivity}; Supplementary Section~\ref{sec:supp_sensitivity}, Supplementary Tables~\ref{tab:supp_sens_all_good}, \ref{tab:supp_sens_all_death}, \ref{tab:supp_evalues}, \ref{tab:supp_sensemakr} and~\ref{tab:supp_seeds}; Supplementary Figures~\ref{fig:supp_sens_good}, \ref{fig:supp_sens_death}, \ref{fig:supp_sensemakr}, \ref{fig:supp_sens_good_further}, \ref{fig:supp_sens_death_further} and~\ref{fig:supp_sens_outcome_definitions}. \\
 \addlinespace
 \multicolumn{3}{l}{\textbf{Discussion}}\\
 15 & Interpret the main findings in the light of their precision and the assumptions. & Discussion (Main findings; Comparison with clinical trials; Stroke severity and the type and timing of treatment) and Conclusion. The mortality results are interpreted with reference to the E-values. \\

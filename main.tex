@@ -87,6 +87,27 @@
   \ifnum\compilemode=2 \myexternaldocument{mainpaper}\fi
 \fi
 
+% Separate reference list for the supplement when everything is compiled together (mode 3).
+% The supplement's references are read from supplement.bbl, which latexmk makes by compiling
+% supplement.tex (mode 2; see latexmkrc). In the supplement, \suppcitelabels makes citations look
+% up, and bibliography items define, labels with the suffix @supp, so supplementary references
+% are numbered separately from the main paper's; \suppnoauxcites stops supplement citations
+% being written to main.aux, so they are not added to the main paper's reference list.
+\makeatletter
+\newcommand{\suppcitelabels}{%
+  \def\@extra@b@citeb{@supp}%
+  \let\supp@orig@lbibitem\@lbibitem
+  \def\@lbibitem[##1]##2{\supp@orig@lbibitem[##1]{##2@supp}}%
+  \let\supp@orig@bibitem\@bibitem
+  \def\@bibitem##1{\supp@orig@bibitem{##1@supp}}%
+}
+\newcommand{\suppnoauxcites}{%
+  \let\supp@orig@cite\cite
+  \renewcommand{\cite}[1]{{\@fileswfalse\supp@orig@cite{##1}}}%
+}
+\makeatother
+\ifnum\compilemode=3 \addFileDependency{supplement.tex}\addFileDependency{supplement.aux}\fi
+
 % Abstract: choose length
 % Use \shortabstracttrue for the ~300-word abstract,
 % or \shortabstractfalse for the ~500-word abstract
@@ -161,10 +182,15 @@
 \fi
 \beginsupplement % Resets numbering
 \centerline{{\huge Supplementary Material}}
+\ifincludemain\suppcitelabels\suppnoauxcites\fi % mode 3: separate supplementary references
 \input{chapters/8_supplement}
 
-% Supplement-only: the supplement has its own citations, so add a reference list
-\ifincludemain\else
+% The supplement has its own reference list
+\ifincludemain
+  % Mode 3: read from supplement.bbl (made by compiling supplement.tex; see latexmkrc)
+  \renewcommand{\refname}{Supplementary references}
+  \IfFileExists{supplement.bbl}{\input{supplement.bbl}}{\typeout{No file supplement.bbl: compile supplement.tex to make the supplementary reference list.}}
+\else
   \bibliographystyle{ama_esj}
   \bibliography{references}
 \fi
